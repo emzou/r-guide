@@ -1,0 +1,6 @@
+---
+title: "R Setup"
+format: html
+---
+
+R and RStudio are different things and need to be installed separately. 

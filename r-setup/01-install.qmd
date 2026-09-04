@@ -1,0 +1,67 @@
+---
+title: "Installation"
+format: html
+---
+
+# Mac
+## Checking macOS version
+::: {.screenshot-steps}
+
+1. Click the Apple menu in the top-left corner of your screen.
+
+    ![The Apple menu, expanded](/images/macos-version/01-apple-menu.png)
+
+2. Choose **About This Mac**.
+
+    ![The About This Mac option highlighted](/images/macos-version/02-about-this-mac.png)
+
+3. Your version number appears under the macOS name.
+
+    ![Version number shown as macOS Sequoia 15.7.7](/images/macos-version/03-version-number.png)
+
+:::
+
+## Download R based on your macOS version 
+1. Go to [the R for macOS Installation site](https://cran.r-project.org)
+
+![R for macOS site](/images/04-rmacos.png)
+
+
+2. Determine the appropriate version of R 
+
+| Chip | macOS | Download |
+|---|---|---|
+| M1, M2, M3, M4 | 14 or later | the `arm64` file |
+| M1, M2, M3, M4 | 13 or earlier | update macOS first, then the `arm64` file |
+| Intel | 11 or later | the `x86_64` file |
+
+: Which installer to download {tbl-colwidths="[25,25,50]"}
+
+::: {.callout-note collapse="true"}
+## Can't update macOS?
+If you cannot update macOS, you can download the `x86_64` file instead. 
+:::
+
+3. Click on the appropriate version, and the download will start automatically
+
+## Install R 
+
+::: {.screenshot-steps}
+
+1. Open Finder
+
+    ![The Apple menu, expanded](/images/05-open-finder.png)
+
+2. Open `Downloads` folder
+
+    ![The About This Mac option highlighted](/images/06-downloads.png)
+
+3. Click on the package, and follow the guide
+
+    ![Version number shown as macOS Sequoia 15.7.7](/images/07-installer.png)
+
+4. When it's complete, you'll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.
+
+    ![Version number shown as macOS Sequoia 15.7.7](/images/08-trash.png)
+
+:::
