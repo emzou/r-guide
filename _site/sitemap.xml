@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://emzou.github.io/r-guide/index.html</loc>
+    <lastmod>2026-09-04T21:46:41.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/index.html</loc>
+    <lastmod>2026-09-04T21:46:40.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/01-install.html</loc>
+    <lastmod>2026-09-04T21:51:28.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/02-r-wind.html</loc>
+    <lastmod>2026-09-04T21:59:48.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-r/01-install.html</loc>
+    <lastmod>2026-09-04T21:51:28.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-r/02-r-wind.html</loc>
+    <lastmod>2026-09-04T21:59:48.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-rstudio/01-rstudio.html</loc>
+    <lastmod>2026-09-04T22:09:42.489Z</lastmod>
+  </url>
+</urlset>

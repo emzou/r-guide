@@ -1,6 +1,6 @@
 ---
-title: "R Setup"
+title: "R basics"
 format: html
 ---
 
-R and RStudio are different things and need to be installed separately. 
+For Demacia

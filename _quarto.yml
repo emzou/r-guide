@@ -4,8 +4,8 @@ project:
 
 website:
   title: "R basics"
-  site-url: "https://emzou.github.io/r-guide"
-  repo-url: "https://github.com/emzou/r-guide.git"
+  site-url: "https://emzou.github.io/r-guide/"
+  repo-url: "https://github.com/emzou/r-guide"
   repo-actions: [edit, issue]
 
   navbar:
@@ -16,11 +16,10 @@ website:
         text: "R Setup"
       - href: r-code/index.qmd
         text: "R Code"
-      - href: research-design/index.qmd
-        text: "Research Design"
+
     right:
       - icon: github
-        href: "https://github.com/emzou/r-guide.git"
+        href: "https://github.com/emzou/r-guide"
 
   sidebar:
     - id: r-setup
@@ -29,8 +28,13 @@ website:
       collapse-level: 1
       contents:
         - r-setup/index.qmd
-        - auto: "r-setup/0*.qmd"
-
+        - section: "Install R"
+          contents:
+            - auto: "r-setup/install-r/*.qmd"
+        - section: "Install RStudio"
+          contents:
+            - auto: "r-setup/install-rstudio/*.qmd"
+        
     - id: r-code
       title: "R Code"
       style: docked
@@ -39,13 +43,7 @@ website:
         - r-code/index.qmd
         - auto: "r-code/0*.qmd"
 
-    - id: research-design
-      title: "Research Design"
-      style: docked
-      collapse-level: 1
-      contents:
-        - research-design/index.qmd
-        - auto: "research-design/0*.qmd"
+    
 
   page-footer:
     left: "Last built {{< meta date >}}"
@@ -58,6 +56,12 @@ format:
     toc-depth: 3
     code-copy: true
     code-overflow: wrap
+
+date: today
+date-format: "MMM D, YYYY"
+
+language:
+  title-block-published: "Last updated"
 
 execute:
   freeze: auto

@@ -1,0 +1,102 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R basics",
+    "section": "",
+    "text": "For Demacia"
+  },
+  {
+    "objectID": "r-setup/01-install.html",
+    "href": "r-setup/01-install.html",
+    "title": "Install R for Mac",
+    "section": "",
+    "text": "Check macOS version\n\n\nClick the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\n\n\n\n\nDownload R based on your macOS version\n\nGo to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically\n\n\n\nInstall R\n\n\nOpen Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7"
+  },
+  {
+    "objectID": "r-setup/01-install.html#checking-macos-version",
+    "href": "r-setup/01-install.html#checking-macos-version",
+    "title": "Installation",
+    "section": "",
+    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "r-setup/01-install.html#download-r-based-on-your-macos-version",
+    "href": "r-setup/01-install.html#download-r-based-on-your-macos-version",
+    "title": "Installation",
+    "section": "",
+    "text": "Go to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically",
+    "crumbs": [
+      "R Setup",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "r-setup/01-install.html#install-r",
+    "href": "r-setup/01-install.html#install-r",
+    "title": "Installation",
+    "section": "",
+    "text": "Open Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "r-setup/01-install.html#mac",
+    "href": "r-setup/01-install.html#mac",
+    "title": "Installation",
+    "section": "",
+    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\n\n\n\n\n\n\nGo to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically\n\n\n\n\n\n\nOpen Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "r-setup/index.html",
+    "href": "r-setup/index.html",
+    "title": "Setup R",
+    "section": "",
+    "text": "R and RStudio are different things and need to be installed separately.",
+    "crumbs": [
+      "R Setup",
+      "Setup R"
+    ]
+  },
+  {
+    "objectID": "r-setup/02-r-wind.html",
+    "href": "r-setup/02-r-wind.html",
+    "title": "Install R for Windows",
+    "section": "",
+    "text": "Go to the R for Windows Installation site and click Download R for Windows. You must be running Windows 10 or higher."
+  },
+  {
+    "objectID": "r-setup/install-r/01-install.html",
+    "href": "r-setup/install-r/01-install.html",
+    "title": "Install R for Mac",
+    "section": "",
+    "text": "Check macOS version\n\n\nClick the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\n\n\n\n\nDownload R based on your macOS version\n\nGo to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically\n\n\n\nInstall R\n\n\nOpen Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/02-r-wind.html",
+    "href": "r-setup/install-r/02-r-wind.html",
+    "title": "Install R for Windows",
+    "section": "",
+    "text": "Go to the R for Windows Installation site and click Download R for Windows. You must be running Windows 10 or higher.",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Windows"
+    ]
+  }
+]

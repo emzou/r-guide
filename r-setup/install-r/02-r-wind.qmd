@@ -1,0 +1,6 @@
+---
+title: "Install R for Windows"
+format: html
+---
+
+1. Go to [the R for Windows Installation site](https://cran.r-project.org/bin/windows/base/) and click `Download R for Windows`. You must be running Windows 10 or higher. 
