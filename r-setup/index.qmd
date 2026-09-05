@@ -3,4 +3,13 @@ title: "Setup R"
 format: html
 ---
 
-R and RStudio are different things and need to be installed separately. 
+R and RStudio are different things and need to be installed separately. Once you do this, you won't have to do it again. 
+
+- **R** — the language itself.
+- **RStudio** — the app you'll actually look at and type in.
+
+They're separate programs and you need both. `R` alone works but is unpleasant; `RStudio` without `R` won't do anything. 
+
+Unfortunately, the links you'll need to click on to download depend on whether you're using Mac or Windows, and which version of macOS or Windows you're running. 
+You can make life easier by updating your macOS/Windows version to the most current version before installing anything.
+
