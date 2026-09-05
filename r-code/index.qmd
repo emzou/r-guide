@@ -1,0 +1,6 @@
+---
+title: "Workflow Organization"
+format: html
+---
+
+1. Before jumping into R, it is `extremely important` to first set up your workflow. 

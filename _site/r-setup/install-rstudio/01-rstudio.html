@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sicko Mode – R basics</title>
+<title>Install R Studio for Mac – R basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install RStudio</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Sicko Mode</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install RStudio</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install R Studio for Mac</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Sicko Mode</span></a>
+ <span class="menu-text">Install R Studio for Mac</span></a>
   </div>
 </li>
       </ul>
@@ -180,15 +180,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#if-you-have-macos-14" id="toc-if-you-have-macos-14" class="nav-link active" data-scroll-target="#if-you-have-macos-14">If you have macOS 14+</a></li>
+  <li><a href="#if-you-have-an-earlier-version-of-macos" id="toc-if-you-have-an-earlier-version-of-macos" class="nav-link" data-scroll-target="#if-you-have-an-earlier-version-of-macos">If you have an earlier version of macOS</a></li>
+  <li><a href="#then-for-all-cases" id="toc-then-for-all-cases" class="nav-link" data-scroll-target="#then-for-all-cases">Then, for all cases:</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/install-rstudio/01-rstudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install RStudio</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Sicko Mode</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install RStudio</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-rstudio/01-rstudio.html">Install R Studio for Mac</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Sicko Mode</h1>
+<h1 class="title">Install R Studio for Mac</h1>
 </div>
 
 
@@ -199,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Sep 4, 2026</p>
+      <p class="date">Sep 5, 2026</p>
     </div>
   </div>
   
@@ -211,8 +219,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="if-you-have-macos-14" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-have-macos-14">If you have macOS 14+</h3>
+<ol type="1">
+<li><p>Go to <a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">the RStudio Installation site</a></p></li>
+<li><p>Scroll to <code>Direct Downloads (Open Source), and look at the first section</code>RStudio IDE`</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01-ide-screen.png" class="img-fluid figure-img"></p>
+<figcaption>RStudio page</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Click on the <code>.dmg</code> file next to macOS 14+</li>
+</ol>
+</section>
+<section id="if-you-have-an-earlier-version-of-macos" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-have-an-earlier-version-of-macos">If you have an earlier version of macOS</h3>
+<ol type="1">
+<li><p>Go to <a href="https://docs.posit.co/supported-versions/rstudio.html">the RStudio Versions site</a></p></li>
+<li><p>Click on the Desktop version next to the appropriate macOS version</p></li>
+</ol>
+</section>
+<section id="then-for-all-cases" class="level2">
+<h2 class="anchored" data-anchor-id="then-for-all-cases">Then, for all cases:</h2>
+<div class="screenshot-steps">
+<ol type="1">
+<li><p>A window with the <code>Applications</code> folder and <code>RStudio</code> will appear</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-app-window.png" class="img-fluid figure-img"></p>
+<figcaption>Applications and RStudio</figcaption>
+</figure>
+</div></li>
+<li><p>Drag the <code>RStudio</code> icon onto the <code>Applications</code> folder. Click on the <code>Applications</code> folder to open it, and you should see <code>RStudio</code> (as well as <code>R</code>)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-app-folder.png" class="img-fluid figure-img"></p>
+<figcaption>Applications folder</figcaption>
+</figure>
+</div></li>
+<li><p>You can put the <code>RStudio</code> icon in your toolbar to find it easily in the future.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/04-toolbar.png" class="img-fluid figure-img"></p>
+<figcaption>Drag the RStudio icon onto the toolbar</figcaption>
+</figure>
+</div></li>
+</ol>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -636,11 +695,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Last built Sep 4, 2026</p>
+<p>Last built Sep 5, 2026</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/install-rstudio/01-rstudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/install-rstudio/01-rstudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>

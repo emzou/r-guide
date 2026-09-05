@@ -3,4 +3,4 @@ title: "R basics"
 format: html
 ---
 
-For Demacia
+A reference guide to get started with using R! 

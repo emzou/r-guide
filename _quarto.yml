@@ -28,15 +28,15 @@ website:
       collapse-level: 1
       contents:
         - r-setup/index.qmd
-        - section: "Install R"
+        - section: "1. Install R"
           contents:
             - auto: "r-setup/install-r/*.qmd"
-        - section: "Install RStudio"
+        - section: "2. Install RStudio"
           contents:
             - auto: "r-setup/install-rstudio/*.qmd"
         
     - id: r-code
-      title: "R Code"
+      title: "Workflow Organization"
       style: docked
       collapse-level: 1
       contents:
