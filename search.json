@@ -19,6 +19,30 @@
     ]
   },
   {
+    "objectID": "r-setup/install-rstudio/01-rstudio.html",
+    "href": "r-setup/install-rstudio/01-rstudio.html",
+    "title": "Install R Studio for Mac",
+    "section": "",
+    "text": "Go to the RStudio Installation site\nScroll to Direct Downloads (Open Source), and look at the first sectionRStudio IDE`\n\n\n\n\nRStudio page\n\n\n\nClick on the .dmg file next to macOS 14+",
+    "crumbs": [
+      "R Setup",
+      "Install RStudio",
+      "Install R Studio for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
+    "href": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
+    "title": "Install R Studio for Mac",
+    "section": "Then, for all cases:",
+    "text": "Then, for all cases:\n\n\nA window with the Applications folder and RStudio will appear\n\n\n\nApplications and RStudio\n\n\nDrag the RStudio icon onto the Applications folder. Click on the Applications folder to open it, and you should see RStudio (as well as R)\n\n\n\nApplications folder\n\n\nYou can put the RStudio icon in your toolbar to find it easily in the future.\n\n\n\nDrag the RStudio icon onto the toolbar",
+    "crumbs": [
+      "R Setup",
+      "Install RStudio",
+      "Install R Studio for Mac"
+    ]
+  },
+  {
     "objectID": "r-setup/install-r/02-r-wind.html",
     "href": "r-setup/install-r/02-r-wind.html",
     "title": "Install R for Windows",
@@ -35,7 +59,7 @@
     "href": "r-setup/index.html",
     "title": "Setup R",
     "section": "",
-    "text": "R and RStudio are different things and need to be installed separately.",
+    "text": "R and RStudio are different things and need to be installed separately. Once you do this, you won’t have to do it again.\n\nR — the language itself.\nRStudio — the app you’ll actually look at and type in.\n\nThey’re separate programs and you need both. R alone works but is unpleasant; RStudio without R won’t do anything.\nUnfortunately, the links you’ll need to click on to download depend on whether you’re using Mac or Windows, and which version of macOS or Windows you’re running. You can make life easier by updating your macOS/Windows version to the most current version before installing anything.",
     "crumbs": [
       "R Setup",
       "Setup R"
