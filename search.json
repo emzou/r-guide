@@ -4,10 +4,58 @@
     "href": "r-code/index.html",
     "title": "Workflow Organization",
     "section": "",
-    "text": "Before jumping into R, it is extremely important to first set up your workflow.",
+    "text": "Open RStudio not R. You should see this window",
     "crumbs": [
-      "R Code",
+      "Organize Workflow",
       "Workflow Organization"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-vartypes.html",
+    "href": "r-code/first/01-vartypes.html",
+    "title": "Create, save R Markdown file",
+    "section": "",
+    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Create, save R Markdown file"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-vartypes.html#create-your-first-r-markdown-file",
+    "href": "r-code/first/01-vartypes.html#create-your-first-r-markdown-file",
+    "title": "Create, save R Markdown file",
+    "section": "",
+    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Create, save R Markdown file"
+    ]
+  },
+  {
+    "objectID": "r-code/first/04-vectors.html",
+    "href": "r-code/first/04-vectors.html",
+    "title": "Vectors and Vector Operations",
+    "section": "",
+    "text": "We now know about the Numerics, Logicals, and Character classes; that we can use functions on these objects; and we can assign variable names to objects.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Vectors and Vector Operations"
+    ]
+  },
+  {
+    "objectID": "r-code/first/04-vectors.html#vectors",
+    "href": "r-code/first/04-vectors.html#vectors",
+    "title": "Vectors and Vector Operations",
+    "section": "Vectors",
+    "text": "Vectors\nA vector is a set of values of the same type. You can think of it like a column on a spreadsheet. We can make a vector with the c() function.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nnum_vector &lt;- c(1, 2, 3)\nprint (num_vector)\n\nsus_vector &lt;- c(1, \"2\", 3)\nprint (sus_vector)\n```\n:::\n\nAll the elements in a vector need to be the same datatype, there are some functions that work on entire vectors.\nWe can get the mean, or average, number of Red Bulls I drink every week for the last 6 weeks by using the mean() function.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nredbulls_drank &lt;- c(7, 6, 12, 8, 7, 2)\nprint (class(redbulls_drank))\nprint (mean(redbulls_drank)) \n```\n:::\n\nNote that every element in redbulls_drank is of the numeric type. We can also do things with vectors filled with characters. The toupper() function turns every character into uppercase.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nredbull_flavor &lt;- c(\"cherry\", \"lime\", \"apple\", \"strawberry\") \ntoupper(redbull_flavor)\n```\n:::\n\nHowever, it wouldn’t make sense to try to get the mean of my favorite flavors. Nor would it make sense to try to uppercase numbers.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nprint (mean(redbull_flavor)) \nprint (toupper(redbulls_drank))\n```\n:::\n\nIt also wouldn’t make sense to get the mean of the number of Red Bulls I drank and my favorite flavors.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nredbull_comp &lt;- c(\"cherry\", \"lime\", \"apple\", \"strawberry\", 7, 6, 12, 8, 7, 2) \nprint (mean(redbull_flavor)) \n```\n:::\n\nThis doesn’t mean that numeric vectors can only use numeric vector functions, that logical vectors can only use logical vector functions, and so on. The length() function tells you how many elements are in a vector, and works on all kinds of vectors, and the unique() function tells you how many unique values are in a vector.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nprint (length(redbull_flavor))\nprint (length(redbulls_drank))\nprint (unique(redbull_flavor))\nprint (unique(redbulls_drank)) \n```\n:::\n\nYou can also access a specific element in a vector based on its position. In redbull_flavor, “cherry” has a position of 1, “lime” has a position of 2, “apple” has a position of 3, and “strawberry” has a position of 4. We can refer to a specific element by: redbull_flavor[1], which is “cherry”\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nprint (redbull_flavor[1])\nprint (redbull_flavor[2])\n# Same concept for redbulls_drank \nprint (redbulls_drank[1])\n```\n:::\n\n\nVector to Vector Operations\nWe can work with multiple vectors. We’ll make a new numeric vector that lists the number of cups of water I drank each week for the past 6 weeks.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nwaters_drank &lt;- c(8, 6, 9, 4, 8, 0)\n```\n:::\n\nWe can get a new vector by adding redbulls_drank to waters_drank using the same numeric operation rules for numerics.\n\n\npractice_01.Rmd\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nwaters_drank + redbulls_drank \n\n# Subtraction\ndifference_vector &lt;- waters_drank - redbulls_drank\n```\n:::",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Vectors and Vector Operations"
     ]
   },
   {
@@ -15,7 +63,7 @@
     "href": "r-setup/index.html",
     "title": "Setup R",
     "section": "",
-    "text": "R and RStudio are different things and need to be installed separately. Once you do this, you won’t have to do it again.\n\nR — the language itself.\nRStudio — the app you’ll actually look at and type in.\n\nThey’re separate programs and you need both. R alone works but is unpleasant; RStudio without R won’t do anything.\nUnfortunately, the links you’ll need to click on to download depend on whether you’re using Mac or Windows, and which version of macOS or Windows you’re running. You can make life easier by updating your macOS/Windows version to the most current version before installing anything.",
+    "text": "Before doing anything with R, it is very important to first setup your workflow\n\n\nCreate a new folder on your Desktop and name it comm_106\n::: {.os-pair} \n :::\n\nR and RStudio are different things and need to be installed separately. Once you do this, you won’t have to do it again.\n\nR — the language itself.\nRStudio — the app you’ll actually look at and type in.\n\nThey’re separate programs and you need both. R alone works but is unpleasant; RStudio without R won’t do anything.\nUnfortunately, the links you’ll need to click on to download depend on whether you’re using Mac or Windows, and which version of macOS or Windows you’re running. You can make life easier by updating your macOS/Windows version to the most current version before installing anything.",
     "crumbs": [
       "R Setup",
       "Setup R"
@@ -75,5 +123,113 @@
     "title": "R basics",
     "section": "",
     "text": "A reference guide to get started with using R!"
+  },
+  {
+    "objectID": "r-code/first/03-classes.html",
+    "href": "r-code/first/03-classes.html",
+    "title": "Numeric, Logical, Character",
+    "section": "",
+    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#numeric",
+    "href": "r-code/first/03-classes.html#numeric",
+    "title": "Numeric, Logical, Character",
+    "section": "",
+    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#logical",
+    "href": "r-code/first/03-classes.html#logical",
+    "title": "Numeric, Logical, Character",
+    "section": "Logical",
+    "text": "Logical\nA logical is a TRUE or FALSE value\n\n\n\n\n\n\n\n\n\nLogical Operations\n\n\n\n\n\n\n\n\nComparison and logical operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n&lt;\nless than\n5 &lt; 3\nFALSE\n\n\n&gt;\ngreater than\n5 &gt; 3\nTRUE\n\n\n&lt;=\nless than or equal to\n5 &lt;= 5\nTRUE\n\n\n&gt;=\ngreater than or equal to\n5 &gt;= 6\nFALSE\n\n\n==\nequal to\n5 == 5\nTRUE\n\n\n!=\nnot equal to\n5 != 5\nFALSE\n\n\n!x\nnot x\n!TRUE\nFALSE\n\n\nx | y\nx or y\nTRUE | FALSE\nTRUE\n\n\nx & y\nx and y\nTRUE & FALSE\nFALSE",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#character",
+    "href": "r-code/first/03-classes.html#character",
+    "title": "Numeric, Logical, Character",
+    "section": "Character",
+    "text": "Character\nA character is text wrapped in quotes, like “hello” or “5”. R treats it as words, not numbers, so you can combine, search, or change it, but you can’t do math with it.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#the-class-function",
+    "href": "r-code/first/03-classes.html#the-class-function",
+    "title": "Numeric, Logical, Character",
+    "section": "The class() function",
+    "text": "The class() function\nThe class function allows us to check what class the input (what we want in the parantheses) is.\n\n\n\n\n\n\n\n\nIt can help with diagnosing errors.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
+    "href": "r-code/first/03-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
+    "title": "Numeric, Logical, Character",
+    "section": "You have to declare the value of a variable before doing anything with it.",
+    "text": "You have to declare the value of a variable before doing anything with it.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/03-classes.html#overwriting-variables",
+    "href": "r-code/first/03-classes.html#overwriting-variables",
+    "title": "Numeric, Logical, Character",
+    "section": "Overwriting variables",
+    "text": "Overwriting variables\nIf you define a variable multiple times, it’ll use the vavlue it was last defined on.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/02-datatypes.html",
+    "href": "r-code/first/02-datatypes.html",
+    "title": "Writing and Coding in Rmd",
+    "section": "",
+    "text": "Two languages\n\n\n\nType anything into your .Rmd file.\n\nThis will show up when your run the whole Rmd file, but it’s not actually code. We can write notes on what our code is about, or describe the results of some code.\n\nNow, type: ```{r} A grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.\nPress enter a few times, and the rectangle will expand.\nWe close this chunk by putting ```\nOutside of this chunk, we’re back to human language again.\n\n\n\npractice_01.Rmd\n\nIn this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: \n```{r}\n\n\n```\nWe can make chunks of code in this way.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Writing and Coding in Rmd"
+    ]
+  },
+  {
+    "objectID": "r-code/first/02-datatypes.html#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files",
+    "href": "r-code/first/02-datatypes.html#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files",
+    "title": "Writing and Coding in Rmd",
+    "section": "",
+    "text": "Two languages\n\n\n\nType anything into your .Rmd file.\n\nThis will show up when your run the whole Rmd file, but it’s not actually code. We can write notes on what our code is about, or describe the results of some code.\n\nNow, type: ```{r} A grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.\nPress enter a few times, and the rectangle will expand.\nWe close this chunk by putting ```\nOutside of this chunk, we’re back to human language again.\n\n\n\npractice_01.Rmd\n\nIn this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: \n```{r}\n\n\n```\nWe can make chunks of code in this way.",
+    "crumbs": [
+      "Organize Workflow",
+      "1. Basics",
+      "Writing and Coding in Rmd"
+    ]
   }
 ]

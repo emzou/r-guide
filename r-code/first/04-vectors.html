@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Install R for Mac – R basics</title>
+<title>Vectors and Vector Operations – R basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,7 +72,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4d7292d249b775dd8b4063a602b75ff0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a2f14b4c66ccd666110f320f24b9ebca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,11 +102,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,11 +130,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../r-setup/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../r-setup/index.html"> 
 <span class="menu-text">R Setup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../r-code/index.html"> 
+    <a class="nav-link active" href="../../r-code/index.html" aria-current="page"> 
 <span class="menu-text">Organize Workflow</span></a>
   </li>  
 </ul>
@@ -117,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-r/01-install.html">1. Install R</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-r/01-install.html">Install R for Mac</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/first/01-vartypes.html">1. Basics</a></li><li class="breadcrumb-item"><a href="../../r-code/first/04-vectors.html">Vectors and Vector Operations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -131,14 +169,14 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Setup R</span></a>
+  <a href="../../r-code/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow Organization</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">1. Install R</span></a>
+ <span class="menu-text">1. Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -146,31 +184,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/01-install.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Install R for Mac</span></a>
+  <a href="../../r-code/first/01-vartypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Create, save R Markdown file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/02-r-wind.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Install R for Windows</span></a>
+  <a href="../../r-code/first/02-datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Writing and Coding in Rmd</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">2. Install RStudio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Install R Studio for Mac</span></a>
+  <a href="../../r-code/first/03-classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numeric, Logical, Character</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../r-code/first/04-vectors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Vectors and Vector Operations</span></a>
   </div>
 </li>
       </ul>
@@ -180,23 +213,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#check-macos-version" id="toc-check-macos-version" class="nav-link active" data-scroll-target="#check-macos-version">Check macOS version</a></li>
-  <li><a href="#download-r-based-on-your-macos-version" id="toc-download-r-based-on-your-macos-version" class="nav-link" data-scroll-target="#download-r-based-on-your-macos-version">Download R based on your macOS version</a></li>
-  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">Install R</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/install-r/01-install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/install-r/01-install.html">1. Install R</a></li><li class="breadcrumb-item"><a href="../../r-setup/install-r/01-install.html">Install R for Mac</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/first/01-vartypes.html">1. Basics</a></li><li class="breadcrumb-item"><a href="../../r-code/first/04-vectors.html">Vectors and Vector Operations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Install R for Mac</h1>
+<h1 class="title">Vectors and Vector Operations</h1>
 </div>
 
 
@@ -219,139 +242,169 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="check-macos-version" class="level3">
-<h3 class="anchored" data-anchor-id="check-macos-version">Check macOS version</h3>
-<div class="screenshot-steps">
-<ol type="1">
-<li><p>Click the Apple menu in the top-left corner of your screen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/01-apple-menu.png" class="img-fluid figure-img"></p>
-<figcaption>The Apple menu, expanded</figcaption>
-</figure>
-</div></li>
-<li><p>Choose <strong>About This Mac</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/02-about-this-mac.png" class="img-fluid figure-img"></p>
-<figcaption>The About This Mac option highlighted</figcaption>
-</figure>
-</div></li>
-<li><p>Your version number appears under the macOS name.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/03-version-number.png" class="img-fluid figure-img"></p>
-<figcaption>Version number shown as macOS Sequoia 15.7.7</figcaption>
-</figure>
-</div></li>
-</ol>
+<p>We now know about the Numerics, Logicals, and Character classes; that we can use functions on these objects; and we can assign variable names to objects.</p>
+<section id="vectors" class="level2">
+<h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
+<p>A vector is a set of values of the same type. You can think of it like a column on a spreadsheet. We can make a vector with the <code>c()</code> function.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
 </div>
-</section>
-<section id="download-r-based-on-your-macos-version" class="level3">
-<h3 class="anchored" data-anchor-id="download-r-based-on-your-macos-version">Download R based on your macOS version</h3>
-<ol type="1">
-<li>Go to <a href="https://cran.r-project.org">the R for macOS Installation site</a></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/04-rmacos.png" class="img-fluid figure-img"></p>
-<figcaption>R for macOS site</figcaption>
-</figure>
+<div class="sourceCode" id="cb1" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">num_vector &lt;- c(1, 2, 3)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (num_vector)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">sus_vector &lt;- c(1, "2", 3)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">print (sus_vector)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="2" type="1">
-<li>Determine the appropriate version of R</li>
-</ol>
-<table class="caption-top table">
-<caption>Which installer to download</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Chip</th>
-<th>macOS</th>
-<th>Download</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>M1, M2, M3, M4</td>
-<td>14 or later</td>
-<td>the <code>arm64</code> file</td>
-</tr>
-<tr class="even">
-<td>M1, M2, M3, M4</td>
-<td>13 or earlier</td>
-<td>update macOS first, then the <code>arm64</code> file</td>
-</tr>
-<tr class="odd">
-<td>Intel</td>
-<td>11 or later</td>
-<td>the <code>x86_64</code> file</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>All the elements in a vector need to be the same datatype, there are some functions that work on entire vectors.</p>
+<p>We can get the <code>mean</code>, or average, number of Red Bulls I drink every week for the last 6 weeks by using the <code>mean()</code> function.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Can’t update macOS?
+<div class="sourceCode" id="cb2" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">redbulls_drank &lt;- c(7, 6, 12, 8, 7, 2)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (class(redbulls_drank))</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">print (mean(redbulls_drank)) </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<p>Note that every element in <code>redbulls_drank</code> is of the numeric type. We can also do things with vectors filled with characters. The <code>toupper()</code> function turns every character into uppercase.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you cannot update macOS, you can download the <code>x86_64</code> file instead.</p>
+<div class="sourceCode" id="cb3" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">redbull_flavor &lt;- c("cherry", "lime", "apple", "strawberry") </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">toupper(redbull_flavor)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>However, it wouldn’t make sense to try to get the mean of my favorite flavors. Nor would it make sense to try to uppercase numbers.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
 </div>
+<div class="sourceCode" id="cb4" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">print (mean(redbull_flavor)) </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (toupper(redbulls_drank))</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="3" type="1">
-<li>Click on the appropriate version, and the download will start automatically</li>
-</ol>
-</section>
-<section id="install-r" class="level3">
-<h3 class="anchored" data-anchor-id="install-r">Install R</h3>
-<div class="screenshot-steps">
-<ol type="1">
-<li><p>Open Finder</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/05-open-finder.png" class="img-fluid figure-img"></p>
-<figcaption>The Apple menu, expanded</figcaption>
-</figure>
-</div></li>
-<li><p>Open <code>Downloads</code> folder</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/06-downloads.png" class="img-fluid figure-img"></p>
-<figcaption>The About This Mac option highlighted</figcaption>
-</figure>
-</div></li>
-<li><p>Click on the package, and follow the guide</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/07-installer.png" class="img-fluid figure-img"></p>
-<figcaption>Version number shown as macOS Sequoia 15.7.7</figcaption>
-</figure>
-</div></li>
-<li><p>When it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/08-trash.png" class="img-fluid figure-img"></p>
-<figcaption>Version number shown as macOS Sequoia 15.7.7</figcaption>
-</figure>
-</div></li>
-</ol>
+<p>It also wouldn’t make sense to get the mean of the number of Red Bulls I drank <em>and</em> my favorite flavors.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">redbull_comp &lt;- c("cherry", "lime", "apple", "strawberry", 7, 6, 12, 8, 7, 2) </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (mean(redbull_flavor)) </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This doesn’t mean that numeric vectors can only use numeric vector functions, that logical vectors can only use logical vector functions, and so on. The <strong>length()</strong> function tells you how many elements are in a vector, and works on all kinds of vectors, and the <strong>unique()</strong> function tells you how many unique values are in a vector.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb6" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">print (length(redbull_flavor))</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (length(redbulls_drank))</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">print (unique(redbull_flavor))</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">print (unique(redbulls_drank)) </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also access a specific element in a vector based on its position. In <code>redbull_flavor</code>, “cherry” has a position of 1, “lime” has a position of 2, “apple” has a position of 3, and “strawberry” has a position of 4. We can refer to a specific element by: redbull_flavor[1], which is “cherry”</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb7" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">print (redbull_flavor[1])</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">print (redbull_flavor[2])</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="in"># Same concept for redbulls_drank </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">print (redbulls_drank[1])</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="vector-to-vector-operations" class="level3">
+<h3 class="anchored" data-anchor-id="vector-to-vector-operations">Vector to Vector Operations</h3>
+<p>We can work with multiple vectors. We’ll make a new numeric vector that lists the number of cups of water I drank each week for the past 6 weeks.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">waters_drank &lt;- c(8, 6, 9, 4, 8, 0)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can get a new vector by adding <code>redbulls_drank</code> to <code>waters_drank</code> using the same numeric operation rules for numerics.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>practice_01.Rmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="practice_01.Rmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: {.cell autorun='false'}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.webr .cell-code}</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">waters_drank + redbulls_drank </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in"># Subtraction</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">difference_vector &lt;- waters_drank - redbulls_drank</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../r-code/first";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -777,7 +830,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/install-r/01-install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/first/04-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>

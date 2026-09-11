@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emzou.github.io/r-guide/r-code/index.html</loc>
-    <lastmod>2026-09-05T16:37:45.844Z</lastmod>
+    <lastmod>2026-09-10T15:45:18.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/first/01-vartypes.html</loc>
+    <lastmod>2026-09-11T17:15:46.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/first/04-vectors.html</loc>
+    <lastmod>2026-09-11T19:20:28.277Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-setup/index.html</loc>
-    <lastmod>2026-09-05T16:27:55.372Z</lastmod>
+    <lastmod>2026-09-10T15:36:36.265Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-setup/install-r/02-r-wind.html</loc>
@@ -23,5 +31,13 @@
   <url>
     <loc>https://emzou.github.io/r-guide/index.html</loc>
     <lastmod>2026-09-05T16:33:22.346Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/first/03-classes.html</loc>
+    <lastmod>2026-09-11T19:25:06.097Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/first/02-datatypes.html</loc>
+    <lastmod>2026-09-11T17:45:48.537Z</lastmod>
   </url>
 </urlset>
