@@ -1,5 +1,60 @@
 /*-- scss:rules --*/
-.screenshot-steps img {
+
+// tweak these two and everything follows
+$shot-w: 22rem;
+$shot-h: 14rem;
+
+.os-pair {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0.75rem 0 1.5rem;
+
+  figure {
+    flex: 0 0 $shot-w;   // fixed, no grow/shrink
+    max-width: 100%;
+    margin: 0;
+  }
+
+  img {
+    width: $shot-w;
+    height: $shot-h;
+    object-fit: contain;      // whole screenshot visible, letterboxed
+    object-position: center;
+    display: block;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    color: #555;
+    text-align: center;
+  }
+}
+
+// stack on narrow screens
+@media (max-width: 46rem) {
+  .os-pair {
+    flex-direction: column;
+    figure { flex: 0 0 auto; width: 100%; }
+    img { width: 100%; height: auto; }
+  }
+}
+
+.screenshot-steps li {
+  margin-bottom: 1.5rem;
+}
+
+// keep your single-image rule for steps that aren't paired
+.screenshot-steps > ol > li > p > img,
+.screenshot-steps img:not(.os-pair img) {
   max-width: min(100%, 38.75rem);
   max-height: 15rem;
   width: auto;
@@ -8,8 +63,4 @@
   border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   margin: 0.75rem 0 1.25rem;
-}
-
-.screenshot-steps li {
-  margin-bottom: 1.5rem;
 }

@@ -1,0 +1,15 @@
+{
+  "hash": "255b7291be98c4f4ac945c8904a6c1a7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Writing and Coding in Rmd\"\nformat: html\n---\n\n\n\n## We can directly switch between two languages -- human and R -- on Rmd files\n\n![Two languages](images/01-lang.png)\n\n1. Type anything into your .Rmd file. \n\nThis will show up when your run the whole Rmd file, but it's not actually code. \nWe can write notes on what our code is about, or describe the results of some code.  \n\n2. Now, type:  ```{r}\nA grayed-out rectangle will appear. We're telling the computer that we want to \ntalk to it in R now. \n\n3. Press enter a few times, and the rectangle will expand. \n\n4. We close this chunk by putting ``` \n\n5. Outside of this chunk, we're back to human language again. \n\n````{.markdown filename=\"practice_01.Rmd\"}\nIn this section, we will demonstrate how one can write in both the humnan and R language by simply. I can enter R mode by: \n::: {.cell}\n\n:::\nWe can make chunks of code in this way.\n````",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

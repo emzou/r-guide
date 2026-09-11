@@ -1,0 +1,40 @@
+---
+title: "Create, save R Markdown file"
+format: html
+---
+
+## Create your first R Markdown file 
+::: {.screenshot-steps}
+
+1. Open RStudio
+
+    ![This should appear](images/01-openrstudio.png)
+
+2. Find the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on **R Markdown** 
+
+    ![Create a new R Markdown document](images/02-makermd.png)
+
+3. A pop-up on installing packages will appear, let it run and wait for it to finish.
+
+    ![Installation pop up](images/03-popup.png)
+
+
+4. Window for making new R Markdown document will appear, click on **Create empty document** 
+
+  ![Installation pop up](images/04-newmd.png)
+
+5. Save this file (Command, S on Mac, Ctrl, S on Windows).
+ ![Installation pop up](images/05-untitleddoc.png)
+
+
+6.  Name it **practice_01** -- keep the **.Rmd** extension at the end. Save the file in your **comm_106** folder, which lives on your Desktop.
+
+  ![Save and name file](images/06-savelocation.png)
+
+:::
+
+In the future, you can find and work on **practice_01.Rmd** in your comm_106 folder. 
+
+
+
+

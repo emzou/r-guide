@@ -15,7 +15,7 @@ website:
       - href: r-setup/index.qmd
         text: "R Setup"
       - href: r-code/index.qmd
-        text: "R Code"
+        text: "Organize Workflow"
 
     right:
       - icon: github
@@ -35,13 +35,16 @@ website:
           contents:
             - auto: "r-setup/install-rstudio/*.qmd"
         
+        
     - id: r-code
-      title: "Workflow Organization"
+      title: "Actual Coding"
       style: docked
       collapse-level: 1
       contents:
         - r-code/index.qmd
-        - auto: "r-code/0*.qmd"
+        - section: "1. Basics"
+          contents:
+            - auto: "r-code/first/*.qmd"
 
     
 

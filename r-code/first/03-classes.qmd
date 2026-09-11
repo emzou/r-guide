@@ -1,0 +1,169 @@
+---
+title: "Numeric, Logical, Character"
+format: live-html
+engine: knitr
+---
+{{< include /_extensions/r-wasm/live/_knitr.qmd >}}
+## Numeric
+A numeric is a number R can do math with. 
+```{webr}
+#| autorun: false
+60 + 7
+```
+
+
+### Numeric Operations
+
+```{r}
+#| echo: false
+library(gt)
+
+ops <- data.frame(
+  Operator  = c("+", "-", "*", "/", "^"),
+  Operation = c("addition", "subtraction", "multiplication",
+                "division", "exponentiation"),
+  Example   = c("5 + 2", "5 - 2", "5 * 2", "5 / 2", "5 ^ 2")
+)
+ops$Result <- sapply(ops$Example, \(x) eval(parse(text = x)))
+
+gt(ops) |>
+  tab_header(title = "Arithmetic operators in R") |>
+  cols_align("center", columns = c(Operator, Example, Result)) |>
+  tab_style(
+    style = cell_text(font = "monospace"),
+    locations = cells_body(columns = c(Operator, Example, Result))
+  ) |>
+  opt_stylize(style = 6)
+```
+
+
+## Logical
+A logical is a TRUE or FALSE value
+
+
+```{webr}
+#| autorun: false
+1 < 2
+```
+
+
+### Logical Operations
+
+```{r}
+#| echo: false
+library(gt)
+
+logic_ops <- data.frame(
+  Operator  = c("<", ">", "<=", ">=", "==", "!=", "!x", "x | y", "x & y"),
+  Operation = c("less than", "greater than", "less than or equal to",
+                "greater than or equal to", "equal to", "not equal to",
+                "not x", "x or y", "x and y"),
+  Example   = c("5 < 3", "5 > 3", "5 <= 5", "5 >= 6", "5 == 5", "5 != 5",
+                "!TRUE", "TRUE | FALSE", "TRUE & FALSE")
+)
+logic_ops$Result <- sapply(logic_ops$Example, \(x) eval(parse(text = x)))
+
+gt(logic_ops) |>
+  tab_header(title = "Comparison and logical operators in R") |>
+  cols_align("center", columns = c(Operator, Example, Result)) |>
+  tab_style(
+    style = cell_text(font = "monospace"),
+    locations = cells_body(columns = c(Operator, Example, Result))
+  ) |>
+  opt_stylize(style = 6)
+```
+
+## Character 
+A character is text wrapped in quotes, like "hello" or "5". R treats it as words, not numbers, so you can combine, search, or change it, but you can't do math with it.
+
+
+```{webr}
+#| autorun: false
+print("hello")
+print("5")
+
+```
+
+
+# Functions 
+A function is a command that takes inputs (called arguments) inside the parentheses, does something with them, and gives you back a result. This is how R knows what to do with print("hello"). 
+
+Without the parantheses, your computer doesn't know what you're referencing.
+
+
+```{webr}
+#| autorun: false
+
+print hello 
+print "hello"
+print() hello 
+```
+
+
+## The class() function 
+
+The class function allows us to check what class the input (what we want in the parantheses) is. 
+
+
+```{webr}
+#| autorun: false
+
+class(1)
+class(TRUE)
+class("so true")
+
+```
+
+
+It can help with diagnosing errors.
+
+
+```{webr}
+#| autorun: false
+
+"12*3"
+class("12*3")
+```
+
+
+# Assigning variables 
+Like in algebra, we can assign values to variables, e.g. we set `x` equal to 5 so that `x` + 1 = 6. 
+In R, we assign with `<-`
+
+```{webr}
+#| autorun: false
+
+x <- 5 
+print (x)
+class (x)
+
+print (x + 1) 
+print (x<=42)
+```
+
+
+## You have to declare the value of a variable before doing anything with it. 
+
+
+```{webr}
+#| autorun: false
+
+print (y)
+
+y = "I'm just some characters..."
+```
+
+
+## Overwriting variables 
+
+If you define a variable multiple times, it'll use the vavlue it was last defined on. 
+
+
+```{webr}
+#| autorun: false
+
+z <- 1
+print (z + 2)
+z <- 4
+print (z + 2)
+```
