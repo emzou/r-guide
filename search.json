@@ -368,7 +368,7 @@
     "href": "r-code/load_data/01-getdata.html#tidyverse",
     "title": "Load CSV into R",
     "section": "tidyverse",
-    "text": "tidyverse\nWe will be using the tidyverse package. ### Installing Packages Run install.packages(“tidyverse”) in a R chunk.\n\n\nmy-analysis.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\nmy-analysis.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
+    "text": "tidyverse\nWe will be using the tidyverse package.\n\nInstalling Packages\nRun install.packages(“tidyverse”) in a R chunk.\n\n\nmy-analysis.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\nmy-analysis.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
     "crumbs": [
       "R Practice",
       "Dataframes",
