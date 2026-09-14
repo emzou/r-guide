@@ -14,8 +14,11 @@ When you get a new phone, you can send a picture of your cat to ten of your frie
 
 ## tidyverse 
 We will be using the tidyverse package. 
+
 ### Installing Packages
+
 Run install.packages("tidyverse") in a R chunk.
+
 ````{.markdown filename="my-analysis.qmd"}
 ```{{r}}
 install.packages("tidyverse")

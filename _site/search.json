@@ -7,7 +7,7 @@
     "text": "Selecting a Column\n\n\n\n\n\n\n\n\n\nColumn to Vector\nWhy would we want to select only a column?\n\n\n\n\n\n\n\n\nA vector is a different data type than a column. Now that we’ve put the Survived column into a vector, we can use our vector functions.",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Filtering Dataframe"
     ]
   },
@@ -19,7 +19,7 @@
     "text": "Selecting rows based on column value",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Filtering Dataframe"
     ]
   },
@@ -31,7 +31,7 @@
     "text": "Selecting rows based on conditioning column value\n\nOnly show rows where the value in Sex is not female\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10 AND the value in Sex is male",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Filtering Dataframe"
     ]
   },
@@ -43,16 +43,33 @@
     "text": "head() Shows the first 6 rows of your dataframe\n\n\n\n\n\n\n\n\n\nTo choose the number of rows you want to see, add the number of rows after the dataframe variable input.\n\n\n\n\n\n\n\n\n\ndim() Returns the number of rows and columns your dataframe has.\n\n\n\n\n\n\n\n\n\n\nnames() Returns the names of the columns in your dataframe\n\n\n\n\n\n\n\n\n\n\nsummary() Returns an overview of your dataset.",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Functions for Dataframes"
     ]
   },
   {
-    "objectID": "r-code/visuals/03-crosstab.html",
-    "href": "r-code/visuals/03-crosstab.html",
+    "objectID": "r-code/visuals/03-crosstab.html#cross-tabulations",
+    "href": "r-code/visuals/03-crosstab.html#cross-tabulations",
     "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "",
-    "text": "Visualizing two variables\n\n\nShow code\n# --- placeholder palettes: swap these out later ---\nsurv_cols &lt;- c(\"Died\" = \"#B0B0B0\", \"Survived\" = \"#7A9E9F\")\ncls_cols  &lt;- c(\"1\" = \"#7A9E9F\", \"2\" = \"#B0B0B0\", \"3\" = \"#C98A7A\")\n\nbg &lt;- \"gray95\"\n\ntheme_set(\n  theme_minimal(base_size = 13) +\n    theme(\n      axis.title = element_text(size = 14),\n      axis.text  = element_text(size = 12),\n      plot.title = element_text(size = 15, face = \"bold\"),\n      plot.background  = element_rect(fill = bg, color = NA),\n      panel.background = element_rect(fill = bg, color = NA),\n      plot.margin = margin(5, 10, 5, 0),\n      legend.position = \"none\"\n    )\n)\n\ntbl_theme &lt;- ttheme_minimal(\n  base_size = 12,\n  core    = list(bg_params = list(fill = bg, col = NA)),\n  colhead = list(bg_params = list(fill = bg, col = NA),\n                 fg_params = list(fontface = \"bold\"))\n)\n\ntg &lt;- function(d) {\n  wrap_elements(full = tableGrob(d, rows = NULL, theme = tbl_theme)) +\n    theme(plot.margin = margin(5, 0, 5, 5))\n}\n\nsurv &lt;- df %&gt;%\n  mutate(Survived = if_else(Survived == 1, \"Survived\", \"Died\")) %&gt;%\n  count(Survived, name = \"Count\") %&gt;%\n  mutate(Proportion = round(Count / sum(Count), 3))\n\ncls &lt;- df %&gt;%\n  count(Pclass, name = \"Count\") %&gt;%\n  mutate(Proportion = round(Count / sum(Count), 3))\n\np1 &lt;- ggplot(surv, aes(Survived, Count, fill = Survived)) +\n  geom_col() +\n  scale_fill_manual(values = surv_cols) +\n  labs(title = \"Survival\", x = NULL, y = \"Passengers\")\n\np2 &lt;- ggplot(cls, aes(factor(Pclass), Count, fill = factor(Pclass))) +\n  geom_col() +\n  scale_fill_manual(values = cls_cols) +\n  labs(title = \"Passenger class\", x = \"Class\", y = \"Passengers\")\n\n(tg(surv) | p1) / (tg(cls) | p2) +\n  plot_layout(widths = c(0.8, 2)) +\n  plot_annotation(\n    title = \"Titanic Passenger Demographics\",\n    theme = theme(\n      plot.title = element_text(size = 20, face = \"bold\", hjust = 0.5,\n                                margin = margin(b = 12)),\n      plot.background = element_rect(fill = bg, color = NA),\n      plot.margin = margin(15, 15, 15, 15)\n    )\n  )\n\n\n\n\n\n\n\n\n\nSo far, we’ve analyzed the distribution of passengers’ survival status and their class, separately. However, seeing this data, we may raise questions about the intersection of these variables – were first-class passengers more likely to survive? How much of a difference did class make in survival rate? How much more likely would a third-class passenger have survived if they were second-class?\nCross-tabulations can help us answer these questions. ## tab()"
+    "section": "Cross-tabulations",
+    "text": "Cross-tabulations\nCross-tabulations can help us answer these questions. Cross-tabulations are essentially frequency tables, but for two variables instead of one. You can generate a cross-tabluation with the table() function. The inputs are the column nmaes of the two variables you want to compare.\n\n\n\n\n\n\n\n\nThis breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on.\n\nImproving readability\nAs always, the base output is not very easy to parse. We can relabel our table using our familiar functions.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Cross-Tabulations and Grouped Bar Plots"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
+    "href": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
+    "title": "Cross-Tabulations and Grouped Bar Plots",
+    "section": "Stacked Bar Plots",
+    "text": "Stacked Bar Plots\nWe can show this same result with a stacked bar plot. Note that in the below example, Pclass is assigned to x, and Survived is assigned to fill. This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship.\n\n\n\n\n\n\n\n\nWe can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning Survived to x, and Pclass to fill.\n\n\n\n\n\n\n\n\n\nImproving readability",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Cross-Tabulations and Grouped Bar Plots"
+    ]
   },
   {
     "objectID": "r-code/index.html",
@@ -72,7 +89,7 @@
     "text": "We now know about the Numerics, Logicals, and Character classes; that we can use functions on these objects; and we can assign variable names to objects.",
     "crumbs": [
       "R Practice",
-      "1. Classes and Functions",
+      "Classes and Functions",
       "Vectors and Vector Operations"
     ]
   },
@@ -84,7 +101,7 @@
     "text": "Vectors\nA vector is a set of values of the same type. You can think of it like a column on a spreadsheet. We can make a vector with the c() function.\n\n\n\n\n\n\n\n\nAll the elements in a vector need to be the same datatype, there are some functions that work on entire vectors.\nWe can get the mean, or average, number of Red Bulls I drink every week for the last 6 weeks by using the mean() function.\n\n\n\n\n\n\n\n\nNote that every element in redbulls_drank is of the numeric type. We can also do things with vectors filled with characters. The toupper() function turns every character into uppercase.\n\n\n\n\n\n\n\n\nHowever, it wouldn’t make sense to try to get the mean of my favorite flavors. Nor would it make sense to try to uppercase numbers.\n\n\n\n\n\n\n\n\nIt also wouldn’t make sense to get the mean of the number of Red Bulls I drank and my favorite flavors.\n\n\n\n\n\n\n\n\nThis doesn’t mean that numeric vectors can only use numeric vector functions, that logical vectors can only use logical vector functions, and so on. The length() function tells you how many elements are in a vector, and works on all kinds of vectors, and the unique() function tells you how many unique values are in a vector.\n\n\n\n\n\n\n\n\nYou can also access a specific element in a vector based on its position. In redbull_flavor, “cherry” has a position of 1, “lime” has a position of 2, “apple” has a position of 3, and “strawberry” has a position of 4. We can refer to a specific element by: redbull_flavor[1], which is “cherry”\n\n\n\n\n\n\n\n\n\nVector to Vector Operations\nWe can work with multiple vectors. We’ll make a new numeric vector that lists the number of cups of water I drank each week for the past 6 weeks.\n\n\n\n\n\n\n\n\nWe can get a new vector by adding redbulls_drank to waters_drank using the same numeric operation rules for numerics.",
     "crumbs": [
       "R Practice",
-      "1. Classes and Functions",
+      "Classes and Functions",
       "Vectors and Vector Operations"
     ]
   },
@@ -291,28 +308,48 @@
     "href": "r-code/visuals/01-freqtable.html#improving-readability",
     "title": "Frequency Tables",
     "section": "Improving Readability",
-    "text": "Improving Readability\nThe output of count() alone is ugly and hard to read.\n\n\n\n\n\n\n\n\nJust ‘0s’ and ‘1s’ is also not informative. We can rename the values as well."
+    "text": "Improving Readability\nThe output of count() alone is ugly and hard to read.\n\n\n\n\n\n\n\n\nJust ‘0s’ and ‘1s’ is also not informative. We can rename the values as well.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Frequency Tables"
+    ]
   },
   {
     "objectID": "r-code/visuals/01-freqtable.html#add-proportions",
     "href": "r-code/visuals/01-freqtable.html#add-proportions",
     "title": "Frequency Tables",
     "section": "Add proportions",
-    "text": "Add proportions\nWe can also make show relative frequency instead of absolute frequency by showing proportions instead of raw counts.\n\n\n\n\n\n\n\n\n\nThere are many other ways to make your visuals easier to read and/or aesthetically pleasing.\n\n\n\n\n\n\n\n\nNow we can tell at a glance, how deadly the Titanic disaster was."
+    "text": "Add proportions\nWe can also make show relative frequency instead of absolute frequency by showing proportions instead of raw counts.\n\n\n\n\n\n\n\n\n\nThere are many other ways to make your visuals easier to read and/or aesthetically pleasing.\n\n\n\n\n\n\n\n\nNow we can tell at a glance, how deadly the Titanic disaster was.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Frequency Tables"
+    ]
   },
   {
     "objectID": "r-code/visuals/02-barplot.html",
     "href": "r-code/visuals/02-barplot.html",
     "title": "Bar Plot",
     "section": "",
-    "text": "We want to run the same analysis on the class for Titanic passengers, which is indicated in Pclass."
+    "text": "We want to run the same analysis on the class for Titanic passengers, which is indicated in Pclass.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Bar Plot"
+    ]
   },
   {
     "objectID": "r-code/visuals/02-barplot.html#improving-readability",
     "href": "r-code/visuals/02-barplot.html#improving-readability",
     "title": "Bar Plot",
     "section": "Improving Readability",
-    "text": "Improving Readability\n\nLabels\nWe can add labels to our axes and a title for our entire plot by additonally calling labs().\n\n\n\n\n\n\n\n\n\n\nThemes\nggplot comes with themes (you can peruse them here). We can make our plot follow theme_minimal() by adding it.\n\n\n\n\n\n\n\n\n\n\nFill\nWe can also customize the color of the bar with geom_bar."
+    "text": "Improving Readability\n\nLabels\nWe can add labels to our axes and a title for our entire plot by additonally calling labs().\n\n\n\n\n\n\n\n\n\n\nThemes\nggplot comes with themes (you can peruse them here). We can make our plot follow theme_minimal() by adding it.\n\n\n\n\n\n\n\n\n\n\nFill\nWe can also customize the color of the bar with geom_bar.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Bar Plot"
+    ]
   },
   {
     "objectID": "r-code/load_data/01-getdata.html",
@@ -322,7 +359,7 @@
     "text": "Create a new R Markdown file called practice_02.Rmd in your comm_106 folder.\nDownload the Titanic Survival Dataset – it should be called titanic.csv, and put it in your comm_106 folder.",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Load CSV into R"
     ]
   },
@@ -334,7 +371,7 @@
     "text": "tidyverse\nWe will be using the tidyverse package. ### Installing Packages Run install.packages(“tidyverse”) in a R chunk.\n\n\nmy-analysis.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\nmy-analysis.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Load CSV into R"
     ]
   },
@@ -346,7 +383,7 @@
     "text": "Load the dataframe in with the read_csv() function\nWe assign the dataframe as a value to a variable called df (This is just common practice in data science, since it’s easy to remember – df stands for dataframe. You can name it whatever you want).",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Load CSV into R"
     ]
   },
@@ -358,7 +395,7 @@
     "text": "if_else()\nWe can also use conditional statements to generate new columns. Let’s say we want a column that indicates whether a passenger was an adult (Age &gt;= 18)\nWe can use the if_else() function, which requires three inputs, in this order: (1) the condition (2) the value if the condition is met (3) the value if the condition is not met.\n\n\n\n\n\n\n\n\n\nDealing with unknown values\nYou may notice that some values in Is_Adult column are neither “Yes” or “No”, but something called NA instead. We get this value when the value in Age was missing, so R can’t determine whether or not the value is greater or equal to 18.\nWe can deal with this by adding another input into the if_else() function: missing = \"Unknown\"\n\n\n\n\n\n\n\n\nNow, instead of NA as the value, the missing values will have an actual value.",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Changing the Dataframe"
     ]
   },
@@ -370,39 +407,8 @@
     "text": "case_when()\nif_else() is helpful when we only have two conditions, but we may have more than two.",
     "crumbs": [
       "R Practice",
-      "2. Load in Data",
+      "Dataframes",
       "Changing the Dataframe"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/03-crosstab.html#table",
-    "href": "r-code/visuals/03-crosstab.html#table",
-    "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "table()",
-    "text": "table()"
-  },
-  {
-    "objectID": "r-code/visuals/03-crosstab.html#cross-tabulations",
-    "href": "r-code/visuals/03-crosstab.html#cross-tabulations",
-    "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "Cross-tabulations",
-    "text": "Cross-tabulations\nCross-tabulations can help us answer these questions. Cross-tabulations are essentially frequency tables, but for two variables instead of one. You can generate a cross-tabluation with the table() function. The inputs are the column nmaes of the two variables you want to compare.\n\n\n\n\n\n\n\n\nThis breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on.\n\nImproving readability\nAs always, the base output is not very easy to parse. We can relabel our table using our familiar functions.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Cross-Tabulations and Grouped Bar Plots"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
-    "href": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
-    "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "Stacked Bar Plots",
-    "text": "Stacked Bar Plots\nWe can show this same result with a stacked bar plot. Note that in the below example, Pclass is assigned to x, and Survived is assigned to fill. This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship.\n\n\n\n\n\n\n\n\nWe can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning Survived to x, and Pclass to fill.\n\n\n\n\n\n\n\n\n\nImproving readability",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Cross-Tabulations and Grouped Bar Plots"
     ]
   }
 ]

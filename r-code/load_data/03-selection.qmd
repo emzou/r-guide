@@ -5,17 +5,15 @@ engine: knitr
 ---
 
 ```{webr}
-#| include: FALSE
+#| context: setup
+#| autorun: false
+#| message: false
+#| warning: false
 download.file(
   "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
   "titanic.csv"
 )
-```
 
-```{webr}
-#| autorun: false
-#| message: false
-#| warning: false
 library(tidyverse)
 df <- read_csv("titanic.csv")
 ```
