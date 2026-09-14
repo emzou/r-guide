@@ -1,0 +1,62 @@
+---
+title: "Filtering Dataframe"
+format: live-html
+engine: knitr
+---
+
+```{webr}
+#| include: FALSE
+download.file(
+  "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+  "titanic.csv"
+)
+```
+
+```{webr}
+#| autorun: false
+#| message: false
+#| warning: false
+library(tidyverse)
+df <- read_csv("titanic.csv")
+```
+
+## Selecting a Column 
+```{webr}
+df %>% select(survived)
+```
+
+
+### Column to Vector 
+Why would we want to select only a column? 
+```{webr}
+df %>% pull(survived)
+survive_vector <- df %>% pull(survived)
+```
+
+A vector is a different data type than a column. Now that we've put the `Survived` column into a vector, we can use our vector functions. 
+
+```{webr}
+mean(survive_vector)
+```
+
+## Selecting rows based on column value
+```{webr}
+df %>% filter(sex == "female")
+fem_df <- %>% filter(sex == "female")
+```
+
+## Selecting rows based on conditioning column value 
+### Only show rows where the value in `Sex` is not `female` 
+```{webr}
+df %>% filter(sex != "female")
+```
+
+### Only show rows where the value in `Age` is greater than 10 
+```{webr}
+df %>% filter(age > 10)
+```
+
+### Only show rows where the value in `Age` is greater than 10 AND the value in `Sex` is `male` 
+```{webr}
+df %>% filter(age > 10 & sex == 'male')
+```

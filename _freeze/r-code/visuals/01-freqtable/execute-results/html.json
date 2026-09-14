@@ -1,0 +1,15 @@
+{
+  "hash": "b4ab85908e280e2ab7d8d01e5572812d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Frequency Tables\"\nformat: live-html\nengine: knitr\n---\n\n::: {.cell context='setup' autorun='false'}\n\n```{.webr .cell-code}\ndownload.file(\n  \"https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv\",\n  \"titanic.csv\"\n)\nlibrary(tidyverse)\nlibrary(ggplot2)\ndf <- read_csv(\"titanic.csv\")\n```\n:::\n\n\n\n# Frequency Tables \nWe can make a data visualization called a  **Frequency Table** with the count() function. \nThe input for count() is the name of the column you want to get the value counts of. For example, we know that the `Survived` column in our dataset tells us whether or not a passenger survived, where a 0 means they did not survive, and a 1 means they did survive. \nWe want to know how many 0s and 1s there are in total. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndf %>% count(Survived)\n```\n:::\n\n\n\n## Improving Readability \nThe output of count() alone is ugly and hard to read. \n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndf %>% count(Survived, name = \"Count\")\n```\n:::\n\n\n\nJust '0s' and '1s' is also not informative. We can rename the values as well. \n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndf %>%\n  mutate(Survived = if_else(Survived == 1, \"Survived\", \"Died\")) %>%\n  count(Survived, name = \"Count\")\n```\n:::\n\n\n\n\n## Add proportions \nWe can also make show *relative* frequency instead of *absolute* frequency by showing proportions instead of raw counts. \n\n\n::: {.cell}\n\n```{.webr .cell-code}\ndf %>%\n  count(Survived, name = \"Count\") %>%\n  mutate(Percent = round(100 * Count / sum(Count), 1))\n```\n:::\n\n\n\n### There are many other ways to make your visuals easier to read and/or aesthetically pleasing. \n\n\n::: {.cell}\n\n```{.webr .cell-code}\ndf %>%\n  mutate(Survived = if_else(Survived == 1, \"Survived\", \"Died\")) %>%\n  count(Survived, name = \"Count\") %>%\n  mutate(Proportion = round(Count / sum(Count), 3)) %>%\n  knitr::kable()\n```\n:::\n\n\n\nNow we can tell at a glance, how deadly the Titanic disaster was. \n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

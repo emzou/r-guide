@@ -1,7 +1,8 @@
 ---
-title: "Workflow Organization"
+title: "R Practice"
 format: html
 ---
 
-1. Open RStudio **not R**. You should see this window
+1. You can work through the examples in this guide through writing code on a R markdown file saved on your own laptop. 
+2. You can also directly edit and change code on the site. Nothing you change on the site will be saved. 
 

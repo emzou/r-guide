@@ -15,7 +15,7 @@ website:
       - href: r-setup/index.qmd
         text: "R Setup"
       - href: r-code/index.qmd
-        text: "Organize Workflow"
+        text: "R Practice"
 
     right:
       - icon: github
@@ -34,17 +34,26 @@ website:
         - section: "2. Install RStudio"
           contents:
             - auto: "r-setup/install-rstudio/*.qmd"
+        - section: "3. Make R Markdown File"
+          contents:
+            - auto: "r-setup/make-rmd/*.qmd"
         
         
     - id: r-code
-      title: "Actual Coding"
+      title: "Practices"
       style: docked
-      collapse-level: 1
+      collapse-level: 2
       contents:
         - r-code/index.qmd
-        - section: "1. Basics"
+        - section: "Classes and Functions"
           contents:
             - auto: "r-code/first/*.qmd"
+        - section: "Dataframes"
+          contents:
+            - auto: "r-code/load_data/*.qmd"
+        - section: "Visualizations"
+          contents:
+            - auto: "r-code/visuals/*.qmd"
 
     
 
@@ -54,6 +63,12 @@ website:
 
 format:
   html:
+    theme: litera
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+  live-html: 
     theme: litera
     toc: true
     toc-depth: 3

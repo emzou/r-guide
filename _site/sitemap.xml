@@ -1,43 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://emzou.github.io/r-guide/r-code/load_data/03-selection.html</loc>
+    <lastmod>2026-09-14T17:26:49.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/load_data/02-functions.html</loc>
+    <lastmod>2026-09-14T17:26:20.307Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/visuals/03-crosstab.html</loc>
+    <lastmod>2026-09-14T20:58:48.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/visuals/index.html</loc>
+    <lastmod>2026-09-14T17:27:12.940Z</lastmod>
+  </url>
+  <url>
     <loc>https://emzou.github.io/r-guide/r-code/index.html</loc>
-    <lastmod>2026-09-10T15:45:18.036Z</lastmod>
+    <lastmod>2026-09-14T20:46:11.537Z</lastmod>
   </url>
   <url>
-    <loc>https://emzou.github.io/r-guide/r-setup/index.html</loc>
-    <lastmod>2026-09-10T15:36:36.265Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emzou.github.io/r-guide/r-setup/install-r/02-r-wind.html</loc>
-    <lastmod>2026-09-04T21:59:48.107Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emzou.github.io/r-guide/r-setup/install-rstudio/01-rstudio.html</loc>
-    <lastmod>2026-09-05T16:19:20.798Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emzou.github.io/r-guide/r-setup/install-r/01-install.html</loc>
-    <lastmod>2026-09-04T21:51:28.085Z</lastmod>
+    <loc>https://emzou.github.io/r-guide/r-code/first/02-vectors.html</loc>
+    <lastmod>2026-09-11T19:33:11.978Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/index.html</loc>
     <lastmod>2026-09-05T16:33:22.346Z</lastmod>
   </url>
   <url>
-    <loc>https://emzou.github.io/r-guide/r-code/first/01-vartypes.html</loc>
+    <loc>https://emzou.github.io/r-guide/r-setup/make-rmd/01-vartypes.html</loc>
     <lastmod>2026-09-11T17:15:46.818Z</lastmod>
   </url>
   <url>
-    <loc>https://emzou.github.io/r-guide/r-code/first/02-datatypes.html</loc>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-r/01-install.html</loc>
+    <lastmod>2026-09-04T21:51:28.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-rstudio/01-rstudio.html</loc>
+    <lastmod>2026-09-05T16:19:20.798Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/install-r/02-r-wind.html</loc>
+    <lastmod>2026-09-04T21:59:48.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/index.html</loc>
+    <lastmod>2026-09-10T15:36:36.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-setup/make-rmd/02-datatypes.html</loc>
     <lastmod>2026-09-11T17:45:48.537Z</lastmod>
   </url>
   <url>
-    <loc>https://emzou.github.io/r-guide/r-code/first/03-classes.html</loc>
+    <loc>https://emzou.github.io/r-guide/r-code/images/index.html</loc>
+    <lastmod>2026-09-14T17:02:54.786Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/first/01-classes.html</loc>
     <lastmod>2026-09-11T19:25:06.097Z</lastmod>
   </url>
   <url>
-    <loc>https://emzou.github.io/r-guide/r-code/first/04-vectors.html</loc>
-    <lastmod>2026-09-11T19:20:28.277Z</lastmod>
+    <loc>https://emzou.github.io/r-guide/r-code/visuals/01-freqtable.html</loc>
+    <lastmod>2026-09-14T18:03:28.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/visuals/02-barplot.html</loc>
+    <lastmod>2026-09-14T18:19:14.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/load_data/01-getdata.html</loc>
+    <lastmod>2026-09-12T17:43:17.969Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/r-code/load_data/04-mutate.html</loc>
+    <lastmod>2026-09-14T17:26:30.215Z</lastmod>
   </url>
 </urlset>

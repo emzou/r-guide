@@ -1,0 +1,56 @@
+---
+title: "Functions for Dataframes"
+format: live-html
+engine: knitr
+---
+
+```{webr}
+#| include: FALSE
+download.file(
+  "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+  "titanic.csv"
+)
+```
+
+```{webr}
+#| autorun: false
+#| message: false
+#| warning: false
+library(tidyverse)
+df <- read_csv("titanic.csv")
+```
+
+
+1. head()
+Shows the first 6 rows of your dataframe 
+```{webr}
+#| autorun: false
+head(df)
+```
+
+To choose the number of rows you want to see, add the number of rows after the dataframe variable input. 
+```{webr}
+#| autorun: false
+head(df, 7)
+```
+
+2. dim()
+Returns the number of rows and columns your dataframe has. 
+```{webr}
+#| autorun: false
+dim(df)
+```
+
+3. names()
+Returns the names of the columns in your dataframe
+```{webr}
+#| autorun: false
+names(df)
+```
+
+4. summary()
+Returns an overview of your dataset. 
+```{webr}
+#| autorun: false
+summary(df)
+```

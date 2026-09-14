@@ -1,0 +1,50 @@
+---
+title: "Load CSV into R"
+format: live-html
+engine: knitr
+---
+
+# File Organization
+1. Create a new R Markdown file called `practice_02.Rmd` in your `comm_106` folder. 
+2. Download the Titanic Survival Dataset -- it should be called `titanic.csv`, and put it in your `comm_106` folder. 
+
+# Package Installation 
+In practice_01, we used a lot of functions that come with base R -- like adding numerics to each other and printing characters. However, there's a lot more stuff that we can do with R, using *packages* that have already been created by other people. 
+When you get a new phone, you can send a picture of your cat to ten of your friends by individually messaging them. Or, you can download Instagram and post the picture of your cat on there. Packages for R are the same concept. If you haven't downloaded Instagram on your phone, your phone doesn't know how to post a picture of your cat on there. 
+
+## tidyverse 
+We will be using the tidyverse package. 
+### Installing Packages
+Run install.packages("tidyverse") in a R chunk.
+````{.markdown filename="my-analysis.qmd"}
+```{{r}}
+install.packages("tidyverse")
+```
+````
+You only have to do this once. (If you turn off your phone, you don't have to redownload Instagram everytime)
+
+### Loading Packages
+In order to actually use the package, you need to load it with every session with the **library()** function
+````{.markdown filename="my-analysis.qmd"}
+```{{r}}
+library(tidyverse)
+# Note that there are no quotation marks around tidyverse
+```
+````
+
+# Loading the dataset
+We'll be using data on the passengers of the Titanic. 
+## The Dataset 
+Here's what the first rows of the dataset look like. Each row is a passenger, and we have information on each passenger's Name, Sex, Age, and so on. 
+
+## Load the dataframe in with the read_csv() function 
+We assign the dataframe as a value to a variable called `df` 
+(This is just common practice in data science, since it's easy to remember -- df stands for dataframe. You can name it whatever you want). 
+
+```{webr}
+#| autorun: false
+library(tidyverse)
+df <- read_csv("titanic.csv")
+```
+
+

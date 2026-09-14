@@ -1,0 +1,90 @@
+---
+title: "Changing the Dataframe"
+format: live-html
+engine: knitr
+---
+
+```{webr}
+#| include: FALSE
+download.file(
+  "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+  "titanic.csv"
+)
+```
+
+```{webr}
+#| autorun: false
+#| message: false
+#| warning: false
+library(tidyverse)
+df <- read_csv("titanic.csv")
+```
+
+# mutate()
+We want to work with `Fare`, but we want to round everything up to integers. We can add a new column to the dataframe. Column names can't be repeated, so we'll name our new column `Rounded_Fare` 
+
+ceiling() is a function that rounds its inputs to the nearest whole number. 
+
+```{webr}
+#| autorun: false
+df %>% mutate(Rounded_Fare = ceiling(Fare))
+```
+
+We can apply whatever transformation we want within the parantheses of mutate()
+
+```{webr}
+#| autorun: false
+df %>% mutate(Fare_Plus_One = Fare + 1)
+```
+
+### Directly adding column to dataframe 
+To save the new column to the dataframe, you must reassign the variable. 
+```{webr}
+#| autorun: false
+df <- df %>% mutate(Rounded_Fare = ceiling(Fare))
+```
+
+Try seeing the changes we made to `df` with the head() function. 
+
+### Making a new dataframe with our changes
+Sometimes we want to keep the original dataframe, so we make a new dataframe with our edits. Remember that we have to name our new dataframe something new. 
+```{webr}
+#| autorun: false
+df_with_rounded <- df %>% mutate(Rounded_Fare = ceiling(Fare))
+```
+
+## if_else()
+We can also use conditional statements to generate new columns. Let's say we want a column that indicates whether a passenger was an adult (`Age >= 18`)
+
+We can use the if_else() function, which requires three inputs, in this order: (1) the condition (2) the value if the condition is met (3) the value if the condition is not met. 
+
+```{webr}
+#| autorun: false
+df_adult <- df %>% mutate(Is_Adult = if_else(Age >= 18, "Yes", "No"))
+```
+
+### Dealing with unknown values 
+You may notice that some values in `Is_Adult` column are neither "Yes" or "No", but something called NA instead. We get this value when the value in `Age` was missing, so R can't determine whether or not the value is greater or equal to 18. 
+
+We can deal with this by adding another input into the if_else() function: `missing = "Unknown"`
+
+```{webr}
+#| autorun: false
+df_adult <- df %>% mutate(Is_Adult = if_else(Age >= 18, "Yes", "No", missing = "Unknown"))
+```
+
+Now, instead of NA as the value, the missing values will have an actual value. 
+
+## case_when()
+if_else() is helpful when we only have two conditions, but we may have more than two. 
+
+```{webr}
+#| autorun: false 
+df %>% mutate(Age_Group = case_when(
+  Age < 13 ~ "Child",
+  Age < 18 ~ "Teen",
+  Age >= 18 ~ "Adult",
+  .default = "Unknown"
+))
+```
+
