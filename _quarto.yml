@@ -75,6 +75,9 @@ format:
     code-copy: true
     code-overflow: wrap
 
+webr:
+  packages: ['ggplot2', 'tidyverse']
+
 date: today
 date-format: "MMM D, YYYY"
 

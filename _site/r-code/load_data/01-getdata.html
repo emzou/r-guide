@@ -275,6 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse</a>
   <ul class="collapse">
+  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages">Installing Packages</a></li>
   <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">Loading Packages</a></li>
   </ul></li>
   </ul></li>
@@ -325,7 +326,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In practice_01, we used a lot of functions that come with base R – like adding numerics to each other and printing characters. However, there’s a lot more stuff that we can do with R, using <em>packages</em> that have already been created by other people. When you get a new phone, you can send a picture of your cat to ten of your friends by individually messaging them. Or, you can download Instagram and post the picture of your cat on there. Packages for R are the same concept. If you haven’t downloaded Instagram on your phone, your phone doesn’t know how to post a picture of your cat on there.</p>
 <section id="tidyverse" class="level2">
 <h2 class="anchored" data-anchor-id="tidyverse">tidyverse</h2>
-<p>We will be using the tidyverse package. ### Installing Packages Run install.packages(“tidyverse”) in a R chunk.</p>
+<p>We will be using the tidyverse package.</p>
+<section id="installing-packages" class="level3">
+<h3 class="anchored" data-anchor-id="installing-packages">Installing Packages</h3>
+<p>Run install.packages(“tidyverse”) in a R chunk.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>my-analysis.qmd</strong></pre>
@@ -335,6 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)</p>
+</section>
 <section id="loading-packages" class="level3">
 <h3 class="anchored" data-anchor-id="loading-packages">Loading Packages</h3>
 <p>In order to actually use the package, you need to load it with every session with the <strong>library()</strong> function</p>

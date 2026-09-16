@@ -1,9 +1,11 @@
 {
-  "hash": "4505e3a093d084133f95959e6d8daf7d",
+  "hash": "d77437fc8bd0c4698c19e5e97b380ff3",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Functions for Dataframes\"\nformat: live-html\nengine: knitr\n---\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nlibrary(tidyverse)\ndf <- read_csv(\"titanic.csv\")\n```\n:::\n\n\n\n\n\n1. head()\nShows the first 6 rows of your dataframe \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nhead(df)\n```\n:::\n\n\n\n\nTo choose the number of rows you want to see, add the number of rows after the dataframe variable input. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nhead(df, 7)\n```\n:::\n\n\n\n\n2. dim()\nReturns the number of rows and columns your dataframe has. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndim(df)\n```\n:::\n\n\n\n\n3. names()\nReturns the names of the columns in your dataframe\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nnames(df)\n```\n:::\n\n\n\n\n4. summary()\nReturns an overview of your dataset. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nsummary(df)\n```\n:::",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Functions for Dataframes\"\nformat: live-html\nengine: knitr\n---\n\n::: {.cell context='setup' autorun='false'}\n\n```{.webr .cell-code}\ndownload.file(\n  \"https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv\",\n  \"titanic.csv\"\n)\n\nlibrary(tidyverse)\ndf <- read_csv(\"titanic.csv\")\n```\n:::\n\n\n\n\n\n1. head()\nShows the first 6 rows of your dataframe \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nhead(df)\n```\n:::\n\n\n\n\nTo choose the number of rows you want to see, add the number of rows after the dataframe variable input. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nhead(df, 7)\n```\n:::\n\n\n\n\n2. dim()\nReturns the number of rows and columns your dataframe has. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndim(df)\n```\n:::\n\n\n\n\n3. names()\nReturns the names of the columns in your dataframe\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nnames(df)\n```\n:::\n\n\n\n\n4. summary()\nReturns an overview of your dataset. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nsummary(df)\n```\n:::",
+    "supporting": [
+      "02-functions_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

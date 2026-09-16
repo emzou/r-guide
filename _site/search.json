@@ -368,7 +368,7 @@
     "href": "r-code/load_data/01-getdata.html#tidyverse",
     "title": "Load CSV into R",
     "section": "tidyverse",
-    "text": "tidyverse\nWe will be using the tidyverse package. ### Installing Packages Run install.packages(“tidyverse”) in a R chunk.\n\n\nmy-analysis.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\nmy-analysis.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
+    "text": "tidyverse\nWe will be using the tidyverse package.\n\nInstalling Packages\nRun install.packages(“tidyverse”) in a R chunk.\n\n\nmy-analysis.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\nmy-analysis.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
     "crumbs": [
       "R Practice",
       "Dataframes",
@@ -409,6 +409,114 @@
       "R Practice",
       "Dataframes",
       "Changing the Dataframe"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html",
+    "href": "r-code/visuals/04-histograms.html",
+    "title": "Histograms",
+    "section": "",
+    "text": "To work through questions of distribution, we’ll use the dataset from Bertrand & Mullainathan’s 2004 study, “Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination”. In this study, the authors sent out 4870 fake resumes, which they had randomly assigned to have either an African-American or White sounding name. They found that White names receive 50 percent more callbacks for interviews. The dataset, which you can download locally here, lists every resume and the job it was sent to.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#binwidth",
+    "href": "r-code/visuals/04-histograms.html#binwidth",
+    "title": "Histograms",
+    "section": "binwidth",
+    "text": "binwidth\nNotice that in geom_histogram(), we also set the binwidth to 2. This means that the each bar counts up the total count of every two years – 0-2, 2-4, and so on. Try changing binwidth in the above code and see what happpens.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#interpretation",
+    "href": "r-code/visuals/04-histograms.html#interpretation",
+    "title": "Histograms",
+    "section": "Interpretation",
+    "text": "Interpretation\nLooking at the visual, we can see that the resumes are not uniformly distributed across years of experience, and that resumes generally have less years of experience.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#occupation",
+    "href": "r-code/visuals/04-histograms.html#occupation",
+    "title": "Histograms",
+    "section": "Occupation",
+    "text": "Occupation\nTo think through this, we’ll make a bar plot for the occup_broad column, which categorizes the jobs a resume applied to into Executive, Administrative, Sales representatives, Sales workers, Secretaries, and Clerical. This makes it a nominal variable.\n\n\n\n\n\n\n\n\nCompare this plot to the years of experience plot. In a histogram, the overall shape of the data tells us what the distribution of the data is, we can learn something about the data when our eyes move across the x-axis. In a bar plot of a nominal variable, the order of the x-axis doesn’t matter. You can rearrange the categories however you want and you’ll still have the same information. In the histogram, we can see that as years of experience increases, the less resumes there are.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#education",
+    "href": "r-code/visuals/04-histograms.html#education",
+    "title": "Histograms",
+    "section": "Education",
+    "text": "Education\neducation lists the highest level of education reported on each resume, which ranges from: 1 = high school dropout; 2 = high school graduate; 3 = some college; 4 = College graduate or more, (and 0 for not reported). This makes it an ordinal variable, because the order of the categories matter.\n\n\n\n\n\n\n\n\nAt first glance, this seems to function very similarly as the years of experience histogram – we can see that (whatever distribution pattern)\nHowever, the intervals on the x-axis are not equal. From the perspective of someone reading the resume, we can imagine that there is some difference in the evaluation of high school dropout applicants and high school graduate applicants. But is this difference the same as how someone with some college is compared to someone with a high school graduate?\nMore importantly, you can tell very different stories with the same data based on how you create categories, or even just choosing bin width.",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#zipcode-demographics",
+    "href": "r-code/visuals/04-histograms.html#zipcode-demographics",
+    "title": "Histograms",
+    "section": "Zipcode Demographics",
+    "text": "Zipcode Demographics",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#pretend-your-bar-plot-is-a-histogram",
+    "href": "r-code/visuals/04-histograms.html#pretend-your-bar-plot-is-a-histogram",
+    "title": "Histograms",
+    "section": "Pretend your bar plot is a histogram",
+    "text": "Pretend your bar plot is a histogram\nImagine I wanted to say that the applicants are mostly from zipcodes with large proportions of Black people. We can see from the histogram that this isn’t true.\nHowever, if I turn the interval variable frac_black into an ordinal one by creating skewed bins:\n\n\n\n\n\n\n\n\nThen, the distribution of frac_black looks like something that fits my narrative more",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
+    "href": "r-code/visuals/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
+    "title": "Histograms",
+    "section": "By converting an interval variables to an ordinal one",
+    "text": "By converting an interval variables to an ordinal one\nImagine I wanted to say that the applicants are mostly from zipcodes with large proportions of Black people. We can see from the histogram that this isn’t true.\nHowever, if I turn the interval variable frac_black into an ordinal one by creating skewed bins:\n\n\n\n\n\n\n\n\nThen, the distribution of frac_black looks like something that fits my narrative more",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "r-code/visuals/04-histograms.html#by-selecting-uninformative-bin-widths",
+    "href": "r-code/visuals/04-histograms.html#by-selecting-uninformative-bin-widths",
+    "title": "Histograms",
+    "section": "By selecting uninformative bin widths",
+    "text": "By selecting uninformative bin widths",
+    "crumbs": [
+      "R Practice",
+      "Visualizations",
+      "Histograms"
     ]
   }
 ]
