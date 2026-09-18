@@ -3,7 +3,7 @@ title: "Install R for Mac"
 format: html
 ---
 
-### Check macOS version
+## Check macOS version
 ::: {.screenshot-steps}
 
 1. Click the Apple menu in the top-left corner of your screen.
@@ -20,7 +20,7 @@ format: html
 
 :::
 
-### Download R based on your macOS version 
+## Download R based on your macOS version 
 1. Go to [the R for macOS Installation site](https://cran.r-project.org)
 
 ![R for macOS site](images/04-rmacos.png)
@@ -43,7 +43,7 @@ If you cannot update macOS, you can download the `x86_64` file instead.
 
 3. Click on the appropriate version, and the download will start automatically
 
-### Install R 
+## Install R 
 
 ::: {.screenshot-steps}
 

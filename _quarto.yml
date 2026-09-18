@@ -3,57 +3,54 @@ project:
   output-dir: _site
 
 website:
-  title: "R basics"
+  title: "R Reference"
+  favicon: favicon.png
   site-url: "https://emzou.github.io/r-guide/"
   repo-url: "https://github.com/emzou/r-guide"
   repo-actions: [edit, issue]
 
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: r-setup/index.qmd
-        text: "R Setup"
-      - href: r-code/index.qmd
-        text: "R Practice"
-
-    right:
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 2
+    tools:
       - icon: github
         href: "https://github.com/emzou/r-guide"
+    contents:
+      - href: index.qmd
+        text: Home
 
-  sidebar:
-    - id: r-setup
-      title: "R Setup"
-      style: docked
-      collapse-level: 1
-      contents:
-        - r-setup/index.qmd
-        - section: "1. Install R"
-          contents:
-            - auto: "r-setup/install-r/*.qmd"
-        - section: "2. Install RStudio"
-          contents:
-            - auto: "r-setup/install-rstudio/*.qmd"
-        - section: "3. Make R Markdown File"
-          contents:
-            - auto: "r-setup/make-rmd/*.qmd"
-        
-        
-    - id: r-code
-      title: "Practices"
-      style: docked
-      collapse-level: 2
-      contents:
-        - r-code/index.qmd
-        - section: "Classes and Functions"
-          contents:
-            - auto: "r-code/first/*.qmd"
-        - section: "Dataframes"
-          contents:
-            - auto: "r-code/load_data/*.qmd"
-        - section: "Visualizations"
-          contents:
-            - auto: "r-code/visuals/*.qmd"
+      - section: "R Setup"
+        href: r-setup/index.qmd
+        contents:
+          - section: "Install R"
+            contents:
+              - auto: "r-setup/install-r/*.qmd"
+          - section: "Install RStudio"
+            contents:
+              - auto: "r-setup/install-rstudio/*.qmd"
+          - section: "Make R Markdown File"
+            contents:
+              - auto: "r-setup/make-rmd/*.qmd"
+          - section: "Loading in data"
+            contents:
+              - auto: "r-setup/load-data/*.qmd"
+          - section: "Working Directory"
+            contents:
+              - auto: "r-setup/check-wd/*.qmd"
+
+      - section: "R Practice"
+        href: r-code/index.qmd
+        contents:
+          - section: "Classes and Functions"
+            contents:
+              - auto: "r-code/first/*.qmd"
+          - section: "Dataframes"
+            contents:
+              - auto: "r-code/load_data/*.qmd"
+          - section: "Visualizations"
+            contents:
+              - auto: "r-code/visuals/*.qmd"
 
     
 

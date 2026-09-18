@@ -1,6 +1,16 @@
 ---
-title: "R basics"
-format: html
+title: "R Reference"
+format: live-html
+engine: knitr
 ---
 
-A reference guide to get started with using R! 
+The [R Setup](/r-setup/index.qmd) tab walks you through installing R and RStudio on your machine.
+
+The [R Practice](/r-code/index.qmd) section works through common data analysis questions using R. You can run and edit the code directly on this site, no setup required. You can run the below code, and edit it. 
+
+```{webr}
+#| autorun: false
+print("easy")
+```
+
+However, the browser version doesn't save your work. To keep your code or start working with your own datasets, you'll need to have R and RStudio installed locally (see [R Setup](/r-setup/index.qmd)).

@@ -1,0 +1,15 @@
+{
+  "hash": "6abd76ec33da46b0b97e186807d61704",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Significance Tests\"\nformat: \n  live-html: \n    code-fold: true\n    code-summary: \"Show code\"\nengine: knitr\n---\n\n\n\n\nThe pieces we have so far are:\n\n1. $r$ We found a strong positive correlation between prison population and violent crime of 0.776. \n\n2. $\\hat{\\beta}$ We find that, for each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people.\n\nWhat we don't have is a measure of how confident we are in our estimate of $\\hat{\\beta}$. $r$ is a measure of the strength of whether a *line exists *at all*, but it doesn't tell us anything about the slope of the line. $\\hat{\\beta}$ is the slope, but doesn't tell us about the confidence with which we can say that the slope is that number exactly. \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

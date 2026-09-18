@@ -1,0 +1,19 @@
+---
+title: "Install R Studio for Windows"
+format: html
+---
+
+1. Go to [the RStudio Installation site](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads)
+
+2. Scroll to `Direct Downloads (Open Source), and look at the first section `RStudio IDE`
+
+![RStudio page](images/01-ide-screen.png)
+
+3. Click on the `.exe` file next to Windows 11 
+4. Follow the pop-up links
+
+
+::: {.callout-note collapse="true"}
+## If you cannot update to Windows 11 or higher
+You must use Posit Cloud, the online version of RStudio. Follow the instructions in the [Preamble](index.qmd)
+:::

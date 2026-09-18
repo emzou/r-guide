@@ -1,0 +1,113 @@
+---
+title: "Boxplots and Summary Statistics"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+We'll use Bonica 2024's Database on Ideology, Money in Elections (DIME), which you can download locally [here](https://www.dropbox.com/scl/fi/c5z45dm2g8u9ihfi7uce8/dime_contributors_1979_2024.csv.gz?rlkey=janwvetndyxe4t8tm2v5a6wbu&dl=1), which contains 8948 observations of amount of money received by candidates in local, state, and federal donations from 1979 to 2024. Each candidate is also given a `CFscores`, which is a measure of each candidate's ideological intensity. 
+
+```{webr}
+#| context: setup
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/cand_data.csv",
+  "cand_data.csv"
+)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{webr}
+df <- read_csv("cand_data.csv", show_col_types = FALSE)
+```
+
+# Central Tendency Measures 
+We are interested in the `log_pac_receipts` column, which is the amount of money a candidate received from PACs (Political Action Commitee) on a logged scale. Sometimes, when our data has a really wide range: where someone gets 2 dollars and someone else gets 2 million dollars, we use a logarithimic scale. This preserves the relationship between the observations, but makes the data itself more manageable. 
+
+## Pull dataframe column into a vector 
+```{webr}
+log_pac_vector <- df$log_pac_receipts
+```
+
+1. Mean
+```{webr}
+mean(log_pac_vector)
+```
+
+2. Median
+```{webr}
+median(log_pac_vector)
+```
+
+3. Quartiles
+```{webr}
+summary(log_pac_vector)
+```
+
+# Measures of spread
+1. Standard Deviation
+```{webr}
+sd(log_pac_vector)
+```
+
+Remember that we're calculating *sample standard deviation*, the formula for which is: 
+$$
+s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2}
+$$
+
+
+2. Variance
+```{webr}
+var(log_pac_vector)
+```
+
+3. Range 
+```{webr}
+range(log_pac_vector)
+```
+
+4. Interquartile Range
+```{webr}
+iqr(log_pac_vector)
+```
+
+# Boxplot 
+A boxplot is another way to display the measures of spread at once. It summarizes a variable's distribution by showing its median, quartiles, and spread, with outliers plotted individually.
+
+```{webr}
+ggplot(df, aes(y = log_pac_receipts)) +
+  geom_boxplot()
+```
+
+### Horizontal Bar Plot
+You can display a horizontal bar plot instead of a vertical one by changing the "y =" call in aes() to "x =". Change it in the code block above and see how the visual changes. 
+
+
+## Improving Readability 
+```{webr}
+ggplot(df, aes(y = log_pac_receipts)) +
+  geom_boxplot(
+    fill = "steelblue",
+    alpha = 0.7,
+    width = 0.4,
+    outlier.color = "grey30",
+    outlier.alpha = 0.6
+  ) +
+  labs(
+    title = "Distribution of PAC Contributions to Candidates",
+    subtitle = "Log-transformed dollar amounts",
+    y = "PAC receipts (logged)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major.x = element_blank()
+  )
+```

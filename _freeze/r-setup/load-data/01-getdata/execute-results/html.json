@@ -1,0 +1,15 @@
+{
+  "hash": "46e34e29f510480bb8707a1ceb5a7b9c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Load CSV into R\"\nformat: live-html\nengine: knitr\nresources:\n  - titanic.csv\n---\n\n\n\n\n# Download data, put in correct folder\n1. [Download titanic.csv](titanic.csv){download=\"titanic.csv\"}  \n2. Move the download into your  `comm_106` folder by dragging and dropping the csv into your folder on your desktop. \n\n**For Posit Cloud users** \n1. [Download titanic.csv](titanic.csv){download=\"titanic.csv\"} \n2. Go the bottom right panel, and click on `Upload` \n![Bottom right panel](posit-01.png)\n3. Select the `titanic.csv` file. You should see it show up in the bottom right panel: \n![titanic.csv should show up here](posit-02.png)\n\n\n# Package Installation \nYou will need to install *Packages* in R.\n\nWhen you get a new phone, you can send a picture of your cat to ten of your friends by individually messaging them. Or, you can download Instagram and post the picture of your cat on there. Packages for R are the same concept. If you haven't downloaded Instagram on your phone, your phone doesn't know how to post a picture of your cat on there. \n\n## tidyverse \nWe will be using the tidyverse package. \n\n### Installing Packages\n\nRun install.packages(\"tidyverse\") in a R chunk.\n\n````{.markdown filename=\"practice_01.qmd\"}\n```{{r}}\ninstall.packages(\"tidyverse\")\n```\n````\nYou only have to do this once. (If you turn off your phone, you don't have to redownload Instagram everytime)\n\n### Loading Packages\nIn order to actually use the package, you need to load it with every session with the **library()** function\n````{.markdown filename=\"my-analysis.qmd\"}\n```{{r}}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```\n````\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
