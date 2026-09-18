@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Writing and Coding in Rmd – R Reference</title>
+<title>Writing and Coding in R Markdown – R Reference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../r-setup/load-data/01-getdata.html" rel="next">
+<link href="../../r-setup/make-rmd/01-vartypes.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -114,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/01-vartypes.html">Make R Markdown File</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/02-datatypes.html">Writing and Coding in Rmd</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/01-vartypes.html">Make R Markdown File</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/02-datatypes.html">Writing and Coding in R Markdown</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">R Reference</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-home"></i></a>
 </div>
     </div>
       </div>
@@ -221,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Writing and Coding in Rmd</span></a>
+ <span class="menu-text">Writing and Coding in R Markdown</span></a>
   </div>
 </li>
       </ul>
@@ -389,21 +391,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files" id="toc-we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files" class="nav-link active" data-scroll-target="#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files">We can directly switch between two languages – human and R – on Rmd files</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/make-rmd/02-datatypes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/01-vartypes.html">Make R Markdown File</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/02-datatypes.html">Writing and Coding in Rmd</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/01-vartypes.html">Make R Markdown File</a></li><li class="breadcrumb-item"><a href="../../r-setup/make-rmd/02-datatypes.html">Writing and Coding in R Markdown</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Writing and Coding in Rmd</h1>
+<h1 class="title">Writing and Coding in R Markdown</h1>
 </div>
 
 
@@ -426,24 +422,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files" class="level2">
-<h2 class="anchored" data-anchor-id="we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files">We can directly switch between two languages – human and R – on Rmd files</h2>
+<p><span class="lead">We can directly switch between two languages – human and R – on Rmd files</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/01-lang.png" class="img-fluid figure-img"></p>
 <figcaption>Two languages</figcaption>
 </figure>
 </div>
-<ol type="1">
-<li>Type anything into your .Rmd file.</li>
-</ol>
-<p>This will show up when your run the whole Rmd file, but it’s not actually code. We can write notes on what our code is about, or describe the results of some code.</p>
-<ol start="2" type="1">
-<li><p>Now, type: ```{r} A grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.</p></li>
+<ul>
+<li><p>Type anything into your .Rmd file.</p>
+<ul>
+<li>This will show up when your run the whole Rmd file, but it’s not actually code.We can write notes on what our code is about, or describe the results of some code.</li>
+</ul></li>
+<li><p>Now, type: <code>```{r}</code></p>
+<ul>
+<li>A grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.</li>
+</ul></li>
 <li><p>Press enter a few times, and the rectangle will expand.</p></li>
-<li><p>We close this chunk by putting ```</p></li>
+<li><p>We close this chunk by putting <code>```</code></p></li>
 <li><p>Outside of this chunk, we’re back to human language again.</p></li>
-</ol>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>practice_01.Rmd</strong></pre>
@@ -457,7 +455,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -877,6 +874,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../r-setup/make-rmd/01-vartypes.html" class="pagination-link" aria-label="Create, save R Markdown file">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Create, save R Markdown file</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../r-setup/load-data/01-getdata.html" class="pagination-link" aria-label="Load CSV into R">
+        <span class="nav-page-text">Load CSV into R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -885,7 +894,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/make-rmd/02-datatypes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/make-rmd/02-datatypes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>

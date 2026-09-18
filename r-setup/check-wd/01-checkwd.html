@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../r-code/index.html" rel="next">
+<link href="../../r-setup/load-data/01-getdata.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -105,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -131,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">R Reference</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-home"></i></a>
 </div>
     </div>
       </div>
@@ -221,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Writing and Coding in Rmd</span></a>
+ <span class="menu-text">Writing and Coding in R Markdown</span></a>
   </div>
 </li>
       </ul>
@@ -397,12 +399,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-does-working-directory-mean" id="toc-what-does-working-directory-mean" class="nav-link active" data-scroll-target="#what-does-working-directory-mean">What does “Working Directory” mean?</a></li>
   <li><a href="#getting-working-directory" id="toc-getting-working-directory" class="nav-link" data-scroll-target="#getting-working-directory">Getting working directory</a></li>
   <li><a href="#set-working-directory" id="toc-set-working-directory" class="nav-link" data-scroll-target="#set-working-directory">Set working directory</a></li>
-  <li><a href="#load-in-the-dataset" id="toc-load-in-the-dataset" class="nav-link" data-scroll-target="#load-in-the-dataset">Load in the dataset</a></li>
+  <li><a href="#load-in-the-dataset" id="toc-load-in-the-dataset" class="nav-link" data-scroll-target="#load-in-the-dataset">Load in the dataset</a>
+  <ul class="collapse">
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/check-wd/01-checkwd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Working Directory</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Getting and setting working directory</a></li></ol></nav>
 <div class="quarto-title">
@@ -434,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Your working directory is the folder R is currently looking in. When you tell R to “open titanic.csv,” it only looks inside that one folder. If the file is in a different folder (like Downloads), R won’t find it, even though the file is on your computer.</p>
 <p>We also want to be aware of what working directory we are currently in.</p>
 </section>
-<section id="getting-working-directory" class="level1">
+<section id="getting-working-directory" class="level1 page-columns page-full">
 <h1>Getting working directory</h1>
 <p>We will use the <strong>getwd()</strong> function. getwd() stands for “get working directory.” It tells you which folder R is currently “standing in.”</p>
 <ol type="1">
@@ -447,27 +452,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>What your markdown file should look like</figcaption>
 </figure>
 </div>
-<p>The output is your current the folder path. - For Mac users, the output should look something similar to: <code>/Users/name/Desktop/comm_106</code> - For Windows users, <code>C:/Users/name/Desktop/comm_106</code></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Windows users: check for OneDrive
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>The output is your current the folder path. - For Mac users, the output should look something similar to: <code>/Users/name/Desktop/comm_106</code> - For Windows users, <code>C:/Users/name/Desktop/comm_106</code> - For Posit Cloud users, it should be: “/cloud/project”</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Windows users: check for OneDrive</strong></p>
 <p>If your Desktop is synced to OneDrive, your folder path will look like <code>C:/Users/yourname/OneDrive/Desktop/comm_106</code> instead of <code>C:/Users/yourname/Desktop/comm_106</code>. Run <code>getwd()</code> to see which one you have.</p>
-</div>
-</div>
-</div>
-<ul>
-<li>For Posit Cloud users, it should be: “/cloud/project”</li>
-</ul>
-</section>
+</div></div></section>
 <section id="set-working-directory" class="level1">
 <h1>Set working directory</h1>
 <p>If your working directory isn’t your <code>comm_106</code> folder, you can change it with the <strong>setwd()</strong> function. setwd() stands for “set working directory.” It tells R which folder to look in.</p>
@@ -512,11 +502,14 @@ Tip
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We’ll go over in detail what all of this actually means later, but the gist is that we just turned our csv into something we can actually work with in R.</p>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
 <p>If you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.</p>
 <p>Make sure your <code>titanic.csv</code> is in your <code>comm_106</code> folder. When you run code in a <code>.rmd</code> file, R looks in the folder the file is saved in, so keeping your data and your <code>.rmd</code> together means R can always find it.</p>
 <p>Then run the <code>read_csv</code> chunk again.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -937,6 +930,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../r-setup/load-data/01-getdata.html" class="pagination-link" aria-label="Load CSV into R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Load CSV into R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../r-code/index.html" class="pagination-link" aria-label="R Practice">
+        <span class="nav-page-text">R Practice</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

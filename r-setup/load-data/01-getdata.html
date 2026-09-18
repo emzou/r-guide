@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../r-setup/check-wd/01-checkwd.html" rel="next">
+<link href="../../r-setup/make-rmd/02-datatypes.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -109,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -135,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">R Reference</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-home"></i></a>
 </div>
     </div>
       </div>
@@ -225,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Writing and Coding in Rmd</span></a>
+ <span class="menu-text">Writing and Coding in R Markdown</span></a>
   </div>
 </li>
       </ul>
@@ -398,7 +400,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#download-data-put-in-correct-folder" id="toc-download-data-put-in-correct-folder" class="nav-link active" data-scroll-target="#download-data-put-in-correct-folder">Download data, put in correct folder</a></li>
+  <li><a href="#download-data-put-in-correct-folder" id="toc-download-data-put-in-correct-folder" class="nav-link active" data-scroll-target="#download-data-put-in-correct-folder">Download data, put in correct folder</a>
+  <ul class="collapse">
+  <li><a href="#for-posit-cloud-users" id="toc-for-posit-cloud-users" class="nav-link" data-scroll-target="#for-posit-cloud-users">For Posit Cloud users</a></li>
+  </ul></li>
   <li><a href="#package-installation" id="toc-package-installation" class="nav-link" data-scroll-target="#package-installation">Package Installation</a>
   <ul class="collapse">
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse</a>
@@ -411,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/load-data/01-getdata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/load-data/01-getdata.html">Loading in data</a></li><li class="breadcrumb-item"><a href="../../r-setup/load-data/01-getdata.html">Load CSV into R</a></li></ol></nav>
 <div class="quarto-title">
@@ -438,22 +443,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>A <strong>CSV</strong> (“comma-separated values”) is a plain-text spreadsheet: each line is a row, and commas separate the columns. It’s one of the most common formats for sharing data. If you open a csv, it will likely automatically open in Apple Numbers or Microsoft Excel.</p>
 <section id="download-data-put-in-correct-folder" class="level1">
 <h1>Download data, put in correct folder</h1>
 <ol type="1">
 <li><a href="titanic.csv" download="titanic.csv">Download titanic.csv</a><br>
 </li>
-<li>Move the download into your <code>comm_106</code> folder by dragging and dropping the csv into your folder on your desktop.</li>
+<li>Move the download into your comm_106 folder by dragging and dropping the csv into your folder on your desktop.</li>
 </ol>
-<p><strong>For Posit Cloud users</strong> 1. <a href="titanic.csv" download="titanic.csv">Download titanic.csv</a> 2. Go the bottom right panel, and click on <code>Upload</code> <img src="posit-01.png" class="img-fluid" alt="Bottom right panel"> 3. Select the <code>titanic.csv</code> file. You should see it show up in the bottom right panel: <img src="posit-02.png" class="img-fluid" alt="titanic.csv should show up here"></p>
+<section id="for-posit-cloud-users" class="level2">
+<h2 class="anchored" data-anchor-id="for-posit-cloud-users">For Posit Cloud users</h2>
+<ol type="1">
+<li><a href="titanic.csv" download="titanic.csv">Download titanic.csv</a></li>
+<li>Go the bottom right panel, and click on <code>Upload</code></li>
+</ol>
+<p><img src="posit-01.png" class="img-fluid" alt="Bottom right panel"> 3. Select the <code>titanic.csv</code> file. You should see it show up in the bottom right panel:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="posit-02.png" class="img-fluid figure-img"></p>
+<figcaption>titanic.csv should show up here</figcaption>
+</figure>
+</div>
+<hr>
 </section>
-<section id="package-installation" class="level1">
+</section>
+<section id="package-installation" class="level1 page-columns page-full">
 <h1>Package Installation</h1>
 <p>You will need to install <em>Packages</em> in R.</p>
 <p>When you get a new phone, you can send a picture of your cat to ten of your friends by individually messaging them. Or, you can download Instagram and post the picture of your cat on there. Packages for R are the same concept. If you haven’t downloaded Instagram on your phone, your phone doesn’t know how to post a picture of your cat on there.</p>
-<section id="tidyverse" class="level2">
+<section id="tidyverse" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="tidyverse">tidyverse</h2>
-<p>We will be using the tidyverse package.</p>
+<div class="page-columns page-full"><p>We will be using the tidyverse package. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">You can read more about tidyverse <a href="https://tidyverse.org">here</a></span></div></div>
 <section id="installing-packages" class="level3">
 <h3 class="anchored" data-anchor-id="installing-packages">Installing Packages</h3>
 <p>Run install.packages(“tidyverse”) in a R chunk.</p>
@@ -472,9 +492,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In order to actually use the package, you need to load it with every session with the <strong>library()</strong> function</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>my-analysis.qmd</strong></pre>
+<pre><strong>practice_01.qmd</strong></pre>
 </div>
-<div class="sourceCode" id="cb2" data-filename="my-analysis.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode" id="cb2" data-filename="practice_01.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in"># Note that there are no quotation marks around tidyverse</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -928,6 +948,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../r-setup/make-rmd/02-datatypes.html" class="pagination-link" aria-label="Writing and Coding in R Markdown">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Writing and Coding in R Markdown</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../r-setup/check-wd/01-checkwd.html" class="pagination-link" aria-label="Getting and setting working directory">
+        <span class="nav-page-text">Getting and setting working directory</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
