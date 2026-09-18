@@ -170,5 +170,11 @@ ggplot(df, aes(x = pris, y = criv)) +
 ```
 
 
+```{r}
 
+
+ols.reg <- lm(df$criv ~ df$pris)
+summary(ols.reg)
+
+```
 

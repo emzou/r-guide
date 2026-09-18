@@ -1,20 +1,40 @@
 ---
-title: "Preamble"
+title: "Installing R, accessing data in R"
 format:
   html:
     include-after-body: checklist.html
 ---
 
-If your machine **is not**  running MacOS, Windows 11 or higher, start from the [Posit Cloud](#posit-cloud) step
+[If your machine **is not** running MacOS, Windows 11 or higher, start from the [Posit Cloud](#posit-cloud) step]{.aside}
 
+[To Do List]{.lead}
 
-# MacOS, Windows 11 or higher
+:::: {.callout-note collapse="true"}
+## MacOS, Windows 11 or higher
+
 ::: {.checklist}
-- [ ] Create a folder on your Desktop called `comm_106`
+- [ ] Create folder called `comm_106`
 - [ ] Install R
-- [ ] Install RStudio 
-- [ ] Create R Markdown file
+- [ ] Install RStudio
+- [ ] Create an R Markdown file called `practice_01.rmd` 
+- [ ] Load a dataset into your working directory
 :::
+
+::::
+
+:::: {.callout-note collapse="true"}
+## Posit Cloud users
+
+::: {.checklist}
+- [ ] Create a Posit Cloud account
+- [ ] Start a new project called `comm_106`
+- [ ] Create an R Markdown file called `practice_01.rmd` 
+- [ ] Load a dataset into your working directory
+:::
+
+::::
+
+---
 
 
 ## Create local folder
@@ -25,6 +45,8 @@ Create a new folder on your `Desktop` and name it `comm_106`
 
 ![Windows: Right click on desktop, click New, click Folder](images/win-01.png)
 :::
+
+---
 
 ## R and RStudio
 R and RStudio are different things and need to be installed separately. Once you do this, you won't have to do it again. 
@@ -37,8 +59,10 @@ They're separate programs and you need both. `R` alone works but is unpleasant; 
 Unfortunately, the links you'll need to click on to download depend on whether you're using Mac or Windows, and which version of macOS or Windows you're running. 
 You can make life easier by updating your macOS/Windows version to the most current version before installing anything.
 
+---
 
 # Posit Cloud {#posit-cloud}
+
 If you aren't using Mac or Windows, or if you can't update to Windows 11 or above, you can use the free *online* version of RStudio, and don't have to install anything. 
 
 1. Go to the Posit Cloud [site](https://posit.cloud), and click on "Get Started"
@@ -50,3 +74,10 @@ If you aren't using Mac or Windows, or if you can't update to Windows 11 or abov
 ![R on Posit Cloud](posit.png)
 
 6. Go to the [Make R Markdown File](make-rmd) step
+
+```{=html}
+<script>
+document.querySelectorAll('.checklist input[type="checkbox"]')
+  .forEach(cb => cb.disabled = false);
+</script>
+```

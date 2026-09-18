@@ -6,7 +6,7 @@ format: html
 ### If you have macOS 14+ 
 1. Go to [the RStudio Installation site](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads)
 
-2. Scroll to `Direct Downloads (Open Source), and look at the first section `RStudio IDE`
+2. Scroll to `Direct Downloads (Open Source)`, and look at the first section `RStudio IDE`
 
 ![RStudio page](images/01-ide-screen.png)
 

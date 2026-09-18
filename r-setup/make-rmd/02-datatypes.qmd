@@ -1,25 +1,24 @@
 ---
-title: "Writing and Coding in Rmd"
+title: "Writing and Coding in R Markdown"
 format: html
 ---
-## We can directly switch between two languages -- human and R -- on Rmd files
+[We can directly switch between two languages -- human and R -- on Rmd files]{.lead}
 
 ![Two languages](images/01-lang.png)
 
-1. Type anything into your .Rmd file. 
+- Type anything into your .Rmd file. 
+  - This will show up when your run the whole Rmd file, but it's not actually code.We can write notes on what our code is about, or describe the results of some code.  
 
-This will show up when your run the whole Rmd file, but it's not actually code. 
-We can write notes on what our code is about, or describe the results of some code.  
+- Now, type: `` ```{r} ``
 
-2. Now, type:  ```{r}
-A grayed-out rectangle will appear. We're telling the computer that we want to 
-talk to it in R now. 
+  - A grayed-out rectangle will appear. We're telling the computer that we want to 
+  talk to it in R now. 
 
-3. Press enter a few times, and the rectangle will expand. 
+- Press enter a few times, and the rectangle will expand. 
 
-4. We close this chunk by putting ``` 
+- We close this chunk by putting  `` ``` ``
 
-5. Outside of this chunk, we're back to human language again. 
+- Outside of this chunk, we're back to human language again. 
 
 ````{.markdown filename="practice_01.Rmd"}
 In this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: 

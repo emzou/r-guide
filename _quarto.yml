@@ -4,6 +4,7 @@ project:
 
 website:
   title: "R Reference"
+  page-navigation: true
   favicon: favicon.png
   site-url: "https://emzou.github.io/r-guide/"
   repo-url: "https://github.com/emzou/r-guide"
@@ -14,7 +15,7 @@ website:
     search: true
     collapse-level: 2
     tools:
-      - icon: github
+      - icon: home
         href: "https://github.com/emzou/r-guide"
     contents:
       - href: index.qmd
