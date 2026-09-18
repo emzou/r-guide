@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bar Plot – R Reference</title>
+<title>Scatterplots and Correlations – R Reference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,6 +106,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">R Practice</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/01-freqtable.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/02-barplot.html">Bar Plot</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">R Practice</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/01-freqtable.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/06-scatter.html">Scatterplots and Correlations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -310,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/visuals/02-barplot.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../r-code/visuals/02-barplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plot</span></a>
   </div>
 </li>
@@ -334,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/visuals/06-scatter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r-code/visuals/06-scatter.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Scatterplots and Correlations</span></a>
   </div>
 </li>
@@ -364,24 +427,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#geom_bar" id="toc-geom_bar" class="nav-link active" data-scroll-target="#geom_bar">geom_bar()</a>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link active" data-scroll-target="#scatterplots">Scatterplots</a>
   <ul class="collapse">
-  <li><a href="#improving-readability" id="toc-improving-readability" class="nav-link" data-scroll-target="#improving-readability">Improving Readability</a>
-  <ul class="collapse">
-  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels">Labels</a></li>
-  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">Themes</a></li>
-  <li><a href="#fill" id="toc-fill" class="nav-link" data-scroll-target="#fill">Fill</a></li>
+  <li><a href="#improved-readability" id="toc-improved-readability" class="nav-link" data-scroll-target="#improved-readability">Improved readability</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
   </ul></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-of-r" id="toc-interpretation-of-r" class="nav-link" data-scroll-target="#interpretation-of-r">Interpretation of <span class="math inline">\(r\)</span></a></li>
+  <li><a href="#substantive-interpretation-of-r" id="toc-substantive-interpretation-of-r" class="nav-link" data-scroll-target="#substantive-interpretation-of-r">Substantive Interpretation of <span class="math inline">\(r\)</span></a></li>
+  </ul></li>
+  <li><a href="#confounding-variables-and-how-visualizations-help-us" id="toc-confounding-variables-and-how-visualizations-help-us" class="nav-link" data-scroll-target="#confounding-variables-and-how-visualizations-help-us">Confounding Variables (and how visualizations help us)</a>
+  <ul class="collapse">
+  <li><a href="#adding-color" id="toc-adding-color" class="nav-link" data-scroll-target="#adding-color">Adding color</a></li>
+  <li><a href="#sectioning-the-scatterplot" id="toc-sectioning-the-scatterplot" class="nav-link" data-scroll-target="#sectioning-the-scatterplot">Sectioning the scatterplot</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/visuals/02-barplot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/visuals/06-scatter.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">R Practice</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/01-freqtable.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/02-barplot.html">Bar Plot</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">R Practice</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/01-freqtable.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../r-code/visuals/06-scatter.html">Scatterplots and Correlations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bar Plot</h1>
+<h1 class="title">Scatterplots and Correlations</h1>
 </div>
 
 
@@ -404,91 +473,649 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cell" data-context="setup" data-autorun="false">
+<p>We’ll use the dataset from Levitt 1996’s study, “The Effect of Prison Population Size on Crime Rates”, published in the Quarterly Journal of Economics, which you can download locally <a href="https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv%22">here</a>. Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each one, the dataset records the state’s prison population and its crime rates, as well as other demographic statistics.</p>
+<div class="cell" data-context="setup">
 <div>
 <div id="webr-1" class="exercise-cell">
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZG93bmxvYWQuZmlsZShcbiAgXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGF0YXNjaWVuY2Vkb2pvL2RhdGFzZXRzL21hc3Rlci90aXRhbmljLmNzdlwiLFxuICBcInRpdGFuaWMuY3N2XCJcbilcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShnZ3Bsb3QyKVxuZGYgPC0gcmVhZF9jc3YoXCJ0aXRhbmljLmNzdlwiKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZG93bmxvYWQuZmlsZShcbiAgXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZW16b3Uvci1ndWlkZS9tYWluL3ItY29kZS92aXN1YWxzL3ByaXNvbi5jc3ZcIixcbiAgXCJwcmlzb24uY3N2XCJcbilcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShnZ3Bsb3QyKSJ9
 </script>
 </div>
 </div>
-<p>We want to run the same analysis on the class for Titanic passengers, which is indicated in <code>Pclass</code>.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgJT4lIGNvdW50KFBjbGFzcykifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgPC0gcmVhZF9jc3YoXCJwcmlzb24uY3N2XCIsIHNob3dfY29sX3R5cGVzID0gRkFMU0UpIn0=
 </script>
 </div>
 </div>
-<section id="geom_bar" class="level1">
-<h1>geom_bar()</h1>
-<p>We can show this result with a bar plot, using the geom_bar() function from the ggplot2 package.</p>
+<section id="scatterplots" class="level1">
+<h1>Scatterplots</h1>
+<p>We’re interested in whether states with higher prison populations have higher crime rates.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-3" class="exercise-cell">
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFBjbGFzcykpICsgXG4gIGdlb21fYmFyKCkifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IHByaXMsIHkgPSBjcml2KSkgK1xuICBnZW9tX3BvaW50KCkifQ==
 </script>
 </div>
 </div>
-<p>This plot works when we only have <em>one</em> variable we’re showing. We specify that within the aes() call, which in the above code, we put as “x = Pclass”. We can make the same plot for other variables by changing what we set x equal to.</p>
+<p>Note the calls in aes(), specifying the independent (x) and dependent (y) variable.</p>
+<section id="improved-readability" class="level2">
+<h2 class="anchored" data-anchor-id="improved-readability">Improved readability</h2>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-4" class="exercise-cell">
 
 </div>
 <script type="webr-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFNleCkpICsgZ2VvbV9iYXIoKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IHByaXMsIHkgPSBjcml2KSkgK1xuICBnZW9tX3BvaW50KGFscGhhID0gMC4zLCBjb2xvciA9IFwiIzJjM2U1MFwiKSArXG4gIGxhYnMoXG4gICAgdGl0bGUgPSBcIlByaXNvbiBQb3B1bGF0aW9uIGFuZCBWaW9sZW50IENyaW1lXCIsXG4gICAgc3VidGl0bGUgPSBcIlN0YXRlLXllYXIgb2JzZXJ2YXRpb25zLCBMZXZpdHQgKDE5OTYpXCIsXG4gICAgeCA9IFwiUHJpc29uZXJzIHBlciBjYXBpdGFcIixcbiAgICB5ID0gXCJWaW9sZW50IGNyaW1lIHJhdGUgcGVyIGNhcGl0YVwiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEzKSArXG4gIHRoZW1lKFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKSxcbiAgICBwbG90LnN1YnRpdGxlID0gZWxlbWVudF90ZXh0KGNvbG9yID0gXCJncmV5NDBcIiksXG4gICAgcGFuZWwuZ3JpZC5taW5vciA9IGVsZW1lbnRfYmxhbmsoKVxuICApIn0=
 </script>
 </div>
 </div>
-<section id="improving-readability" class="level2">
-<h2 class="anchored" data-anchor-id="improving-readability">Improving Readability</h2>
-<section id="labels" class="level3">
-<h3 class="anchored" data-anchor-id="labels">Labels</h3>
-<p>We can add labels to our axes and a title for our entire plot by additonally calling labs().</p>
+</section>
+<section id="interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
+<p>When we set the independent variable to <code>pris</code> and dependent variable to <code>criv</code>, we are asking, how does change in the prison population correlate with change in violent crime rate? Note that the interpretation changes if we switch the independent variable to <code>criv</code> and dependent variable to <code>pris</code>, but the underlying relationship doesn’t.</p>
+<p><strong>Scatterplots alone are not objective measures.</strong></p>
+</section>
+</section>
+<section id="correlation" class="level1">
+<h1>Correlation</h1>
+<p>To calculate <span class="math inline">\(r\)</span>, the <strong>Pearson correlation coefficient</strong> (how closely the relationship between x and y follows a linear trend):</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-5" class="exercise-cell">
 
 </div>
 <script type="webr-5-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFBjbGFzcykpICtcbiAgZ2VvbV9iYXIoKSArXG4gIGxhYnModGl0bGUgPSBcIlBhc3NlbmdlcnMgYnkgY2xhc3NcIiwgXG4gICAgICAgIHggPSBcIlBhc3NlbmdlciBjbGFzc1wiLCBcbiAgICAgICAgeSA9IFwiQ291bnRcIikgIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiY29yKGRmJHByaXMsIGRmJGNyaXYpIn0=
 </script>
 </div>
 </div>
+<p>Note that <span class="math inline">\(r\)</span> is symmetric – the correlation between X and Y is the same as the correlation between Y and X so the order in which you put in the independent and dependent variable doesn’t matter.</p>
+<section id="interpretation-of-r" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-r">Interpretation of <span class="math inline">\(r\)</span></h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>range,          <span class="sc">~</span>strength,        <span class="sc">~</span>interpretation,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.00 – 0.19"</span>,   <span class="st">"Very weak"</span>,      <span class="st">"Essentially no linear association"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.20 – 0.39"</span>,   <span class="st">"Weak"</span>,           <span class="st">"Slight tendency, easily swamped by noise"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.40 – 0.59"</span>,   <span class="st">"Moderate"</span>,       <span class="st">"Visible trend in a scatterplot"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.60 – 0.79"</span>,   <span class="st">"Strong"</span>,         <span class="st">"Clear linear pattern, modest scatter"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.80 – 1.00"</span>,   <span class="st">"Very strong"</span>,    <span class="st">"Points cluster tightly around a line"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Interpreting the Pearson Correlation Coefficient"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">md</span>(<span class="st">"Guidelines for the absolute value of *r*"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">range          =</span> <span class="fu">md</span>(<span class="st">"|*r*|"</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">strength       =</span> <span class="st">"Descriptor"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">interpretation =</span> <span class="st">"What it looks like"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">md</span>(<span class="st">"Cutoffs are conventions, not thresholds. What counts as </span><span class="sc">\"</span><span class="st">strong</span><span class="sc">\"</span><span class="st"> depends entirely on the field."</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(<span class="at">align =</span> <span class="st">"left"</span>, <span class="at">columns =</span> <span class="fu">c</span>(strength, interpretation)) <span class="sc">|&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(<span class="at">align =</span> <span class="st">"center"</span>, <span class="at">columns =</span> range) <span class="sc">|&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.font.size =</span> <span class="fu">px</span>(<span class="dv">14</span>),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.title.font.weight =</span> <span class="st">"bold"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.font.weight =</span> <span class="st">"bold"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_row.padding =</span> <span class="fu">px</span>(<span class="dv">6</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="jbeabouiuu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jbeabouiuu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jbeabouiuu thead, #jbeabouiuu tbody, #jbeabouiuu tfoot, #jbeabouiuu tr, #jbeabouiuu td, #jbeabouiuu th {
+  border-style: none;
+}
+
+#jbeabouiuu p {
+  margin: 0;
+  padding: 0;
+}
+
+#jbeabouiuu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jbeabouiuu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jbeabouiuu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jbeabouiuu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jbeabouiuu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jbeabouiuu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jbeabouiuu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jbeabouiuu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jbeabouiuu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jbeabouiuu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jbeabouiuu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jbeabouiuu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jbeabouiuu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jbeabouiuu .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jbeabouiuu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jbeabouiuu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jbeabouiuu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jbeabouiuu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jbeabouiuu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jbeabouiuu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jbeabouiuu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jbeabouiuu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jbeabouiuu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jbeabouiuu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jbeabouiuu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jbeabouiuu .gt_left {
+  text-align: left;
+}
+
+#jbeabouiuu .gt_center {
+  text-align: center;
+}
+
+#jbeabouiuu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jbeabouiuu .gt_font_normal {
+  font-weight: normal;
+}
+
+#jbeabouiuu .gt_font_bold {
+  font-weight: bold;
+}
+
+#jbeabouiuu .gt_font_italic {
+  font-style: italic;
+}
+
+#jbeabouiuu .gt_super {
+  font-size: 65%;
+}
+
+#jbeabouiuu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jbeabouiuu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jbeabouiuu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jbeabouiuu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jbeabouiuu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jbeabouiuu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jbeabouiuu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jbeabouiuu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jbeabouiuu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Interpreting the Pearson Correlation Coefficient</th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Guidelines for the absolute value of <em>r</em></th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="range" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">|<em>r</em>|</th>
+<th id="strength" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Descriptor</th>
+<th id="interpretation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">What it looks like</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="range">0.00 – 0.19</td>
+<td class="gt_row gt_left" headers="strength">Very weak</td>
+<td class="gt_row gt_left" headers="interpretation">Essentially no linear association</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="range">0.20 – 0.39</td>
+<td class="gt_row gt_left" headers="strength">Weak</td>
+<td class="gt_row gt_left" headers="interpretation">Slight tendency, easily swamped by noise</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="range">0.40 – 0.59</td>
+<td class="gt_row gt_left" headers="strength">Moderate</td>
+<td class="gt_row gt_left" headers="interpretation">Visible trend in a scatterplot</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="range">0.60 – 0.79</td>
+<td class="gt_row gt_left" headers="strength">Strong</td>
+<td class="gt_row gt_left" headers="interpretation">Clear linear pattern, modest scatter</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="range">0.80 – 1.00</td>
+<td class="gt_row gt_left" headers="strength">Very strong</td>
+<td class="gt_row gt_left" headers="interpretation">Points cluster tightly around a line</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="3" class="gt_sourcenote">Cutoffs are conventions, not thresholds. What counts as “strong” depends entirely on the field.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
 </section>
-<section id="themes" class="level3">
-<h3 class="anchored" data-anchor-id="themes">Themes</h3>
-<p>ggplot comes with themes (you can peruse them <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a>). We can make our plot follow <code>theme_minimal()</code> by adding it.</p>
+<section id="substantive-interpretation-of-r" class="level2">
+<h2 class="anchored" data-anchor-id="substantive-interpretation-of-r">Substantive Interpretation of <span class="math inline">\(r\)</span></h2>
+<p>Across state-years from 1980 to 1993, the correlation between prison population and violent crime was positive and moderately strong (r = 0.776).</p>
+</section>
+</section>
+<section id="confounding-variables-and-how-visualizations-help-us" class="level1">
+<h1>Confounding Variables (and how visualizations help us)</h1>
+<p>Every dot here is a state in a particular year — California 1980, California 1981, Utah 1980, and so on.</p>
+<p>Suppose, hypothetically, that incarceration rates climbed across the country over these years while crime happened to be climbing too, for unrelated reasons. Then later years would sit up and to the right, earlier years down and to the left, and we’d get an upward-sloping cloud — even if, within any single year, states with bigger prison populations had no more crime than states with smaller ones.</p>
+<p>In that case, the pattern in our plot isn’t telling us about a relationship between prison populations and crime at all. Both variables just happened to rise over the same years, and pooling the years together turns that coincidence into an upward-sloping cloud.</p>
+<section id="adding-color" class="level2">
+<h2 class="anchored" data-anchor-id="adding-color">Adding color</h2>
+<p>Before splitting the plot up, we can get a quick read on whether time is doing any work here by mapping year to color — if the early years cluster in one corner of the cloud and the later years in another, that’s our sign that the calendar is part of what’s producing the slope. We do this by specifying <code>color</code> in our ggplot() call:</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-6" class="exercise-cell">
 
 </div>
 <script type="webr-6-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFBjbGFzcykpICtcbiAgZ2VvbV9iYXIoKSArXG4gIGxhYnModGl0bGUgPSBcIlBhc3NlbmdlcnMgYnkgY2xhc3NcIiwgXG4gICAgICAgIHggPSBcIlBhc3NlbmdlciBjbGFzc1wiLCBcbiAgICAgICAgeSA9IFwiQ291bnRcIikgKyBcbiAgdGhlbWVfbWluaW1hbCgpICAgICAgICJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IHByaXMsIHkgPSBjcml2LCBjb2xvciA9IHllYXIpKSArXG4gIGdlb21fcG9pbnQoYWxwaGEgPSAwLjYpICtcbiAgc2NhbGVfY29sb3JfdmlyaWRpc19jKG9wdGlvbiA9IFwicGxhc21hXCIpICtcbiAgbGFicyhcbiAgICB0aXRsZSA9IFwiUHJpc29uIFBvcHVsYXRpb24gYW5kIFZpb2xlbnQgQ3JpbWVcIixcbiAgICBzdWJ0aXRsZSA9IFwiU3RhdGUteWVhciBvYnNlcnZhdGlvbnMsIDE5ODDigJMxOTkzXCIsXG4gICAgeCA9IFwiUHJpc29uZXJzIHBlciBjYXBpdGFcIixcbiAgICB5ID0gXCJWaW9sZW50IGNyaW1lIHJhdGUgcGVyIGNhcGl0YVwiLFxuICAgIGNvbG9yID0gXCJZZWFyXCJcbiAgKSArXG4gIHRoZW1lX21pbmltYWwoYmFzZV9zaXplID0gMTMpICtcbiAgdGhlbWUoXG4gICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChmYWNlID0gXCJib2xkXCIpLFxuICAgIHBsb3Quc3VidGl0bGUgPSBlbGVtZW50X3RleHQoY29sb3IgPSBcImdyZXk0MFwiKSxcbiAgICBwYW5lbC5ncmlkLm1pbm9yID0gZWxlbWVudF9ibGFuaygpXG4gICkifQ==
 </script>
 </div>
 </div>
 </section>
-<section id="fill" class="level3">
-<h3 class="anchored" data-anchor-id="fill">Fill</h3>
-<p>We can also customize the color of the bar with geom_bar.</p>
+<section id="sectioning-the-scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="sectioning-the-scatterplot">Sectioning the scatterplot</h2>
+<p>We can achieve the same goal, but in a different visual manner by using the facet_wrap() function</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-7" class="exercise-cell">
 
 </div>
 <script type="webr-7-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IGZhY3RvcihQY2xhc3MpKSkgK1xuICBnZW9tX2JhcihmaWxsID0gXCJzdGVlbGJsdWVcIikgK1xuICBsYWJzKHRpdGxlID0gXCJQYXNzZW5nZXJzIGJ5IGNsYXNzXCIsIHggPSBcIlBhc3NlbmdlciBjbGFzc1wiLCB5ID0gXCJDb3VudFwiKSArXG4gIHRoZW1lX21pbmltYWwoKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IHByaXMsIHkgPSBjcml2KSkgK1xuICBnZW9tX3BvaW50KGFscGhhID0gMC41LCBjb2xvciA9IFwiIzJjM2U1MFwiKSArXG4gIGZhY2V0X3dyYXAofiB5ZWFyLCBuY29sID0gNSkgK1xuICBsYWJzKFxuICAgIHRpdGxlID0gXCJQcmlzb24gUG9wdWxhdGlvbiBhbmQgVmlvbGVudCBDcmltZSwgYnkgWWVhclwiLFxuICAgIHN1YnRpdGxlID0gXCJFYWNoIHBhbmVsIGhvbGRzIHRoZSB5ZWFyIGNvbnN0YW50XCIsXG4gICAgeCA9IFwiUHJpc29uZXJzIHBlciBjYXBpdGFcIixcbiAgICB5ID0gXCJWaW9sZW50IGNyaW1lIHJhdGUgcGVyIGNhcGl0YVwiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEyKSArXG4gIHRoZW1lKFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKSxcbiAgICBwbG90LnN1YnRpdGxlID0gZWxlbWVudF90ZXh0KGNvbG9yID0gXCJncmV5NDBcIiksXG4gICAgcGFuZWwuZ3JpZC5taW5vciA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBzdHJpcC50ZXh0ID0gZWxlbWVudF90ZXh0KGZhY2UgPSBcImJvbGRcIilcbiAgKSJ9
 </script>
 </div>
 </div>
@@ -511,7 +1138,6 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC03IiwiaW5saW5lIjpmYWxzZSwibWV0
 <script type="vfs-file">
 W10=
 </script>
-</section>
 </section>
 </section>
 
@@ -952,7 +1578,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/visuals/02-barplot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/visuals/06-scatter.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>
