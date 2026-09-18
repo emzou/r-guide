@@ -9,7 +9,7 @@ engine: knitr
 
 
 
-We'll use the dataset from Levitt 1996's study, "The Effect of Prison Population Size on Crime Rates", published in the Quarterly Journal of Economics, which you can download locally [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv"). Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each one, the dataset records the state's prison population and its crime rates, as well as other demographic statistics. 
+We'll use the dataset from Levitt 1996's study, "The Effect of Prison Population Size on Crime Rates", published in the Quarterly Journal of Economics, which you can download locally [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv"). Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each state-year, the dataset records the state's prison population and its crime rates, as well as other demographic statistics. 
 
 ```{webr}
 #| context: setup
@@ -21,10 +21,7 @@ download.file(
 )
 library(tidyverse)
 library(ggplot2)
-```
 
-```{webr}
-#| autorun: false
 df <- read_csv("prison.csv", show_col_types = FALSE)
 ```
 
@@ -170,11 +167,4 @@ ggplot(df, aes(x = pris, y = criv)) +
 ```
 
 
-```{r}
-
-
-ols.reg <- lm(df$criv ~ df$pris)
-summary(ols.reg)
-
-```
 
