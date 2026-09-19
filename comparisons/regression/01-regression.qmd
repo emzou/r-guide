@@ -32,7 +32,7 @@ This is useful, because $\beta$ *is* the size of the relationship between X and 
 #| message: false
 #| warning: false
 download.file(
-  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv",
+  "https://raw.githubusercontent.com/emzou/r-guide/main/visuals/prison.csv",
   "prison.csv"
 )
 library(tidyverse)
@@ -84,7 +84,7 @@ A small value means our result would be very unlikely if there were truly no eff
 ## Reporting results
 
 ::: {.callout-tip title="Result"}
-Each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people,  which is statistically significant at the N level.
+Each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people,  which is statistically significant at the 95% confidence level.
 :::
 
 - Generic template

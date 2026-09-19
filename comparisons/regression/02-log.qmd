@@ -79,7 +79,7 @@ predict(logit, newdata = data.frame(log_pac_receipts = pac_values), type = "resp
 
 
 ::: {.callout-tip title="Result"}
-  Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from [X]% to [Y]%. This relationship is statistically significant at the [95/99]% confidence level ($\hat{\beta}$ = [coef], SE = [SE], p [= / <] [p-value]).
+  Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from 80.993% to 72.103%. This relationship is statistically significant (p<0.001)
 :::
 
 
