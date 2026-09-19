@@ -32,7 +32,7 @@ This is useful, because $\beta$ *is* the size of the relationship between X and 
 #| message: false
 #| warning: false
 download.file(
-  "https://raw.githubusercontent.com/emzou/r-guide/main/visuals/prison.csv",
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/prison.csv",
   "prison.csv"
 )
 library(tidyverse)
