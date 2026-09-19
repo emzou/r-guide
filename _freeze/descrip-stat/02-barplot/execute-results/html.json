@@ -1,0 +1,15 @@
+{
+  "hash": "a738aab0b89ff103f45e34111cdc7f82",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Bar Plot\"\nformat: live-html\nengine: knitr\n---\n\n::: {.cell context='setup' autorun='false'}\n\n```{.webr .cell-code}\ndownload.file(\n  \"https://raw.githubusercontent.com/emzou/r-guide/main/datasets/titanic.csv\",\n  \"titanic.csv\"\n)\nlibrary(tidyverse)\nlibrary(ggplot2)\ndf <- read_csv(\"titanic.csv\")\n```\n:::\n\n\n\n\nWe just made a frequency table for `Survived`, whether or not a passenger survived the Titanic. \nLikewise, we can make a the class for Titanic passengers, which is indicated in `Pclass`. \n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\ndf %>% count(Pclass)\n```\n:::\n\n\n\n\n# Bar Plot\n- A bar plot is the visual version of the frequency table. \n- We can show this result with a bar plot, using the ggplot() and geom_bar() function from the **ggplot2** package. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nggplot(df, aes(x = Pclass)) + \n  geom_bar()\n```\n:::\n\n\n\n\n- This plot works when we only have *one* variable we're showing. \n- We specify which variable we are interested in within the aes() call, which in the above code, we put as \"x = Pclass\". \n- We can make the same plot for other variables by changing what we set x equal to. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nggplot(df, aes(x = Sex)) + geom_bar()\n```\n:::\n\n\n\n\n## Improving Readability \n### Labels \nWe can add labels to our axes and a title for our entire plot by additionally calling labs(). \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nggplot(df, aes(x = Pclass)) +\n  geom_bar() +\n  labs(title = \"Passengers by class\", \n        x = \"Passenger class\", \n        y = \"Count\") \n```\n:::\n\n\n\n\n### Themes\n- ggplot comes with themes (you can peruse them [here](https://ggplot2.tidyverse.org/reference/ggtheme.html)). \n- We can make our plot follow `theme_minimal()` by adding it. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nggplot(df, aes(x = Pclass)) +\n  geom_bar() +\n  labs(title = \"Passengers by class\", \n        x = \"Passenger class\", \n        y = \"Count\") + \n  theme_minimal()       \n```\n:::\n\n\n\n\n### Fill \nWe can also customize the color of the bar with geom_bar. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nggplot(df, aes(x = Pclass)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Passengers by class\", x = \"Passenger class\", y = \"Count\") +\n  theme_minimal()\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

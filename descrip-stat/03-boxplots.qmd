@@ -1,0 +1,108 @@
+---
+title: "Central Tendency, Spread Measures, Boxplots"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+```{webr}
+#| context: setup
+#| autorun: false
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/titanic.csv",
+  "titanic.csv"
+)
+library(tidyverse)
+library(ggplot2)
+df <- read_csv("titanic.csv")
+```
+
+# Central Tendency Measures 
+`Sex` is a nominal variable
+`Pclass` is an ordinal variable 
+`Age` is an interval variable
+
+## Mode 
+```{webr}
+mode(df$Sex, na.rm = TRUE) 
+mode(df$Pclass, na.rm = TRUE) 
+mode(df$Age, na.rm = TRUE) 
+```
+
+## Median
+```{webr}
+mode(df$Pclass, na.rm = TRUE) 
+mode(df$Age, na.rm = TRUE) 
+```
+
+## Quartiles
+```{webr}
+summary(df$Pclass, na.rm = TRUE) 
+summary(df$Age, na.rm = TRUE) 
+```
+
+## Mean
+```{webr}
+mean(df$Age, na.rm = TRUE)
+```
+
+# Measures of spread
+
+##  Range 
+```{webr}
+range(df$Age, na.rm = TRUE)
+```
+
+## Interquartile Range
+```{webr}
+iqr(df$Age, na.rm = TRUE)
+```
+
+##  Standard Deviation
+```{webr}
+sd(df$Age, na.rm = TRUE)
+```
+
+## Variance
+```{webr}
+var(df$Age, na.rm = TRUE)
+```
+
+# Boxplot 
+A boxplot is another way to display the measures of spread at once. It summarizes a variable's distribution by showing its median, quartiles, and spread, with outliers plotted individually.
+
+```{webr}
+ggplot(df, aes(y = df$Age)) +
+  geom_boxplot()
+```
+
+### Horizontal Box Plot
+You can display a horizontal box plot instead of a vertical one by changing the "y =" call in aes() to "x =". Change it in the code block above and see how the visual changes. 
+
+
+## Improving Readability 
+```{webr}
+ggplot(df, aes(y = df$Age)) +
+  geom_boxplot(
+    fill = "steelblue",
+    alpha = 0.7,
+    width = 0.4,
+    outlier.color = "grey30",
+    outlier.alpha = 0.6
+  ) +
+  labs(
+    title = "Age Distribution of Titanic Passengers ",
+    y = "Age"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major.x = element_blank()
+  )
+```

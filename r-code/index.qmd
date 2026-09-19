@@ -1,8 +1,7 @@
 ---
-title: "R Practice"
+title: "Data Manipulation"
 format: html
 ---
 
-1. You can work through the examples in this guide through writing code on a R markdown file saved on your own laptop. 
-2. You can also directly edit and change code on the site. Nothing you change on the site will be saved. 
+Now that you've loaded a dataframe in, here's some stuff we can do with it
 

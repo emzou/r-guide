@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-code/index.html</loc>
-    <lastmod>2026-09-14T20:46:11.537Z</lastmod>
+    <lastmod>2026-09-18T22:46:47.689Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-code/first/02-vectors.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/index.html</loc>
-    <lastmod>2026-09-18T20:26:36.332Z</lastmod>
+    <lastmod>2026-09-19T20:01:52.591Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-setup/make-rmd/01-vartypes.html</loc>
@@ -98,10 +98,58 @@
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-code/visuals/06-scatter.html</loc>
-    <lastmod>2026-09-17T17:06:22.510Z</lastmod>
+    <lastmod>2026-09-18T21:43:47.269Z</lastmod>
   </url>
   <url>
     <loc>https://emzou.github.io/r-guide/r-code/load_data/04-mutate.html</loc>
     <lastmod>2026-09-14T21:18:23.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/descrip-stat/04-histograms.html</loc>
+    <lastmod>2026-09-19T20:22:23.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/descrip-stat/02-barplot.html</loc>
+    <lastmod>2026-09-19T20:20:41.702Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/descrip-stat/01-freqtable.html</loc>
+    <lastmod>2026-09-19T20:20:59.190Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/hypotest/01-hypotest.html</loc>
+    <lastmod>2026-09-19T20:20:02.279Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/index.html</loc>
+    <lastmod>2026-09-19T19:36:28.188Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/compmeans/01-compmeans.html</loc>
+    <lastmod>2026-09-19T20:20:21.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/crosstab/01-crosstab.html</loc>
+    <lastmod>2026-09-18T23:02:39.622Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/correlation/01-scatter.html</loc>
+    <lastmod>2026-09-19T17:27:38.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/regression/01-regression.html</loc>
+    <lastmod>2026-09-19T19:49:30.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/descrip-stat/index.html</loc>
+    <lastmod>2026-09-19T20:04:30.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/descrip-stat/03-boxplots.html</loc>
+    <lastmod>2026-09-19T20:20:50.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emzou.github.io/r-guide/comparisons/regression/02-log.html</loc>
+    <lastmod>2026-09-19T20:21:25.445Z</lastmod>
   </url>
 </urlset>

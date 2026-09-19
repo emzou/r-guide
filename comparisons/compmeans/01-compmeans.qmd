@@ -1,0 +1,60 @@
+---
+title: "Comparison of Means"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+```{webr}
+#| context: setup
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/labor_market_discrimination.csv",
+  "labor.csv"
+)
+library(tidyverse)
+library(ggplot2)
+
+df <- read_csv("labor.csv", show_col_types = FALSE)
+```
+
+# Comparison of Means
+Comparison of means allow us to compare an independent nominal or ordinal variable and a dependent interval variable. 
+
+In Bertrand & Mullainathan 2004, their main finding was that resumes with White-sounding names receive 50 percent more callbacks for interviews than resumes with African-American sounding names. 
+In this dataset, the `race` column indicates whether the resume had an African-American (denoted as the character b) or White sounding name (denoted as the character w). 
+The `call` column indicates whether the resume received a callback for an interview. 
+
+## Comparison setup 
+***Hypothesis*** 
+> In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names. 
+
+***Independent Variable*** 
+> Race (nominal)
+
+***Dependent Variable*** 
+> Call (interval)
+
+## Code 
+```{webr}
+#| autorun: false
+# Mean callback rate for resumes with African-American-sounding names
+mean(df$call[df$race == "b"])
+```
+
+```{webr}
+#| autorun: false
+mean(df$call[df$race == "w"])
+```
+
+### A note on indicator variables
+You might notice that `call` only takes two values: 1 if the resume got a callback and 0 if it didn't. So why are we treating it as an interval variable?
+
+Variables coded 0-1 (also called indicator, dummy, or binary variables) have an unusual status. On the surface they look nominal, since they just sort observations into two categories. But because there are only two values, there is only one distance between them, and that distance is always the same: exactly 1. There's no way for the spacing to be unequal, so the equal-intervals requirement is automatically satisfied.
+
+This has a handy consequence: the mean of a 0-1 variable is the proportion of observations coded 1. When we take the mean of `call`, we're getting the callback rate. A mean of 0.064 means 6.4% of resumes received a callback.
+
+That's why it's reasonable to use a comparison of means here. We're really comparing the proportion of callbacks between the two groups.

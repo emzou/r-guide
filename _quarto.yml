@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "R Reference"
+  title: "R(eference)"
   page-navigation: true
   favicon: favicon.png
   site-url: "https://emzou.github.io/r-guide/"
@@ -13,7 +13,7 @@ website:
   sidebar:
     style: docked
     search: true
-    collapse-level: 2
+    collapse-level: 1
     tools:
       - icon: home
         href: "https://github.com/emzou/r-guide"
@@ -40,7 +40,7 @@ website:
             contents:
               - auto: "r-setup/check-wd/*.qmd"
 
-      - section: "R Practice"
+      - section: "Data Manipulation"
         href: r-code/index.qmd
         contents:
           - section: "Classes and Functions"
@@ -49,9 +49,31 @@ website:
           - section: "Dataframes"
             contents:
               - auto: "r-code/load_data/*.qmd"
-          - section: "Visualizations"
+          
+      - section: "Description of One Variable"
+        href: descrip-stat/index.qmd
+        contents:
+          - auto: "descrip-stat/*.qmd"
+
+      - section: "Comparisons between Two Variables"
+        href: comparisons/index.qmd
+        contents:
+          - section: "Cross Tabluation"
             contents:
-              - auto: "r-code/visuals/*.qmd"
+              - auto: "comparisons/crosstab/*.qmd"
+          - section: "Comparison of Means"
+            contents:
+              - auto: "comparisons/compmeans/*.qmd"
+          - section: "Hypothesis Testing"
+            contents:
+              - auto: "comparisons/hypotest/*.qmd"
+          - section: "Correlation"
+            contents:
+              - auto: "comparisons/correlation/*.qmd"
+          - section: "Regressions"
+            contents:
+              - auto: "comparisons/regression/*.qmd"
+         
 
     
 

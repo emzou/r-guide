@@ -91,3 +91,9 @@ $shot-h: 6rem;
     opacity: 0.55;
   }
 }
+
+.mono-table th,
+.mono-table td {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}

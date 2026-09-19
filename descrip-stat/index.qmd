@@ -1,0 +1,13 @@
+---
+title: "Description of One Variable"
+format: html
+---
+
+| Nominal                                  | Ordinal                                          | Interval                                                |
+|:-----------------------------------------|:-------------------------------------------------|:--------------------------------------------------------|
+| [Frequency tables](01-freqtable.qmd)     | [Frequency tables](01-freqtable.qmd)             | [Frequency tables](01-freqtable.qmd)                    |
+| [Bar charts](02-barplot.qmd)             | [Bar charts](02-barplot.qmd)                     | [Bar charts](02-barplot.qmd)                            |
+| [Central tendency: mode](03-boxplots.qmd) | [Central tendency: mode, median](03-boxplots.qmd) | [Central tendency: mode, median, mean](03-boxplots.qmd) |
+|                                          |                                                  | [Histogram](04-histograms.qmd)                          |
+
+: Choosing a descriptive statistic {.striped .hover .mono-table tbl-colwidths="[33,33,34]"}

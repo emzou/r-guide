@@ -1,0 +1,180 @@
+---
+title: "Correlation and Scatterplot"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+We'll use the dataset from Levitt 1996's study, "The Effect of Prison Population Size on Crime Rates", published in the Quarterly Journal of Economics, which you can download locally [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv"). Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each state-year, the dataset records the state's prison population and its crime rates, as well as other demographic statistics. 
+
+```{webr}
+#| context: setup
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv",
+  "prison.csv"
+)
+library(tidyverse)
+library(ggplot2)
+
+df <- read_csv("prison.csv", show_col_types = FALSE)
+```
+
+# Correlation
+We're interested in whether having a higher proportion of prisoners per capita is correlated with a higher violent crime rate (the following year). 
+
+## Comparison setup 
+The units we are comparing are state-years to each other. 
+
+***Hypothesis*** 
+> In a comparison of state-years, those with a higher number of prisoners per capita will have a higher violent crime rate per capita than those with a lower number of prisoners per capita. 
+
+***Independent Variable*** 
+> Prisoners per capita, `pris` (interval)
+
+***Dependent Variable*** 
+> Violent crime rate per capita, `criv` (interval)
+
+```{webr}
+#| autorun: false
+ggplot(df, aes(x = pris, y = criv)) +
+  geom_point()
+```
+
+Note the calls in aes(), specifying the independent (x) and dependent (y) variable. 
+
+## Improved readability 
+```{webr}
+#| autorun: false
+ggplot(df, aes(x = pris, y = criv)) +
+  geom_point(alpha = 0.3, color = "#2c3e50") +
+  labs(
+    title = "Prison Population and Violent Crime",
+    subtitle = "State-year observations, Levitt (1996)",
+    x = "Prisoners per capita",
+    y = "Violent crime rate per capita"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey40"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Interpretation 
+When we set the independent variable to `pris` and dependent variable to `criv`, we are asking, how does change in the prison population correlate with change in violent crime rate? Note that the interpretation changes if we switch the independent variable to `criv` and dependent variable to `pris`, but the underlying relationship doesn't. 
+
+**Scatterplots alone are not objective measures.** 
+
+# Correlation 
+To calculate $r$, the **Pearson correlation coefficient** (how closely the relationship between x and y follows a linear trend): 
+
+```{webr}
+#| autorun: false
+cor(df$pris, df$criv)
+```
+
+Note that $r$ is symmetric -- the correlation between X and Y is the same as the correlation between Y and X so the order in which you put in the independent and dependent variable doesn't matter.
+
+## Interpretation of $r$ 
+
+```{r}
+library(gt)
+library(tibble)
+
+tribble(
+  ~range,          ~strength,        ~interpretation,
+  "0.00 – 0.19",   "Very weak",      "Essentially no linear association",
+  "0.20 – 0.39",   "Weak",           "Slight tendency, easily swamped by noise",
+  "0.40 – 0.59",   "Moderate",       "Visible trend in a scatterplot",
+  "0.60 – 0.79",   "Strong",         "Clear linear pattern, modest scatter",
+  "0.80 – 1.00",   "Very strong",    "Points cluster tightly around a line"
+) |>
+  gt() |>
+  tab_header(
+    title = "Interpreting the Pearson Correlation Coefficient",
+    subtitle = md("Guidelines for the absolute value of *r*")
+  ) |>
+  cols_label(
+    range          = md("|*r*|"),
+    strength       = "Descriptor",
+    interpretation = "What it looks like"
+  ) |>
+  tab_source_note(
+    md("Cutoffs are conventions, not thresholds. What counts as \"strong\" depends entirely on the field.")
+  ) |>
+  cols_align(align = "left", columns = c(strength, interpretation)) |>
+  cols_align(align = "center", columns = range) |>
+  tab_options(
+    table.font.size = px(14),
+    heading.title.font.weight = "bold",
+    column_labels.font.weight = "bold",
+    data_row.padding = px(6)
+  )
+```
+
+## Substantive Interpretation of $r$ 
+Across state-years from 1980 to 1993, the correlation between prison population and violent crime was positive and moderately strong (r = 0.776).
+
+
+# Confounding Variables (and how visualizations help us)
+Every dot here is a state in a particular year — California 1980, California 1981, Utah 1980, and so on. 
+
+Suppose, hypothetically, that incarceration rates climbed across the country over these years while crime happened to be climbing too, for unrelated reasons. Then later years would sit up and to the right, earlier years down and to the left, and we'd get an upward-sloping cloud — even if, within any single year, states with bigger prison populations had no more crime than states with smaller ones. 
+
+In that case, the pattern in our plot isn't telling us about a relationship between prison populations and crime at all. Both variables just happened to rise over the same years, and pooling the years together turns that coincidence into an upward-sloping cloud.
+
+## Adding color 
+
+Before splitting the plot up, we can get a quick read on whether time is doing any work here by mapping year to color — if the early years cluster in one corner of the cloud and the later years in another, that's our sign that the calendar is part of what's producing the slope. 
+We do this by specifying `color` in our ggplot() call: 
+
+```{webr}
+#| autorun: false
+ggplot(df, aes(x = pris, y = criv, color = year)) +
+  geom_point(alpha = 0.6) +
+  scale_color_viridis_c(option = "plasma") +
+  labs(
+    title = "Prison Population and Violent Crime",
+    subtitle = "State-year observations, 1980–1993",
+    x = "Prisoners per capita",
+    y = "Violent crime rate per capita",
+    color = "Year"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey40"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Sectioning the scatterplot 
+We can achieve the same goal, but in a different visual manner by using the facet_wrap() function
+
+```{webr}
+#| autorun: false
+ggplot(df, aes(x = pris, y = criv)) +
+  geom_point(alpha = 0.5, color = "#2c3e50") +
+  facet_wrap(~ year, ncol = 5) +
+  labs(
+    title = "Prison Population and Violent Crime, by Year",
+    subtitle = "Each panel holds the year constant",
+    x = "Prisoners per capita",
+    y = "Violent crime rate per capita"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey40"),
+    panel.grid.minor = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+
+

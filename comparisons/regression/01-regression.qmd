@@ -1,0 +1,92 @@
+---
+title: "Linear Regression"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+We found a strong positive correlation between prison population and violent crime, but this does not license any claims about the *size* of correlation between prison population and violent crimes. For this we need to run a linear regression. 
+
+# Linear Regression Recap 
+- In a linear regression, we make $Y$ depend on $X$ in this way: $Y = \alpha + \beta X$
+- This is called a linear function because it produces a straight line between X and Y. [This is the same as the formula we learn in algebra: y = mx + b, the letters are just different.]{.aside}
+
+- The output of this function is the expected value of $Y$, after we input any value of $X$.  
+
+- In our cases, we have observed values of $X$ and $Y$, and we want to find out what alpha and beta are.
+
+- Recall that after plotting our data on a scatterplot, we calculate $r$ -- how closely the relationship between x and y follows a linear trend. 
+
+- In a linear regression, we draw that linear trend -- **the line of best fit** on our scatterplot, and figure out $\alpha$ and $\beta$ from that line. 
+
+This is useful, because $\beta$ *is* the size of the relationship between X and Y. More practically, it means that I can give you a prediction of what the violent crime rate of a state is, based only on what the state's prison population rate was the last year.
+
+## Regression vs Correlation 
+- Units matter in a regression, they do not in a correlation 
+- A regression is *asymmetric*: a regression of $Y$ on $X$ is different from a regression of $X$ on $Y$
+
+# Plotting line of best fit
+```{webr}
+#| context: setup
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/prison.csv",
+  "prison.csv"
+)
+library(tidyverse)
+library(ggplot2)
+
+df <- read_csv("prison.csv", show_col_types = FALSE)
+```
+
+We can use the **geom_smooth()** function alongside **geom_point** in order to draw the line of best fit. 
+
+```{webr}
+#| autorun: false
+ggplot(df, aes(x = pris, y = criv)) +
+  geom_point() +
+  geom_smooth()
+```
+
+# Estimating coefficients 
+We have our line after plotting with geom_smooth, and we can estimate the actual formula for the line with the `lm()` function. 
+
+```{webr}
+#| autorun: false
+lm(df$criv ~ df$pris)
+```
+
+The actual output you want to look at is with the summmary() function 
+```{webr}
+#| autorun: false
+ols.reg <- lm(df$criv ~ df$pris)
+summary(ols.reg)
+```
+
+Look for the "Coefficients" section, where the Intercept and dependent variable will be shown in a table with its Estimate, Std. Error, t value, and Pr(>|t|). 
+
+The estimates are the linear regression's best guesses for the value of $\alpha$ and $\beta$. 
+
+Plugging it into the formula for a line, our model is y = 2.012x + 105.459. Because the estimates aren't the actual value -- they're just a guess -- the estimate for $\alpha$ is referred to as $\hat{\alpha}$ , and $\beta$ as $\hat{\beta}$  [Out loud, people typically say alpha hat and beta hat :^) ]{.aside}
+
+## Interpretation 
+
+1. $\hat{\alpha}$ is the intercept on the y-axis, the value that Y takes when X is zero. $\hat{\alpha}$ is a constant, it doesn't change and remains the same regardless of the value of X. 
+2. $\hat{\beta}$ is the coefficient (or slope), the average change in Y for one unit increase in X. $\hat{\beta}$ is always in terms of Y's units. 
+
+## Significance  
+`Pr(>|t|)` is the p-value. It's the probability of getting a t-statistic at least as far from zero as the one we observed, **if the null hypothesis were true**. The `|t|` means it counts extreme values in either direction, so this is a two-sided test. 
+
+A small value means our result would be very unlikely if there were truly no effect, which gives us evidence against the null.
+
+## Reporting results
+
+::: {.callout-tip title="Result"}
+Each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people,  which is statistically significant at the N level.
+:::
+
+- Generic template
+  - A one-[X's unit] increase in [X] is associated with a $\hat{\beta}$ [Y's units] [increase/decrease] in [Y], on average. This estimate is statistically significant at the [95/99]% confidence level ($\hat{\beta}$ = [coef], SE = [SE], p [= / <] [p-value]).
+

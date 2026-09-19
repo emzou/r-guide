@@ -6,7 +6,7 @@
     "section": "Selecting a Column",
     "text": "Selecting a Column\n\n\n\n\n\n\n\n\n\nColumn to Vector\nWhy would we want to select only a column?\n\n\n\n\n\n\n\n\nA vector is a different data type than a column. Now that we’ve put the Survived column into a vector, we can use our vector functions.",
     "crumbs": [
-      "R Practice",
+      "Data Manipulation",
       "Dataframes",
       "Filtering Dataframe"
     ]
@@ -18,7 +18,7 @@
     "section": "Selecting rows based on column value",
     "text": "Selecting rows based on column value",
     "crumbs": [
-      "R Practice",
+      "Data Manipulation",
       "Dataframes",
       "Filtering Dataframe"
     ]
@@ -30,7 +30,7 @@
     "section": "Selecting rows based on conditioning column value",
     "text": "Selecting rows based on conditioning column value\n\nOnly show rows where the value in Sex is not female\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10 AND the value in Sex is male",
     "crumbs": [
-      "R Practice",
+      "Data Manipulation",
       "Dataframes",
       "Filtering Dataframe"
     ]
@@ -146,11 +146,11 @@
   {
     "objectID": "r-code/index.html",
     "href": "r-code/index.html",
-    "title": "R Practice",
+    "title": "Data Manipulation",
     "section": "",
-    "text": "You can work through the examples in this guide through writing code on a R markdown file saved on your own laptop.\nYou can also directly edit and change code on the site. Nothing you change on the site will be saved.",
+    "text": "Now that you’ve loaded a dataframe in, here’s some stuff we can do with it",
     "crumbs": [
-      "R Practice"
+      "Data Manipulation"
     ]
   },
   {
@@ -180,9 +180,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "R Reference",
+    "title": "Home",
     "section": "",
-    "text": "The R Setup tab walks you through installing R and RStudio on your machine.\nThe R Practice section works through common data analysis questions using R. You can run and edit the code directly on this site, no setup required. You can run the below code, and edit it.\n\n\n\n\n\n\n\n\nHowever, the browser version doesn’t save your work. To keep your code or start working with your own datasets, you’ll need to have R and RStudio installed locally (see R Setup).",
+    "text": "The R Setup tab walks you through installing R and RStudio on your machine.\nIn the other sections, you can run and edit the code directly on this site, no setup required. Try editing the code below and run it.\n\n\n\n\n\n\n\n\nHowever, the browser version doesn’t save your work. To keep your code or start working with your own datasets, you’ll need to have R and RStudio installed locally (see R Setup).",
     "crumbs": [
       "Home"
     ]
@@ -302,6 +302,18 @@
     ]
   },
   {
+    "objectID": "r-setup/check-wd/01-checkwd.html#troubleshooting",
+    "href": "r-setup/check-wd/01-checkwd.html#troubleshooting",
+    "title": "Getting and setting working directory",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\nIf you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.\nMake sure your titanic.csv is in your comm_106 folder. When you run code in a .rmd file, R looks in the folder the file is saved in, so keeping your data and your .rmd together means R can always find it.\nThen run the read_csv chunk again.",
+    "crumbs": [
+      "R Setup",
+      "Working Directory",
+      "Getting and setting working directory"
+    ]
+  },
+  {
     "objectID": "r-setup/install-r/01-install.html",
     "href": "r-setup/install-r/01-install.html",
     "title": "Install R for Mac",
@@ -362,6 +374,18 @@
     ]
   },
   {
+    "objectID": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
+    "href": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
+    "title": "Load CSV into R",
+    "section": "For Posit Cloud users",
+    "text": "For Posit Cloud users\n\nDownload titanic.csv\nGo the bottom right panel, and click on Upload\n\n 3. Select the titanic.csv file. You should see it show up in the bottom right panel:\n\n\n\ntitanic.csv should show up here",
+    "crumbs": [
+      "R Setup",
+      "Loading in data",
+      "Load CSV into R"
+    ]
+  },
+  {
     "objectID": "r-setup/load-data/01-getdata.html#tidyverse",
     "href": "r-setup/load-data/01-getdata.html#tidyverse",
     "title": "Load CSV into R",
@@ -383,18 +407,6 @@
       "R Setup",
       "Make R Markdown File",
       "Writing and Coding in R Markdown"
-    ]
-  },
-  {
-    "objectID": "r-setup/make-rmd/02-datatypes.html#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files",
-    "href": "r-setup/make-rmd/02-datatypes.html#we-can-directly-switch-between-two-languages-human-and-r-on-rmd-files",
-    "title": "Writing and Coding in Rmd",
-    "section": "",
-    "text": "Two languages\n\n\n\nType anything into your .Rmd file.\n\nThis will show up when your run the whole Rmd file, but it’s not actually code. We can write notes on what our code is about, or describe the results of some code.\n\nNow, type: ```{r} A grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.\nPress enter a few times, and the rectangle will expand.\nWe close this chunk by putting ```\nOutside of this chunk, we’re back to human language again.\n\n\n\npractice_01.Rmd\n\nIn this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: \n```{r}\n\n\n```\nWe can make chunks of code in this way.",
-    "crumbs": [
-      "R Setup",
-      "Make R Markdown File",
-      "Writing and Coding in Rmd"
     ]
   },
   {
@@ -618,7 +630,7 @@
     "href": "r-code/visuals/06-scatter.html",
     "title": "Scatterplots and Correlations",
     "section": "",
-    "text": "We’ll use the dataset from Levitt 1996’s study, “The Effect of Prison Population Size on Crime Rates”, published in the Quarterly Journal of Economics, which you can download locally here. Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each one, the dataset records the state’s prison population and its crime rates, as well as other demographic statistics.",
+    "text": "We’ll use the dataset from Levitt 1996’s study, “The Effect of Prison Population Size on Crime Rates”, published in the Quarterly Journal of Economics, which you can download locally here. Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each state-year, the dataset records the state’s prison population and its crime rates, as well as other demographic statistics.",
     "crumbs": [
       "R Practice",
       "Visualizations",
@@ -722,27 +734,496 @@
     ]
   },
   {
-    "objectID": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
-    "href": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
-    "title": "Load CSV into R",
-    "section": "For Posit Cloud users",
-    "text": "For Posit Cloud users\n\nDownload titanic.csv\nGo the bottom right panel, and click on Upload\n\n 3. Select the titanic.csv file. You should see it show up in the bottom right panel:\n\n\n\ntitanic.csv should show up here",
+    "objectID": "descrip-stat/04-histograms.html",
+    "href": "descrip-stat/04-histograms.html",
+    "title": "Histograms",
+    "section": "",
+    "text": "To work through questions of distribution, we’ll use the dataset from Bertrand & Mullainathan’s 2004 study, “Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination”. In this study, the authors sent out 4870 fake resumes, which they had randomly assigned to have either an African-American or White sounding name. They found that White names receive 50 percent more callbacks for interviews. The dataset, which you can download locally here, lists every resume and the job it was sent to.",
     "crumbs": [
-      "R Setup",
-      "Loading in data",
-      "Load CSV into R"
+      "Description of One Variable",
+      "Histograms"
     ]
   },
   {
-    "objectID": "r-setup/check-wd/01-checkwd.html#troubleshooting",
-    "href": "r-setup/check-wd/01-checkwd.html#troubleshooting",
-    "title": "Getting and setting working directory",
-    "section": "Troubleshooting",
-    "text": "Troubleshooting\nIf you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.\nMake sure your titanic.csv is in your comm_106 folder. When you run code in a .rmd file, R looks in the folder the file is saved in, so keeping your data and your .rmd together means R can always find it.\nThen run the read_csv chunk again.",
+    "objectID": "descrip-stat/04-histograms.html#interpretation",
+    "href": "descrip-stat/04-histograms.html#interpretation",
+    "title": "Histograms",
+    "section": "Interpretation",
+    "text": "Interpretation\nLooking at the visual, we can see that the resumes are not uniformly distributed across years of experience, and that resumes generally have less years of experience.",
     "crumbs": [
-      "R Setup",
-      "Working Directory",
-      "Getting and setting working directory"
+      "Description of One Variable",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/04-histograms.html#occupation",
+    "href": "descrip-stat/04-histograms.html#occupation",
+    "title": "Histograms",
+    "section": "Occupation",
+    "text": "Occupation\nTo think through this, we’ll make a bar plot for the occup_broad column, which categorizes the jobs a resume applied to into Executive, Administrative, Sales representatives, Sales workers, Secretaries, and Clerical. This makes it a nominal variable.\n\n\n\n\n\n\n\n\nCompare this plot to the years of experience plot. In a histogram, the overall shape of the data tells us what the distribution of the data is, we can learn something about the data when our eyes move across the x-axis. In a bar plot of a nominal variable, the order of the x-axis doesn’t matter. You can rearrange the categories however you want and you’ll still have the same information. In the histogram, we can see that as years of experience increases, the less resumes there are.",
+    "crumbs": [
+      "Description of One Variable",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/04-histograms.html#education",
+    "href": "descrip-stat/04-histograms.html#education",
+    "title": "Histograms",
+    "section": "Education",
+    "text": "Education\neducation lists the highest level of education reported on each resume, which ranges from: 1 = high school dropout; 2 = high school graduate; 3 = some college; 4 = College graduate or more, (and 0 for not reported). This makes it an ordinal variable, because the order of the categories matter.\n\n\n\n\n\n\n\n\nAt first glance, this seems to function very similarly as the years of experience histogram – we can see that (whatever distribution pattern)\nHowever, the intervals on the x-axis are not equal. From the perspective of someone reading the resume, we can imagine that there is some difference in the evaluation of high school dropout applicants and high school graduate applicants. But is this difference the same as how someone with some college is compared to someone with a high school graduate?\nMore importantly, you can tell very different stories with the same data based on how you create categories, or even just choosing bin width.",
+    "crumbs": [
+      "Description of One Variable",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
+    "href": "descrip-stat/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
+    "title": "Histograms",
+    "section": "By converting an interval variables to an ordinal one",
+    "text": "By converting an interval variables to an ordinal one\nImagine I wanted to say that the applicants are mostly from zipcodes with large proportions of Black people. We can see from the histogram that this isn’t true.\nHowever, if I turn the interval variable frac_black into an ordinal one by creating skewed bins:\n\n\n\n\n\n\n\n\nThen, the distribution of frac_black looks like something that fits my narrative more",
+    "crumbs": [
+      "Description of One Variable",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/04-histograms.html#by-selecting-uninformative-bin-widths",
+    "href": "descrip-stat/04-histograms.html#by-selecting-uninformative-bin-widths",
+    "title": "Histograms",
+    "section": "By selecting uninformative bin widths",
+    "text": "By selecting uninformative bin widths",
+    "crumbs": [
+      "Description of One Variable",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/02-barplot.html",
+    "href": "descrip-stat/02-barplot.html",
+    "title": "Bar Plot",
+    "section": "",
+    "text": "We just made a frequency table for Survived, whether or not a passenger survived the Titanic. Likewise, we can make a the class for Titanic passengers, which is indicated in Pclass.",
+    "crumbs": [
+      "Description of One Variable",
+      "Bar Plot"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/02-barplot.html#improving-readability",
+    "href": "descrip-stat/02-barplot.html#improving-readability",
+    "title": "Bar Plot",
+    "section": "Improving Readability",
+    "text": "Improving Readability\n\nLabels\nWe can add labels to our axes and a title for our entire plot by additionally calling labs().\n\n\n\n\n\n\n\n\n\n\nThemes\n\nggplot comes with themes (you can peruse them here).\nWe can make our plot follow theme_minimal() by adding it.\n\n\n\n\n\n\n\n\n\n\n\nFill\nWe can also customize the color of the bar with geom_bar.",
+    "crumbs": [
+      "Description of One Variable",
+      "Bar Plot"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/01-freqtable.html#improving-readability",
+    "href": "descrip-stat/01-freqtable.html#improving-readability",
+    "title": "Frequency Tables",
+    "section": "Improving Readability",
+    "text": "Improving Readability\nThe output of count() alone is ugly and hard to read.\n\n\n\n\n\n\n\n\nJust ‘0s’ and ‘1s’ is also not informative. We can rename the values as well.",
+    "crumbs": [
+      "Description of One Variable",
+      "Frequency Tables"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/01-freqtable.html#add-proportions",
+    "href": "descrip-stat/01-freqtable.html#add-proportions",
+    "title": "Frequency Tables",
+    "section": "Add proportions",
+    "text": "Add proportions\nWe can also make show relative frequency instead of absolute frequency by showing proportions instead of raw counts.\n\n\n\n\n\n\n\n\n\nThere are many other ways to make your visuals easier to read and/or aesthetically pleasing.\n\n\n\n\n\n\n\n\nNow we can tell at a glance, how deadly the Titanic disaster was.",
+    "crumbs": [
+      "Description of One Variable",
+      "Frequency Tables"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html",
+    "href": "comparisons/hypotest/01-hypotest.html",
+    "title": "Hypothesis Testing",
+    "section": "",
+    "text": "Comparisons Allow us to Confirm a Hypothesis\n\nHypothesis Testing Procedure\n\nForm a null hypothesis\nChoose a test statistic\nAsk whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis\n\nIf likely, we fail to reject the null hypothesis\nIf unlikely, we reject the null hypothesis\n\n\n\nIn a comparison of Titanic passengers, first-class passengers had a different survival rate than third-class passengers.\n\nIdentify the null\n\n\\(H_0\\) : The effect of being a first class passenger, rather than a third class passenger, on surviving the Titanic is zero.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided two-sample t-test\n\n\n\n\n\n\n\nt-test\n\n\n\nA t-test, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it’s unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you’re comparing means, think t-test.\n\n\n\nWe use a t-test when the independent variable splits the data into two groups and the dependent variable is interval.\nHere, the groups are first-class and third-class passengers, and Survived is a 0-1 indicator variable, so its mean is the survival rate for each class. We’re asking whether the survival rate in first class differs from the survival rate in third class by more than we’d expect by chance.\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nCode\n\nPull the groups we’re comparing into vectors first\n\n\n\n\n\n\n\n\n\n\n- Use t.test()\n\n\n\n\n\n\n\n\n\nSet p-value threshold\nLook at the p-value\n\nIn the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...)\n\nDetermine whether the results allow you to reject the null hypothesis\n\nIf the p-value is less than the threshold, you reject the null\nIf the p-value is greater than the threshold, you fail to reject the null\n\nReporting results\n\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).\n\n\n\nGeneric template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\n\nIn a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\n\n\n\n\n\n\n\n\n\nIdentify the null\n\n\\(H_0\\) : A resume’s name sounding White instead of African-American does not increase the resume’s chance of getting a callback.\n\nIdentify the appropriate test statistic\n\nt-statistic of an one-sided two-sample t-test\n\n\n\n\n\n\n\nOne-sided vs Two-sided t-test\n\n\n\nWe’re making a more specific claim than our Titanic example – we’re not just saying that some effect exists, we’re making a claim about both the existence and the direction of the effect, that White-sounding names get more callbacks, not more ar less. In this case, we use a one-sided t-test\n\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\n\nWe’ll use 0.05\n\nReporting results\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Hypothesis Testing",
+      "Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "comparisons/index.html",
+    "href": "comparisons/index.html",
+    "title": "Comparisons Between Two Variables",
+    "section": "",
+    "text": "DV  IV\nNominal\nOrdinal\nInterval\n\n\n\n\nNominal\nCross-tabulation\nCross-tabulation\nLogistic regression\n\n\nOrdinal\nCross-tabulation\nCross-tabulation\nCorrelation\n\n\nInterval\nComparison of means\nComparison of means\nCorrelation, Linear regression",
+    "crumbs": [
+      "Comparisons between Two Variables"
+    ]
+  },
+  {
+    "objectID": "comparisons/compmeans/01-compmeans.html#comparison-setup",
+    "href": "comparisons/compmeans/01-compmeans.html#comparison-setup",
+    "title": "Comparison of Means",
+    "section": "Comparison setup",
+    "text": "Comparison setup\nHypothesis &gt; In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\nIndependent Variable &gt; Race (nominal)\nDependent Variable &gt; Call (interval)",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparison of Means",
+      "Comparison of Means"
+    ]
+  },
+  {
+    "objectID": "comparisons/compmeans/01-compmeans.html#code",
+    "href": "comparisons/compmeans/01-compmeans.html#code",
+    "title": "Comparison of Means",
+    "section": "Code",
+    "text": "Code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA note on indicator variables\nYou might notice that call only takes two values: 1 if the resume got a callback and 0 if it didn’t. So why are we treating it as an interval variable?\nVariables coded 0-1 (also called indicator, dummy, or binary variables) have an unusual status. On the surface they look nominal, since they just sort observations into two categories. But because there are only two values, there is only one distance between them, and that distance is always the same: exactly 1. There’s no way for the spacing to be unequal, so the equal-intervals requirement is automatically satisfied.\nThis has a handy consequence: the mean of a 0-1 variable is the proportion of observations coded 1. When we take the mean of call, we’re getting the callback rate. A mean of 0.064 means 6.4% of resumes received a callback.\nThat’s why it’s reasonable to use a comparison of means here. We’re really comparing the proportion of callbacks between the two groups.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparison of Means",
+      "Comparison of Means"
+    ]
+  },
+  {
+    "objectID": "comparisons/crosstab/01-crosstab.html#comparison-setup",
+    "href": "comparisons/crosstab/01-crosstab.html#comparison-setup",
+    "title": "Cross-Tabulations",
+    "section": "Comparison setup",
+    "text": "Comparison setup\nHypothesis &gt; In a comparison of Titanic passengers, those who were in first-class were more likely to survive than those who were in third-class\nIndependent Variable &gt; Passenger class (ordinal)\nDependent Variable &gt; Passenger class (nominal)",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Cross Tabluation",
+      "Cross-Tabulations"
+    ]
+  },
+  {
+    "objectID": "comparisons/crosstab/01-crosstab.html#code",
+    "href": "comparisons/crosstab/01-crosstab.html#code",
+    "title": "Cross-Tabulations",
+    "section": "Code",
+    "text": "Code\nYou can generate a cross-tabluation with the table() function. The inputs are the column names of the two variables you want to compare.\n\n\n\n\n\n\n\n\nThis breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Cross Tabluation",
+      "Cross-Tabulations"
+    ]
+  },
+  {
+    "objectID": "comparisons/crosstab/01-crosstab.html#show-proportions",
+    "href": "comparisons/crosstab/01-crosstab.html#show-proportions",
+    "title": "Cross-Tabulations",
+    "section": "Show proportions",
+    "text": "Show proportions\nWe can calculate and display the proportions of categories of the independent variable with the prop.table() function\n\n\n\n\n\n\n\n\n\nShow proportions as percentages",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Cross Tabluation",
+      "Cross-Tabulations"
+    ]
+  },
+  {
+    "objectID": "comparisons/crosstab/01-crosstab.html#cross-tabs-check",
+    "href": "comparisons/crosstab/01-crosstab.html#cross-tabs-check",
+    "title": "Cross-Tabulations",
+    "section": "Cross-Tabs Check",
+    "text": "Cross-Tabs Check\n\nIndependent variable are the columns\nDependent variable are the rows\nColumns sum up to 1 or 100%\n\n\nImproving readability\nAs always, the base output is not very easy to parse. We can relabel our table using our familiar functions.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Cross Tabluation",
+      "Cross-Tabulations"
+    ]
+  },
+  {
+    "objectID": "comparisons/crosstab/01-crosstab.html#stacked-bar-plots",
+    "href": "comparisons/crosstab/01-crosstab.html#stacked-bar-plots",
+    "title": "Cross-Tabulations",
+    "section": "Stacked Bar Plots",
+    "text": "Stacked Bar Plots\nWe can show this same result with a stacked bar plot. Note that in the below example, Pclass is assigned to x, and Survived is assigned to fill. This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship.\n\n\n\n\n\n\n\n\nWe can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning Survived to x, and Pclass to fill.\n\n\n\n\n\n\n\n\n\nImproving readability",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Cross Tabluation",
+      "Cross-Tabulations"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html",
+    "href": "comparisons/correlation/01-scatter.html",
+    "title": "Correlation and Scatterplot",
+    "section": "",
+    "text": "We’ll use the dataset from Levitt 1996’s study, “The Effect of Prison Population Size on Crime Rates”, published in the Quarterly Journal of Economics, which you can download locally here. Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each state-year, the dataset records the state’s prison population and its crime rates, as well as other demographic statistics.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#comparison-setup",
+    "href": "comparisons/correlation/01-scatter.html#comparison-setup",
+    "title": "Correlation and Scatterplot",
+    "section": "Comparison setup",
+    "text": "Comparison setup\nThe units we are comparing are state-years to each other.\nHypothesis &gt; In a comparison of state-years, those with a higher number of prisoners per capita will have a higher violent crime rate per capita than those with a lower number of prisoners per capita.\nIndependent Variable &gt; Prisoners per capita, pris (interval)\nDependent Variable &gt; Violent crime rate per capita, criv (interval)\n\n\n\n\n\n\n\n\nNote the calls in aes(), specifying the independent (x) and dependent (y) variable.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#improved-readability",
+    "href": "comparisons/correlation/01-scatter.html#improved-readability",
+    "title": "Correlation and Scatterplot",
+    "section": "Improved readability",
+    "text": "Improved readability",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#interpretation",
+    "href": "comparisons/correlation/01-scatter.html#interpretation",
+    "title": "Correlation and Scatterplot",
+    "section": "Interpretation",
+    "text": "Interpretation\nWhen we set the independent variable to pris and dependent variable to criv, we are asking, how does change in the prison population correlate with change in violent crime rate? Note that the interpretation changes if we switch the independent variable to criv and dependent variable to pris, but the underlying relationship doesn’t.\nScatterplots alone are not objective measures.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#interpretation-of-r",
+    "href": "comparisons/correlation/01-scatter.html#interpretation-of-r",
+    "title": "Correlation and Scatterplot",
+    "section": "Interpretation of \\(r\\)",
+    "text": "Interpretation of \\(r\\)\n\n\nShow code\nlibrary(gt)\nlibrary(tibble)\n\ntribble(\n  ~range,          ~strength,        ~interpretation,\n  \"0.00 – 0.19\",   \"Very weak\",      \"Essentially no linear association\",\n  \"0.20 – 0.39\",   \"Weak\",           \"Slight tendency, easily swamped by noise\",\n  \"0.40 – 0.59\",   \"Moderate\",       \"Visible trend in a scatterplot\",\n  \"0.60 – 0.79\",   \"Strong\",         \"Clear linear pattern, modest scatter\",\n  \"0.80 – 1.00\",   \"Very strong\",    \"Points cluster tightly around a line\"\n) |&gt;\n  gt() |&gt;\n  tab_header(\n    title = \"Interpreting the Pearson Correlation Coefficient\",\n    subtitle = md(\"Guidelines for the absolute value of *r*\")\n  ) |&gt;\n  cols_label(\n    range          = md(\"|*r*|\"),\n    strength       = \"Descriptor\",\n    interpretation = \"What it looks like\"\n  ) |&gt;\n  tab_source_note(\n    md(\"Cutoffs are conventions, not thresholds. What counts as \\\"strong\\\" depends entirely on the field.\")\n  ) |&gt;\n  cols_align(align = \"left\", columns = c(strength, interpretation)) |&gt;\n  cols_align(align = \"center\", columns = range) |&gt;\n  tab_options(\n    table.font.size = px(14),\n    heading.title.font.weight = \"bold\",\n    column_labels.font.weight = \"bold\",\n    data_row.padding = px(6)\n  )\n\n\n\n\n\n\n\n\nInterpreting the Pearson Correlation Coefficient\n\n\nGuidelines for the absolute value of r\n\n\n|r|\nDescriptor\nWhat it looks like\n\n\n\n\n0.00 – 0.19\nVery weak\nEssentially no linear association\n\n\n0.20 – 0.39\nWeak\nSlight tendency, easily swamped by noise\n\n\n0.40 – 0.59\nModerate\nVisible trend in a scatterplot\n\n\n0.60 – 0.79\nStrong\nClear linear pattern, modest scatter\n\n\n0.80 – 1.00\nVery strong\nPoints cluster tightly around a line\n\n\n\nCutoffs are conventions, not thresholds. What counts as “strong” depends entirely on the field.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#substantive-interpretation-of-r",
+    "href": "comparisons/correlation/01-scatter.html#substantive-interpretation-of-r",
+    "title": "Correlation and Scatterplot",
+    "section": "Substantive Interpretation of \\(r\\)",
+    "text": "Substantive Interpretation of \\(r\\)\nAcross state-years from 1980 to 1993, the correlation between prison population and violent crime was positive and moderately strong (r = 0.776).",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#adding-color",
+    "href": "comparisons/correlation/01-scatter.html#adding-color",
+    "title": "Correlation and Scatterplot",
+    "section": "Adding color",
+    "text": "Adding color\nBefore splitting the plot up, we can get a quick read on whether time is doing any work here by mapping year to color — if the early years cluster in one corner of the cloud and the later years in another, that’s our sign that the calendar is part of what’s producing the slope. We do this by specifying color in our ggplot() call:",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/correlation/01-scatter.html#sectioning-the-scatterplot",
+    "href": "comparisons/correlation/01-scatter.html#sectioning-the-scatterplot",
+    "title": "Correlation and Scatterplot",
+    "section": "Sectioning the scatterplot",
+    "text": "Sectioning the scatterplot\nWe can achieve the same goal, but in a different visual manner by using the facet_wrap() function",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Correlation",
+      "Correlation and Scatterplot"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/01-regression.html",
+    "href": "comparisons/regression/01-regression.html",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "We found a strong positive correlation between prison population and violent crime, but this does not license any claims about the size of correlation between prison population and violent crimes. For this we need to run a linear regression.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Linear Regression"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/01-regression.html#regression-vs-correlation",
+    "href": "comparisons/regression/01-regression.html#regression-vs-correlation",
+    "title": "Linear Regression",
+    "section": "Regression vs Correlation",
+    "text": "Regression vs Correlation\n\nUnits matter in a regression, they do not in a correlation\nA regression is asymmetric: a regression of \\(Y\\) on \\(X\\) is different from a regression of \\(X\\) on \\(Y\\)",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Linear Regression"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/01-regression.html#interpretation",
+    "href": "comparisons/regression/01-regression.html#interpretation",
+    "title": "Linear Regression",
+    "section": "Interpretation",
+    "text": "Interpretation\n\n\\(\\hat{\\alpha}\\) is the intercept on the y-axis, the value that Y takes when X is zero. \\(\\hat{\\alpha}\\) is a constant, it doesn’t change and remains the same regardless of the value of X.\n\\(\\hat{\\beta}\\) is the coefficient (or slope), the average change in Y for one unit increase in X. \\(\\hat{\\beta}\\) is always in terms of Y’s units.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Linear Regression"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/01-regression.html#significance",
+    "href": "comparisons/regression/01-regression.html#significance",
+    "title": "Linear Regression",
+    "section": "Significance",
+    "text": "Significance\nPr(&gt;|t|) is the p-value. It’s the probability of getting a t-statistic at least as far from zero as the one we observed, if the null hypothesis were true. The |t| means it counts extreme values in either direction, so this is a two-sided test.\nA small value means our result would be very unlikely if there were truly no effect, which gives us evidence against the null.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Linear Regression"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/01-regression.html#reporting-results",
+    "href": "comparisons/regression/01-regression.html#reporting-results",
+    "title": "Linear Regression",
+    "section": "Reporting results",
+    "text": "Reporting results\n\n\n\n\n\n\nResult\n\n\n\nEach additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people, which is statistically significant at the N level.\n\n\n\nGeneric template\n\nA one-[X’s unit] increase in [X] is associated with a \\(\\hat{\\beta}\\) [Y’s units] [increase/decrease] in [Y], on average. This estimate is statistically significant at the [95/99]% confidence level (\\(\\hat{\\beta}\\) = [coef], SE = [SE], p [= / &lt;] [p-value]).",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Linear Regression"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/index.html",
+    "href": "descrip-stat/index.html",
+    "title": "Description of One Variable",
+    "section": "",
+    "text": "Choosing a descriptive statistic\n\n\n\n\n\n\n\nNominal\nOrdinal\nInterval\n\n\n\n\nFrequency tables\nFrequency tables\nFrequency tables\n\n\nBar charts\nBar charts\nBar charts\n\n\nCentral tendency: mode\nCentral tendency: mode, median\nCentral tendency: mode, median, mean\n\n\n\n\nHistogram",
+    "crumbs": [
+      "Description of One Variable"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#mode",
+    "href": "descrip-stat/03-boxplots.html#mode",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Mode",
+    "text": "Mode",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#median",
+    "href": "descrip-stat/03-boxplots.html#median",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Median",
+    "text": "Median",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#quartiles",
+    "href": "descrip-stat/03-boxplots.html#quartiles",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Quartiles",
+    "text": "Quartiles",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#mean",
+    "href": "descrip-stat/03-boxplots.html#mean",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Mean",
+    "text": "Mean",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#range",
+    "href": "descrip-stat/03-boxplots.html#range",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Range",
+    "text": "Range",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#interquartile-range",
+    "href": "descrip-stat/03-boxplots.html#interquartile-range",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Interquartile Range",
+    "text": "Interquartile Range",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#standard-deviation",
+    "href": "descrip-stat/03-boxplots.html#standard-deviation",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#variance",
+    "href": "descrip-stat/03-boxplots.html#variance",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Variance",
+    "text": "Variance",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "descrip-stat/03-boxplots.html#improving-readability",
+    "href": "descrip-stat/03-boxplots.html#improving-readability",
+    "title": "Central Tendency, Spread Measures, Boxplots",
+    "section": "Improving Readability",
+    "text": "Improving Readability",
+    "crumbs": [
+      "Description of One Variable",
+      "Central Tendency, Spread Measures, Boxplots"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/02-log.html",
+    "href": "comparisons/regression/02-log.html",
+    "title": "Logistic Regression",
+    "section": "",
+    "text": "Linear regressions allow us to model the real world, and importantly also allow us to predict what would happen in scenarios that haven’t occurred. While this is comforting, they don’t actually allow us to see into the future. Confidence intervals and p-values remind us that a linear regression is ultimately an estimate, not a certainty.\nRemember what a p-value of 0.05 (the standard threshold) means: if there were truly no relationship, we’d still get a result at least as extreme as ours in about 5 out of 100 samples.\nThat’s pretty unlikely, which is why we treat it as evidence. But unlikely isn’t impossible. Stanford’s undergraduate admission rate was 3.6%, even lower than 5%, and yet thousands of students get in every year. Rare things happen all the time, especially when there are lots of chances for them to happen.\nThe same goes for research: if 20 researchers each test a relationship that doesn’t actually exist, we’d expect about one of them to get p &lt; 0.05 by chance alone.\nAnother pitfall of reading linear regression results too literally is that the model will happily make predictions about situations that are unlikely or even impossible in the real world. For example, we might find that people are more likely to own a home as they get older. But the same model will also give us a prediction for someone who is 200 years old, or -5 years old.\nIssues like this are why the work on quantitative social science methods is so deep and active… and thrilling!\n\nLogistic Regression\nOne extension of linear regression is logistic regression, which addresses the problem of predicting probabilities. Your chance of owning a home can only be between 0 and 1 (or 0% and 100%), and a logistic regression makes sure its predictions stay in that range.\nWe’ll use Bonica 2024’s Database on Ideology, Money in Elections (DIME), which you can download locally here, which contains 8948 observations of donations from PACs (Political Action Committees) received by candidates in US elections from 1979 to 2024. Each candidate is also measured on how extreme their ideology (Left to Right) is.\n\n\n\n\n\n\n\n\nExisting work suggests that PACs tend to support more moderate candidates. We can set up a logistic regression to answer how likely a candidate is to be extreme, given how much PAC money they received.\n\n\nHypothesis\n\nIn a comparison of candidates, those who received more money from PACs were less likely to be ideologically extreme than those who received less money from PACs.\n\nIdentify the Null\n\n\\(H_0\\) : Receiving more PAC money does not decrease a candidate’s likelihood of being ideologically extreme. In other words, the coefficient on PAC receipts is greater than or equal to zero (\\(\\beta \\geq 0\\)).\n\nIdentify the appropriate test statistic\n\nOur dependent variable (extreme) is 0-1 and our independent variable (log_pac_receipts) is interval, so we use logistic regression. Logistic regression reports a z-statistic instead of a t-statistic, but we read it the same way: it tells us how many standard errors the coefficient is from zero.\n\nCalculate the z-statistic\n\nglm() works like lm(), but it can handle outcomes that aren’t interval variables. family = binomial tells R that our outcome is 0-1.\n\n\n\n\n\n\n\n\n\nEvaluate p-value\n\nLook at the log_pac_receipts row of the coefficients table. The z value column is the z-statistic, and Pr(&gt;|z|) is the p-value.\nPr(&gt;|z|) is a two-sided p-value. Since our hypothesis is one-sided, if the coefficient is negative (the direction we predicted), we can divide this p-value by 2.\nA negative coefficient means candidates who received more PAC money were less likely to be extreme.\n\nReport results\n\nBecause logistic regression coefficients are in log-odds, we convert them into predicted probabilities to describe the size of the relationship. Here, we compare a candidate at the 25th percentile of PAC receipts to one at the 75th percentile:\n\n\n\n\n\n\n\n\n\n\n::: {.callout-tip title=“Result”} Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from [X]% to [Y]%. This relationship is statistically significant at the [95/99]% confidence level (\\(\\hat{\\beta}\\) = [coef], SE = [SE], p [= / &lt;] [p-value]). :::",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Regressions",
+      "Logistic Regression"
     ]
   }
 ]

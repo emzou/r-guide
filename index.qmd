@@ -1,12 +1,12 @@
 ---
-title: "R Reference"
+title: "Home"
 format: live-html
 engine: knitr
 ---
 
 The [R Setup](/r-setup/index.qmd) tab walks you through installing R and RStudio on your machine.
 
-The [R Practice](/r-code/index.qmd) section works through common data analysis questions using R. You can run and edit the code directly on this site, no setup required. You can run the below code, and edit it. 
+In the other sections, you can run and edit the code directly on this site, no setup required. Try editing the code below and run it. 
 
 ```{webr}
 #| autorun: false

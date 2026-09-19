@@ -1,0 +1,122 @@
+---
+title: "Hypothesis Testing"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+Comparisons Allow us to Confirm a Hypothesis 
+
+# Hypothesis Testing Procedure 
+- Form a null hypothesis 
+- Choose a test statistic 
+- Ask whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis
+  - If likely, we fail to reject the null hypothesis
+  - If unlikely, we reject the null hypothesis 
+
+--- 
+
+In a comparison of Titanic passengers, first-class passengers had a different survival rate than third-class passengers.
+
+- Identify the null
+  - $H_0$ : The effect of being a first class passenger, rather than a third class passenger, on surviving the Titanic is zero. 
+
+- Identify the appropriate test statistic 
+  - t-statistic of a two-sided two-sample t-test
+  
+  ::: {.callout-note title="t-test"}
+A **t-test**, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it's unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you're comparing means, think t-test. 
+  :::
+
+  - We use a t-test when the independent variable splits the data into **two groups** and the dependent variable is **interval**. 
+  - Here, the groups are first-class and third-class passengers, and `Survived` is a 0-1 indicator variable, so its mean is the survival rate for each class. We're asking whether the survival rate in first class differs from the survival rate in third class by more than we'd expect by chance.
+
+- Calculate the t-statistic 
+
+```{webr}
+#| context: setup
+#| autorun: false
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/titanic.csv",
+  "titanic.csv"
+)
+library(tidyverse)
+library(ggplot2)
+titanic_df <- read_csv("titanic.csv")
+```
+
+  - Code
+    - Pull the groups we're comparing into vectors first
+```{webr}
+#| autorun: false
+first <- titanic_df$Survived[df$Pclass == 1]
+third <- titanic_df$Survived[df$Pclass == 3]
+```
+
+    - Use t.test()
+
+```{webr}
+#| autorun: false
+t.test(first, third)
+```
+
+- Set **p-value** threshold 
+
+- Look at the p-value 
+  - In the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (`t = ..., df = ..., p-value = ...`)
+ 
+- Determine whether the results allow you to reject the null hypothesis 
+  - If the p-value is less than the threshold, you reject the null 
+  - If the p-value is greater than the threshold, you fail to reject the null 
+
+- Reporting results
+
+::: {.callout-tip title="Result"}
+First-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p < 0.001).
+:::
+
+  - Generic template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / <] [p-value]).
+
+--- 
+
+In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names. 
+
+```{webr}
+#| autorun: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/labor_market_discrimination.csv",
+  "labor.csv"
+)
+labor_df <- read_csv("labor.csv", show_col_types = FALSE)
+```
+
+- Identify the null
+  - $H_0$ : A resume's name sounding White instead of African-American does not increase the resume's chance of getting a callback. 
+
+- Identify the appropriate test statistic 
+  - t-statistic of an one-sided two-sample t-test
+
+  ::: {.callout-note title="One-sided vs Two-sided t-test"}
+We're making a more specific claim than our Titanic example -- we're not just saying that some effect exists, we're making a claim about both the existence *and* the direction of the effect, that White-sounding names get *more* callbacks, not more ar less. In this case, we use a **one-sided** t-test
+  :::
+
+- Calculate the t-statistic 
+```{webr}
+#| autorun: false
+black <- labor_df$call[labor_df$race == "b"]
+white <- labor_df$call[labor_df$race == "w"]
+t.test(white, black, alternative = "greater")
+```
+
+- Set **p-value** threshold 
+  - We'll use 0.05 
+
+- Reporting results 
+
+  ::: {.callout-tip title="Result"}
+First-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p < 0.001).
+  :::

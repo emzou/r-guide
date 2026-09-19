@@ -1,8 +1,8 @@
 {
-  "hash": "2f3269dfd5519425df455d796e27c2f7",
+  "hash": "d3edd20f748899c41456e4ab0a4574c4",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"R Reference\"\nformat: live-html\nengine: knitr\n---\n\n\n\n\nThe [R Setup](/r-setup/index.qmd) tab walks you through installing R and RStudio on your machine.\n\nThe [R Practice](/r-code/index.qmd) section works through common data analysis questions using R. You can run and edit the code directly on this site, no setup required. You can run the below code, and edit it. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nprint(\"easy\")\n```\n:::\n\n\n\n\nHowever, the browser version doesn't save your work. To keep your code or start working with your own datasets, you'll need to have R and RStudio installed locally (see [R Setup](/r-setup/index.qmd)).",
+    "markdown": "---\ntitle: \"Home\"\nformat: live-html\nengine: knitr\n---\n\n\n\n\nThe [R Setup](/r-setup/index.qmd) tab walks you through installing R and RStudio on your machine.\n\nIn the other sections, you can run and edit the code directly on this site, no setup required. Try editing the code below and run it. \n\n\n\n\n::: {.cell autorun='false'}\n\n```{.webr .cell-code}\nprint(\"easy\")\n```\n:::\n\n\n\n\nHowever, the browser version doesn't save your work. To keep your code or start working with your own datasets, you'll need to have R and RStudio installed locally (see [R Setup](/r-setup/index.qmd)).",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

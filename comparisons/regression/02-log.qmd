@@ -1,0 +1,85 @@
+---
+title: "Logistic Regression"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+Linear regressions allow us to model the real world, and importantly also allow us to predict what would happen in scenarios that haven't occurred. While this is comforting, they don't actually allow us to see into the future. 
+Confidence intervals and p-values remind us that a linear regression is ultimately an estimate, not a certainty. 
+
+Remember what a p-value of 0.05 (the standard threshold) means: if there were truly no relationship, we'd still get a result at least as extreme as ours in about 5 out of 100 samples. 
+
+That's pretty unlikely, which is why we treat it as evidence. But unlikely isn't impossible. Stanford's undergraduate admission rate was 3.6%, even lower than 5%, and yet thousands of students get in every year. Rare things happen all the time, especially when there are lots of chances for them to happen. 
+
+The same goes for research: if 20 researchers each test a relationship that doesn't actually exist, we'd expect about one of them to get p < 0.05 by chance alone.
+
+Another pitfall of reading linear regression results too literally is that the model will happily make predictions about situations that are unlikely or even impossible in the real world. For example, we might find that people are more likely to own a home as they get older. But the same model will also give us a prediction for someone who is 200 years old, or -5 years old.
+
+Issues like this are why the work on quantitative social science methods is so deep and active... and thrilling! 
+
+# Logistic Regression 
+One extension of linear regression is **logistic regression**, which addresses the problem of predicting probabilities. Your chance of owning a home can only be between 0 and 1 (or 0% and 100%), and a logistic regression makes sure its predictions stay in that range.
+
+We'll use Bonica 2024's Database on Ideology, Money in Elections (DIME), which you can download locally [here](https://www.dropbox.com/scl/fi/c5z45dm2g8u9ihfi7uce8/dime_contributors_1979_2024.csv.gz?rlkey=janwvetndyxe4t8tm2v5a6wbu&dl=1), which contains 8948 observations of donations from PACs (Political Action Committees) received by candidates in US elections from 1979 to 2024. Each candidate is also measured on how extreme their ideology (Left to Right) is. 
+
+```{webr}
+#| context: setup
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/cand_data.csv",
+  "cand_data.csv"
+)
+library(tidyverse)
+library(ggplot2)
+df <- read_csv("cand_data.csv", show_col_types = FALSE)
+df <- df %>% mutate(extreme = if_else(abs(recipient_cfscore) > 0.75, 1, 0))
+```
+
+
+Existing work suggests that PACs tend to support more moderate candidates. We can set up a logistic regression to answer how likely a candidate is to be extreme, given how much PAC money they received. 
+
+--- 
+
+- Hypothesis
+  - In a comparison of candidates, those who received more money from PACs were less likely to be ideologically extreme than those who received less money from PACs.
+
+- Identify the Null
+  - $H_0$ : Receiving more PAC money does not decrease a candidate's likelihood of being ideologically extreme. In other words, the coefficient on PAC receipts is greater than or equal to zero ($\beta \geq 0$).
+
+- Identify the appropriate test statistic
+  - Our dependent variable (`extreme`) is 0-1 and our independent variable (`log_pac_receipts`) is interval, so we use logistic regression. Logistic regression reports a **z-statistic** instead of a t-statistic, but we read it the same way: it tells us how many standard errors the coefficient is from zero.
+
+- Calculate the z-statistic 
+
+`glm()` works like `lm()`, but it can handle outcomes that aren't interval variables. `family = binomial` tells R that our outcome is 0-1.
+
+```{webr}
+#| autorun: false
+logit <- glm(extreme ~ log_pac_receipts, data = df, family = binomial)
+summary(logit)
+```
+
+- Evaluate p-value
+  - Look at the `log_pac_receipts` row of the coefficients table. The `z value` column is the z-statistic, and `Pr(>|z|)` is the p-value. 
+  - `Pr(>|z|)` is a two-sided p-value. Since our hypothesis is one-sided, if the coefficient is negative (the direction we predicted), we can divide this p-value by 2. 
+  - A negative coefficient means candidates who received more PAC money were less likely to be extreme. 
+
+- Report results 
+  - Because logistic regression coefficients are in log-odds, we convert them into predicted probabilities to describe the size of the relationship. Here, we compare a candidate at the 25th percentile of PAC receipts to one at the 75th percentile:
+
+```{webr}
+#| autorun: false
+pac_values <- quantile(df$log_pac_receipts, c(0.25, 0.75), na.rm = TRUE)
+predict(logit, newdata = data.frame(log_pac_receipts = pac_values), type = "response")
+```
+
+
+  ::: {.callout-tip title="Result"}
+  Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from [X]% to [Y]%. This relationship is statistically significant at the [95/99]% confidence level ($\hat{\beta}$ = [coef], SE = [SE], p [= / <] [p-value]).
+  :::
+
+

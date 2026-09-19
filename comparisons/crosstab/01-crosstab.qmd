@@ -1,0 +1,206 @@
+---
+title: "Cross-Tabulations"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+```{webr}
+#| context: setup
+#| autorun: false
+#| message: false
+#| warning: false
+download.file(
+  "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+  "titanic.csv"
+)
+library(tidyverse)
+library(ggplot2)
+df <- read_csv("titanic.csv")
+```
+
+
+# Visualizing two variables
+```{r}
+#| include: false
+download.file(
+  "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+  "titanic.csv"
+)
+library(tidyverse)
+library(ggplot2)
+library(patchwork)
+library(gridExtra)
+df <- read_csv("titanic.csv")
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+surv_cols <- c("Died" = "slategrey", "Survived" = "mediumseagreen")
+cls_cols  <- c("1" = "#A2005699", "2" = "#5F559B99", "3" = "#00828099")
+
+bg <- "gray95"
+
+theme_set(
+  theme_minimal(base_size = 13) +
+    theme(
+      axis.title = element_text(size = 14),
+      axis.text  = element_text(size = 12),
+      plot.title = element_text(size = 15, face = "bold"),
+      plot.background  = element_rect(fill = bg, color = NA),
+      panel.background = element_rect(fill = bg, color = NA),
+      plot.margin = margin(5, 10, 5, 0),
+      legend.position = "none"
+    )
+)
+
+tbl_theme <- ttheme_minimal(
+  base_size = 12,
+  core    = list(bg_params = list(fill = bg, col = NA)),
+  colhead = list(bg_params = list(fill = bg, col = NA),
+                 fg_params = list(fontface = "bold"))
+)
+
+tg <- function(d) {
+  wrap_elements(full = tableGrob(d, rows = NULL, theme = tbl_theme)) +
+    theme(plot.margin = margin(5, 0, 5, 5))
+}
+
+surv <- df %>%
+  mutate(Survived = if_else(Survived == 1, "Survived", "Died")) %>%
+  count(Survived, name = "Count") %>%
+  mutate(Proportion = round(Count / sum(Count), 3))
+
+cls <- df %>%
+  count(Pclass, name = "Count") %>%
+  mutate(Proportion = round(Count / sum(Count), 3))
+
+p1 <- ggplot(surv, aes(Survived, Count, fill = Survived)) +
+  geom_col() +
+  scale_fill_manual(values = surv_cols) +
+  labs(title = "Survival", x = NULL, y = "Passengers")
+
+p2 <- ggplot(cls, aes(factor(Pclass), Count, fill = factor(Pclass))) +
+  geom_col() +
+  scale_fill_manual(values = cls_cols) +
+  labs(title = "Passenger class", x = "Class", y = "Passengers")
+
+(tg(surv) | p1) / (tg(cls) | p2) +
+  plot_layout(widths = c(0.8, 2)) +
+  plot_annotation(
+    title = "Titanic Passenger Demographics",
+    theme = theme(
+      plot.title = element_text(size = 20, face = "bold", hjust = 0.5,
+                                margin = margin(b = 12)),
+      plot.background = element_rect(fill = bg, color = NA),
+      plot.margin = margin(10, 10, 10, 10)
+    )
+  )
+```
+
+So far, we've analyzed the distribution of passengers' survival status and their class, separately. However, seeing this data, we may raise questions about the intersection of these variables -- were first-class passengers more likely to survive? How much of a difference did class make in survival rate? How much more likely would a third-class passenger have survived if they were second-class? 
+
+
+
+# Cross-tabulations
+Cross tabulations show the distribution of cases across the values of a dependent variable for cases that have different values on the independent variable. Cross-tabulations allow us to make comparisons between nominal and ordinal variables (as well as each other). 
+
+## Comparison setup 
+
+***Hypothesis*** 
+> In a comparison of Titanic passengers, those who were in first-class were more likely to survive than those who were in third-class
+
+***Independent Variable*** 
+> Passenger class (ordinal)
+
+***Dependent Variable*** 
+> Passenger class (nominal)
+
+
+## Code 
+You can generate a cross-tabluation with the table() function. The inputs are the column names of the two variables you want to compare. 
+
+```{webr}
+#| autorun: false
+table(df$Pclass, df$Survived) 
+```
+
+This breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on. 
+
+## Show proportions 
+We can calculate and display the proportions of categories of the independent variable with the **prop.table()** function
+
+```{webr}
+#| autorun: false
+prop.table(table(df$Pclass, df$Survived), margin = 2)
+```
+
+### Show proportions as percentages 
+```{webr}
+#| autorun: false
+round(100 * prop.table(table(df$Pclass, df$Survived), margin = 2), 1)
+```
+
+## Cross-Tabs Check
+- Independent variable are the columns
+- Dependent variable are the rows
+- Columns sum up to 1 or 100%
+
+### Improving readability 
+
+As always, the base output is not very easy to parse. We can relabel our table using our familiar functions. 
+
+```{webr}
+#| autorun: false
+xtab <- df %>%
+  mutate(
+    Survived = if_else(Survived == 1, "Survived", "Died"),
+    Pclass   = case_when(
+      Pclass == 1 ~ "First",
+      Pclass == 2 ~ "Second",
+      Pclass == 3 ~ "Third"
+    )
+  ) %>%
+  with(table(Survived, Pclass))
+
+round(100 * prop.table(xtab, margin = 2), 1)
+```
+
+## Stacked Bar Plots 
+
+We can show this same result with a stacked bar plot.
+Note that in the below example, `Pclass` is assigned to x, and `Survived` is assigned to fill. 
+This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship. 
+
+```{webr}
+ggplot(df, aes(x = Pclass, fill = Survived)) +
+  geom_bar(position = "stack")
+```
+
+We can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning `Survived` to x, and `Pclass` to fill. 
+
+```{webr}
+ggplot(df, aes(x = Survived, fill = Pclass)) +
+  geom_bar(position = "stack")
+
+```
+
+### Improving readability 
+
+```{webr}
+ggplot(df, aes(x = factor(Pclass), fill = factor(Survived))) +
+  geom_bar(position = "stack") +
+  scale_fill_manual(
+    values = c("0" = "lightblue1", "1" = "lightgray"),
+    labels = c("0" = "Died", "1" = "Survived")
+  ) +
+  labs(
+    title = "Survival by passenger class",
+    x = "Passenger class",
+    y = "Number of passengers",
+    fill = "Outcome"
+  )
+```

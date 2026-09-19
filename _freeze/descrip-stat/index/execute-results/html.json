@@ -1,0 +1,15 @@
+{
+  "hash": "d51c80800944dcb39e8c9e6007f6be8c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Description of One Variable\"\nformat: \n  live-html: \n    code-fold: true\n    code-summary: \"Show code\"\nengine: knitr\n---\n\n\n\n\n:::: {.columns}\n::: {.column width=\"33%\"}\n**Nominal**\n\n- [Frequency tables](01-freqtable.qmd)\n- [Bar charts](02-barplot.qmd)\n- [Central Tendency Measures (mode)](03-boxplots.qmd)\n:::\n::: {.column width=\"33%\"}\n**Ordinal**\n\n- [Frequency tables](01-freqtable.qmd)\n- [Bar charts](02-barplot.qmd)\n- [Central Tendency Measures (mode, median)](03-boxplots.qmd)\n:::\n::: {.column width=\"33%\"}\n**Interval**\n\n- [Histogram](04-histograms.qmd)\n- [Frequency tables](01-freqtable.qmd)\n- [Bar charts](02-barplot.qmd)\n- [Central Tendency Measures (mode, median, mean)](03-boxplots.qmd)\n:::\n::::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

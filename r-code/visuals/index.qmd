@@ -1,5 +1,0 @@
----
-title: "Visualizations with ggplot2"
-format: html
----
-
