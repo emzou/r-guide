@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Numeric, Logical, Character – R(eference)</title>
+<title>Histograms – R(eference)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../r-code/first/02-vectors.html" rel="next">
-<link href="../../r-code/index.html" rel="prev">
-<link href="../../favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-48c3e71fd6a1fe0e593c9aa32cb855dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../comparisons/index.html" rel="next">
+<link href="../descrip-stat/03-boxplots.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-48c3e71fd6a1fe0e593c9aa32cb855dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">Data Manipulation</a></li><li class="breadcrumb-item"><a href="../../r-code/first/01-classes.html">Classes and Functions</a></li><li class="breadcrumb-item"><a href="../../r-code/first/01-classes.html">Numeric, Logical, Character</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descrip-stat/index.html">Description of One Variable</a></li><li class="breadcrumb-item"><a href="../descrip-stat/04-histograms.html">Histograms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">R(eference)</a> 
+      <a href="../">R(eference)</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-home"></i></a>
 </div>
@@ -116,13 +116,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../r-setup/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../r-setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Setup</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -140,13 +140,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/01-install.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-r/01-install.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R for Mac</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/02-r-wind.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-r/02-r-wind.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R for Windows</span></a>
   </div>
 </li>
@@ -163,13 +163,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R Studio for Mac</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-rstudio/02-windows.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-rstudio/02-windows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R Studio for Windows</span></a>
   </div>
 </li>
@@ -186,13 +186,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/make-rmd/01-vartypes.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/make-rmd/01-vartypes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Create, save R Markdown file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Writing and Coding in R Markdown</span></a>
   </div>
 </li>
@@ -209,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/load-data/01-getdata.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/load-data/01-getdata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Load CSV into R</span></a>
   </div>
 </li>
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/check-wd/01-checkwd.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/check-wd/01-checkwd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting and setting working directory</span></a>
   </div>
 </li>
@@ -236,31 +236,31 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../r-code/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../r-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Manipulation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
  <span class="menu-text">Classes and Functions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/first/01-classes.html" class="sidebar-item-text sidebar-link active">
+  <a href="../r-code/first/01-classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Numeric, Logical, Character</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/first/02-vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/first/02-vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors and Vector Operations</span></a>
   </div>
 </li>
@@ -277,19 +277,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/02-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/02-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions for Dataframes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/03-selection.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/03-selection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Filtering Dataframe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changing the Dataframe</span></a>
   </div>
 </li>
@@ -299,34 +299,34 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../descrip-stat/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../descrip-stat/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Description of One Variable</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/01-freqtable.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/01-freqtable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequency Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/02-barplot.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/02-barplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/03-boxplots.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/03-boxplots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Central Tendency, Spread Measures, Boxplots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/04-histograms.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/04-histograms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
@@ -334,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../comparisons/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../comparisons/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparisons between Two Variables</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -352,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cross-Tabulations</span></a>
   </div>
 </li>
@@ -369,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/compmeans/01-compmeans.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/compmeans/01-compmeans.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparison of Means</span></a>
   </div>
 </li>
@@ -386,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/hypotest/01-hypotest.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/hypotest/01-hypotest.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Testing</span></a>
   </div>
 </li>
@@ -403,7 +403,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/correlation/01-scatter.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/correlation/01-scatter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Correlation and Scatterplot</span></a>
   </div>
 </li>
@@ -420,13 +420,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/regression/01-regression.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/regression/01-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/regression/02-log.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/regression/02-log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logistic Regression</span></a>
   </div>
 </li>
@@ -444,33 +444,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#numeric" id="toc-numeric" class="nav-link active" data-scroll-target="#numeric">Numeric</a>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link active" data-scroll-target="#histograms">Histograms</a>
   <ul class="collapse">
-  <li><a href="#numeric-operations" id="toc-numeric-operations" class="nav-link" data-scroll-target="#numeric-operations">Numeric Operations</a></li>
+  <li><a href="#binwidth" id="toc-binwidth" class="nav-link" data-scroll-target="#binwidth">binwidth</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
   </ul></li>
-  <li><a href="#logical" id="toc-logical" class="nav-link" data-scroll-target="#logical">Logical</a>
+  <li><a href="#how-are-histograms-different-from-bar-plots" id="toc-how-are-histograms-different-from-bar-plots" class="nav-link" data-scroll-target="#how-are-histograms-different-from-bar-plots">How are histograms different from bar plots?</a>
   <ul class="collapse">
-  <li><a href="#logical-operations" id="toc-logical-operations" class="nav-link" data-scroll-target="#logical-operations">Logical Operations</a></li>
+  <li><a href="#occupation" id="toc-occupation" class="nav-link" data-scroll-target="#occupation">Occupation</a></li>
+  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
   </ul></li>
-  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character">Character</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
+  <li><a href="#how-to-lie-with-real-data" id="toc-how-to-lie-with-real-data" class="nav-link" data-scroll-target="#how-to-lie-with-real-data">How to lie with real data</a>
   <ul class="collapse">
-  <li><a href="#the-class-function" id="toc-the-class-function" class="nav-link" data-scroll-target="#the-class-function">The class() function</a></li>
-  </ul></li>
-  <li><a href="#assigning-variables" id="toc-assigning-variables" class="nav-link" data-scroll-target="#assigning-variables">Assigning variables</a>
-  <ul class="collapse">
-  <li><a href="#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it." id="toc-you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it." class="nav-link" data-scroll-target="#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.">You have to declare the value of a variable before doing anything with it.</a></li>
-  <li><a href="#overwriting-variables" id="toc-overwriting-variables" class="nav-link" data-scroll-target="#overwriting-variables">Overwriting variables</a></li>
+  <li><a href="#by-converting-an-interval-variables-to-an-ordinal-one" id="toc-by-converting-an-interval-variables-to-an-ordinal-one" class="nav-link" data-scroll-target="#by-converting-an-interval-variables-to-an-ordinal-one">By converting an interval variables to an ordinal one</a></li>
+  <li><a href="#by-selecting-uninformative-bin-widths" id="toc-by-selecting-uninformative-bin-widths" class="nav-link" data-scroll-target="#by-selecting-uninformative-bin-widths">By selecting uninformative bin widths</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/first/01-classes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/descrip-stat/04-histograms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">Data Manipulation</a></li><li class="breadcrumb-item"><a href="../../r-code/first/01-classes.html">Classes and Functions</a></li><li class="breadcrumb-item"><a href="../../r-code/first/01-classes.html">Numeric, Logical, Character</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descrip-stat/index.html">Description of One Variable</a></li><li class="breadcrumb-item"><a href="../descrip-stat/04-histograms.html">Histograms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Numeric, Logical, Character</h1>
+<h1 class="title">Histograms</h1>
 </div>
 
 
@@ -493,1156 +490,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="numeric" class="level2">
-<h2 class="anchored" data-anchor-id="numeric">Numeric</h2>
-<p>A numeric is a number R can do math with.</p>
-<div class="cell" data-autorun="false">
+<p>To work through questions of distribution, we’ll use the dataset from Bertrand &amp; Mullainathan’s 2004 study, “Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination”. In this study, the authors sent out 4870 fake resumes, which they had randomly assigned to have either an African-American or White sounding name. They found that White names receive 50 percent more callbacks for interviews. The dataset, which you can download locally <a href="https://www.openintro.org/data/csv/labor_market_discrimination.csv">here</a>, lists every resume and the job it was sent to.</p>
+<div class="cell" data-context="setup">
 <div>
 <div id="webr-1" class="exercise-cell">
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IjYwICsgNyJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZG93bmxvYWQuZmlsZShcbiAgXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZW16b3Uvci1ndWlkZS9tYWluL2RhdGFzZXRzL2xhYm9yX21hcmtldF9kaXNjcmltaW5hdGlvbi5jc3ZcIixcbiAgXCJsYWJvci5jc3ZcIlxuKVxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGdncGxvdDIpXG5cbmRmIDwtIHJlYWRfY3N2KFwibGFib3IuY3N2XCIsIHNob3dfY29sX3R5cGVzID0gRkFMU0UpIn0=
 </script>
 </div>
 </div>
-<section id="numeric-operations" class="level3">
-<h3 class="anchored" data-anchor-id="numeric-operations">Numeric Operations</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="wmlxkrislu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wmlxkrislu table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#wmlxkrislu thead, #wmlxkrislu tbody, #wmlxkrislu tfoot, #wmlxkrislu tr, #wmlxkrislu td, #wmlxkrislu th {
-  border-style: none;
-}
-
-#wmlxkrislu p {
-  margin: 0;
-  padding: 0;
-}
-
-#wmlxkrislu .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#wmlxkrislu .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#wmlxkrislu .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#wmlxkrislu .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#wmlxkrislu .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#wmlxkrislu .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#wmlxkrislu .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #0076BA;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#wmlxkrislu .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #0076BA;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#wmlxkrislu .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#wmlxkrislu .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#wmlxkrislu .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#wmlxkrislu .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#wmlxkrislu .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#wmlxkrislu .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  vertical-align: middle;
-}
-
-#wmlxkrislu .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#wmlxkrislu .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#wmlxkrislu .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: none;
-  border-top-width: 1px;
-  border-top-color: #D5D5D5;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D5D5D5;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D5D5D5;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#wmlxkrislu .gt_stub {
-  color: #333333;
-  background-color: #89D3FE;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D5D5D5;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wmlxkrislu .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#wmlxkrislu .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#wmlxkrislu .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#wmlxkrislu .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wmlxkrislu .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#wmlxkrislu .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_grand_summary_row {
-  color: #333333;
-  background-color: #D5D5D5;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wmlxkrislu .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_striped {
-  background-color: #EDF7FC;
-}
-
-#wmlxkrislu .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#wmlxkrislu .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#wmlxkrislu .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wmlxkrislu .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#wmlxkrislu .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wmlxkrislu .gt_left {
-  text-align: left;
-}
-
-#wmlxkrislu .gt_center {
-  text-align: center;
-}
-
-#wmlxkrislu .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#wmlxkrislu .gt_font_normal {
-  font-weight: normal;
-}
-
-#wmlxkrislu .gt_font_bold {
-  font-weight: bold;
-}
-
-#wmlxkrislu .gt_font_italic {
-  font-style: italic;
-}
-
-#wmlxkrislu .gt_super {
-  font-size: 65%;
-}
-
-#wmlxkrislu .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#wmlxkrislu .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#wmlxkrislu .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#wmlxkrislu .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#wmlxkrislu .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#wmlxkrislu .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#wmlxkrislu .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#wmlxkrislu .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#wmlxkrislu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Arithmetic operators in R</th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Operator</th>
-<th id="Operation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Operation</th>
-<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Example</th>
-<th id="Result" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Result</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">+</td>
-<td class="gt_row gt_left" headers="Operation">addition</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 + 2</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">7.0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">-</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">subtraction</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">5 - 2</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">3.0</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">*</td>
-<td class="gt_row gt_left" headers="Operation">multiplication</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 * 2</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">10.0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">/</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">division</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">5 / 2</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">2.5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">^</td>
-<td class="gt_row gt_left" headers="Operation">exponentiation</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 ^ 2</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">25.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="logical" class="level2">
-<h2 class="anchored" data-anchor-id="logical">Logical</h2>
-<p>A logical is a TRUE or FALSE value</p>
+<section id="histograms" class="level1">
+<h1>Histograms</h1>
+<p>The <code>years_exp</code> column in our dataframe indicates how many years of experience were listed on the fake resume. We’re interested in how diverse the resumes in the dataset are in terms of years of experience. We can use a histogram to visualize this. A histogram shows the distribution of a single quantitative variable by splitting the observations into equal-width intervals (bins), and then counting how many observations fall into each one.</p>
+<p>Similar to other ggplot2 functions, all we need to make a histogram is the geom_histogram() function, and to specify our variable of interest in the aes() call.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IjEgPCAyIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeWVhcnNfZXhwKSkgK1xuICBnZW9tX2hpc3RvZ3JhbSgpIn0=
 </script>
 </div>
 </div>
-<section id="logical-operations" class="level3">
-<h3 class="anchored" data-anchor-id="logical-operations">Logical Operations</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="vqtwswxxey" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vqtwswxxey table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#vqtwswxxey thead, #vqtwswxxey tbody, #vqtwswxxey tfoot, #vqtwswxxey tr, #vqtwswxxey td, #vqtwswxxey th {
-  border-style: none;
-}
-
-#vqtwswxxey p {
-  margin: 0;
-  padding: 0;
-}
-
-#vqtwswxxey .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#vqtwswxxey .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#vqtwswxxey .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#vqtwswxxey .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#vqtwswxxey .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vqtwswxxey .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vqtwswxxey .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #0076BA;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#vqtwswxxey .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #0076BA;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#vqtwswxxey .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#vqtwswxxey .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#vqtwswxxey .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#vqtwswxxey .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#vqtwswxxey .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#vqtwswxxey .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-  vertical-align: middle;
-}
-
-#vqtwswxxey .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#vqtwswxxey .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#vqtwswxxey .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: none;
-  border-top-width: 1px;
-  border-top-color: #D5D5D5;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D5D5D5;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D5D5D5;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#vqtwswxxey .gt_stub {
-  color: #333333;
-  background-color: #89D3FE;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D5D5D5;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vqtwswxxey .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#vqtwswxxey .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#vqtwswxxey .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#vqtwswxxey .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vqtwswxxey .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#vqtwswxxey .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_grand_summary_row {
-  color: #333333;
-  background-color: #D5D5D5;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vqtwswxxey .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_striped {
-  background-color: #EDF7FC;
-}
-
-#vqtwswxxey .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #5F5F5F;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #5F5F5F;
-}
-
-#vqtwswxxey .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vqtwswxxey .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vqtwswxxey .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vqtwswxxey .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vqtwswxxey .gt_left {
-  text-align: left;
-}
-
-#vqtwswxxey .gt_center {
-  text-align: center;
-}
-
-#vqtwswxxey .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#vqtwswxxey .gt_font_normal {
-  font-weight: normal;
-}
-
-#vqtwswxxey .gt_font_bold {
-  font-weight: bold;
-}
-
-#vqtwswxxey .gt_font_italic {
-  font-style: italic;
-}
-
-#vqtwswxxey .gt_super {
-  font-size: 65%;
-}
-
-#vqtwswxxey .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#vqtwswxxey .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#vqtwswxxey .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#vqtwswxxey .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#vqtwswxxey .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#vqtwswxxey .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#vqtwswxxey .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#vqtwswxxey .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#vqtwswxxey div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Comparison and logical operators in R</th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Operator</th>
-<th id="Operation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Operation</th>
-<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Example</th>
-<th id="Result" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Result</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">&lt;</td>
-<td class="gt_row gt_left" headers="Operation">less than</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 &lt; 3</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">FALSE</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">&gt;</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">greater than</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">5 &gt; 3</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">TRUE</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">&lt;=</td>
-<td class="gt_row gt_left" headers="Operation">less than or equal to</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 &lt;= 5</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">TRUE</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">&gt;=</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">greater than or equal to</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">5 &gt;= 6</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">FALSE</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">==</td>
-<td class="gt_row gt_left" headers="Operation">equal to</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">5 == 5</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">TRUE</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">!=</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">not equal to</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">5 != 5</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">FALSE</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">!x</td>
-<td class="gt_row gt_left" headers="Operation">not x</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">!TRUE</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">FALSE</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center gt_striped" headers="Operator" style="font-family: monospace">x | y</td>
-<td class="gt_row gt_left gt_striped" headers="Operation">x or y</td>
-<td class="gt_row gt_center gt_striped" headers="Example" style="font-family: monospace">TRUE | FALSE</td>
-<td class="gt_row gt_center gt_striped" headers="Result" style="font-family: monospace">TRUE</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Operator" style="font-family: monospace">x &amp; y</td>
-<td class="gt_row gt_left" headers="Operation">x and y</td>
-<td class="gt_row gt_center" headers="Example" style="font-family: monospace">TRUE &amp; FALSE</td>
-<td class="gt_row gt_center" headers="Result" style="font-family: monospace">FALSE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="character" class="level2">
-<h2 class="anchored" data-anchor-id="character">Character</h2>
-<p>A character is text wrapped in quotes, like “hello” or “5”. R treats it as words, not numbers, so you can combine, search, or change it, but you can’t do math with it.</p>
+<p>As always, we want our visuals to be easy to read.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-3" class="exercise-cell">
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6InByaW50KFwiaGVsbG9cIilcbnByaW50KFwiNVwiKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeWVhcnNfZXhwKSkgK1xuICBnZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDIsIGZpbGwgPSBcIiM0QzcyQjBcIiwgY29sb3IgPSBcIndoaXRlXCIsIGJvdW5kYXJ5ID0gMCkgK1xuICBsYWJzKFxuICAgIHRpdGxlID0gXCJZZWFycyBvZiB3b3JrIGV4cGVyaWVuY2UgbGlzdGVkIG9uIHJlc3VtZVwiLFxuICAgIHggPSBcIlllYXJzIG9mIGV4cGVyaWVuY2VcIixcbiAgICB5ID0gXCJOdW1iZXIgb2YgcmVzdW1lc1wiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEzKSArXG4gIHRoZW1lKFxuICAgIHBhbmVsLmdyaWQubWFqb3IueCA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwYW5lbC5ncmlkLm1pbm9yID0gZWxlbWVudF9ibGFuaygpLFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKVxuICApICAgICAgIn0=
 </script>
 </div>
 </div>
+<section id="binwidth" class="level3">
+<h3 class="anchored" data-anchor-id="binwidth">binwidth</h3>
+<p>Notice that in geom_histogram(), we also set the <code>binwidth</code> to 2. This means that the each bar counts up the total count of every two years – 0-2, 2-4, and so on. Try changing binwidth in the above code and see what happpens.</p>
 </section>
-<section id="functions" class="level1">
-<h1>Functions</h1>
-<p>A function is a command that takes inputs (called arguments) inside the parentheses, does something with them, and gives you back a result. This is how R knows what to do with print(“hello”).</p>
-<p>Without the parantheses, your computer doesn’t know what you’re referencing.</p>
+<section id="interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
+<p>Looking at the visual, we can see that the resumes are not uniformly distributed across years of experience, and that resumes generally have less years of experience.</p>
+</section>
+</section>
+<section id="how-are-histograms-different-from-bar-plots" class="level1">
+<h1>How are histograms different from bar plots?</h1>
+<p>The histogram looks exactly the same as a bar plot, so why do we differentiate them? Put another way, why do we require that only interval variables can be depicted with histograms, rather than nominal and ordinal ones?</p>
+<section id="occupation" class="level2">
+<h2 class="anchored" data-anchor-id="occupation">Occupation</h2>
+<p>To think through this, we’ll make a bar plot for the <code>occup_broad</code> column, which categorizes the jobs a resume applied to into Executive, Administrative, Sales representatives, Sales workers, Secretaries, and Clerical. This makes it a <strong>nominal</strong> variable.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-4" class="exercise-cell">
 
 </div>
 <script type="webr-4-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxucHJpbnQgaGVsbG8gXG5wcmludCBcImhlbGxvXCJcbnByaW50KCkgaGVsbG8gIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgfD5cbiAgbXV0YXRlKFxuICAgIG9jY3VwX2Jyb2FkID0gZmFjdG9yKFxuICAgICAgb2NjdXBfYnJvYWQsXG4gICAgICBsZXZlbHMgPSAxOjYsXG4gICAgICBsYWJlbHMgPSBjKFwiRXhlY3V0aXZlcyAmXFxubWFuYWdlcmlhbFwiLCBcIkFkbWluaXN0cmF0aXZlXFxuc3VwZXJ2aXNvcnNcIixcbiAgICAgICAgICAgICAgICAgXCJTYWxlc1xcbnJlcHJlc2VudGF0aXZlc1wiLCBcIlNhbGVzXFxud29ya2Vyc1wiLFxuICAgICAgICAgICAgICAgICBcIlNlY3JldGFyaWVzICZcXG5sZWdhbCBhc3Npc3RhbnRzXCIsIFwiQ2xlcmljYWxcIilcbiAgICApXG4gICkgfD5cbiAgZ2dwbG90KGFlcyh4ID0gb2NjdXBfYnJvYWQpKSArXG4gIGdlb21fYmFyKGZpbGwgPSBcIiM0QzcyQjBcIiwgd2lkdGggPSAwLjcpICtcbiAgbGFicyhcbiAgICB0aXRsZSA9IFwiQnJvYWQgb2NjdXBhdGlvbiBjYXRlZ29yeSBvZiB0aGUgam9iIGFkXCIsXG4gICAgeCA9IE5VTEwsXG4gICAgeSA9IFwiTnVtYmVyIG9mIHJlc3VtZXNcIlxuICApICtcbiAgdGhlbWVfbWluaW1hbChiYXNlX3NpemUgPSAxMykgK1xuICB0aGVtZShcbiAgICBwYW5lbC5ncmlkLm1ham9yLnggPSBlbGVtZW50X2JsYW5rKCksXG4gICAgcGFuZWwuZ3JpZC5taW5vciA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGZhY2UgPSBcImJvbGRcIiksXG4gICAgYXhpcy50ZXh0LnggPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKVxuICApIn0=
 </script>
 </div>
 </div>
-<section id="the-class-function" class="level2">
-<h2 class="anchored" data-anchor-id="the-class-function">The class() function</h2>
-<p>The class function allows us to check what class the input (what we want in the parantheses) is.</p>
+<p>Compare this plot to the years of experience plot. In a histogram, the overall shape of the data tells us what the distribution of the data is, we can learn something about the data when our eyes move across the x-axis. In a bar plot of a nominal variable, the order of the x-axis doesn’t matter. You can rearrange the categories however you want and you’ll still have the same information. In the histogram, we can see that as years of experience increases, the less resumes there are.</p>
+</section>
+<section id="education" class="level2">
+<h2 class="anchored" data-anchor-id="education">Education</h2>
+<p><code>education</code> lists the highest level of education reported on each resume, which ranges from: 1 = high school dropout; 2 = high school graduate; 3 = some college; 4 = College graduate or more, (and 0 for not reported). This makes it an <strong>ordinal</strong> variable, because the order of the categories matter.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-5" class="exercise-cell">
 
 </div>
 <script type="webr-5-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxuY2xhc3MoMSlcbmNsYXNzKFRSVUUpXG5jbGFzcyhcInNvIHRydWVcIikifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgfD5cbiAgZmlsdGVyKGVkdWNhdGlvbiAhPSAwKSB8PlxuICBtdXRhdGUoXG4gICAgZWR1Y2F0aW9uID0gZmFjdG9yKFxuICAgICAgZWR1Y2F0aW9uLFxuICAgICAgbGV2ZWxzID0gMTo0LFxuICAgICAgbGFiZWxzID0gYyhcIkhTIGRyb3BvdXRcIiwgXCJIUyBncmFkdWF0ZVwiLFxuICAgICAgICAgICAgICAgICBcIlNvbWUgY29sbGVnZVwiLCBcIkNvbGxlZ2UgZ3JhZHVhdGUgb3IgbW9yZVwiKVxuICAgIClcbiAgKSB8PlxuICBnZ3Bsb3QoYWVzKHggPSBlZHVjYXRpb24pKSArXG4gIGdlb21fYmFyKGZpbGwgPSBcIiM0QzcyQjBcIiwgd2lkdGggPSAwLjcpICtcbiAgbGFicyhcbiAgICB0aXRsZSA9IFwiRWR1Y2F0aW9uIGxldmVsIGxpc3RlZCBvbiByZXN1bWVcIixcbiAgICB4ID0gTlVMTCxcbiAgICB5ID0gXCJOdW1iZXIgb2YgcmVzdW1lc1wiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEzKSArXG4gIHRoZW1lKFxuICAgIHBhbmVsLmdyaWQubWFqb3IueCA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwYW5lbC5ncmlkLm1pbm9yID0gZWxlbWVudF9ibGFuaygpLFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKSxcbiAgICBheGlzLnRleHQueCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTApXG4gICkifQ==
 </script>
 </div>
 </div>
-<p>It can help with diagnosing errors.</p>
+<p>At first glance, this seems to function very similarly as the years of experience histogram – we can see that (whatever distribution pattern)</p>
+<p>However, the intervals on the x-axis are not equal. From the perspective of someone reading the resume, we can imagine that there is some difference in the evaluation of high school dropout applicants and high school graduate applicants. But is this difference the same as how someone with some college is compared to someone with a high school graduate?</p>
+<p>More importantly, you can tell very different stories with the same data based on how you create categories, or even just choosing bin width.</p>
+</section>
+</section>
+<section id="how-to-lie-with-real-data" class="level1">
+<h1>How to lie with real data</h1>
+<p>The <code>frac_black</code> column indicates the proportion of Black residents in each (fictional) applicant’s zipcode. Below, we make a histogram to see the distribution of this proportion across our dataset.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-6" class="exercise-cell">
 
 </div>
 <script type="webr-6-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxuXCIxMiozXCJcbmNsYXNzKFwiMTIqM1wiKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IGZyYWNfYmxhY2spKSArXG4gIGdlb21faGlzdG9ncmFtKGJpbndpZHRoID0gMC4wNSwgZmlsbCA9IFwiIzRDNzJCMFwiLCBjb2xvciA9IFwid2hpdGVcIiwgYm91bmRhcnkgPSAwKSArXG4gIGxhYnMoXG4gICAgdGl0bGUgPSBcIlNoYXJlIG9mIHJlc2lkZW50cyB3aG8gYXJlIEJsYWNrLCBhcHBsaWNhbnQncyB6aXAgY29kZVwiLFxuICAgIHggPSBcIlByb3BvcnRpb24gQmxhY2tcIixcbiAgICB5ID0gXCJOdW1iZXIgb2YgcmVzdW1lc1wiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEzKSArXG4gIHRoZW1lKFxuICAgIHBhbmVsLmdyaWQubWFqb3IueCA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwYW5lbC5ncmlkLm1pbm9yID0gZWxlbWVudF9ibGFuaygpLFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKVxuICApIn0=
 </script>
 </div>
 </div>
-</section>
-</section>
-<section id="assigning-variables" class="level1">
-<h1>Assigning variables</h1>
-<p>Like in algebra, we can assign values to variables, e.g.&nbsp;we set <code>x</code> equal to 5 so that <code>x</code> + 1 = 6. In R, we assign with <code>&lt;-</code></p>
-<div class="cell" data-autorun="false">
+<section id="by-converting-an-interval-variables-to-an-ordinal-one" class="level2">
+<h2 class="anchored" data-anchor-id="by-converting-an-interval-variables-to-an-ordinal-one">By converting an interval variables to an ordinal one</h2>
+<p>Imagine I wanted to say that the applicants are mostly from zipcodes with large proportions of Black people. We can see from the histogram that this isn’t true.</p>
+<p>However, if I turn the interval variable <code>frac_black</code> into an <em>ordinal</em> one by creating skewed bins:</p>
+<div class="cell">
 <div>
 <div id="webr-7" class="exercise-cell">
 
 </div>
 <script type="webr-7-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxueCA8LSA1IFxucHJpbnQgKHgpXG5jbGFzcyAoeClcblxucHJpbnQgKHggKyAxKSBcbnByaW50ICh4PD00MikifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibXlfYnJlYWtzIDwtIGMoc2VxKDAsIDAuMiwgYnkgPSAwLjAxKSwgMC4zLCAwLjQsIDAuNSwgMSkifQ==
 </script>
 </div>
 </div>
-<section id="you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it." class="level2">
-<h2 class="anchored" data-anchor-id="you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.">You have to declare the value of a variable before doing anything with it.</h2>
-<div class="cell" data-autorun="false">
+<p>Then, the distribution of <code>frac_black</code> looks like something that fits my narrative more</p>
+<div class="cell">
 <div>
 <div id="webr-8" class="exercise-cell">
 
 </div>
 <script type="webr-8-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxucHJpbnQgKHkpXG5cbnkgPSBcIkknbSBqdXN0IHNvbWUgY2hhcmFjdGVycy4uLlwiIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgfD5cbiAgZmlsdGVyKCFpcy5uYShmcmFjX2JsYWNrKSkgfD5cbiAgbXV0YXRlKGJpbiA9IGN1dChmcmFjX2JsYWNrLCBicmVha3MgPSBteV9icmVha3MsIGluY2x1ZGUubG93ZXN0ID0gVFJVRSkpIHw+XG4gIGdncGxvdChhZXMoeCA9IGJpbikpICtcbiAgZ2VvbV9iYXIoZmlsbCA9IFwiIzRDNzJCMFwiLCB3aWR0aCA9IDAuNykgK1xuICBsYWJzKFxuICAgIHRpdGxlID0gXCJTaGFyZSBvZiByZXNpZGVudHMgd2hvIGFyZSBCbGFjaywgYXBwbGljYW50J3MgemlwIGNvZGVcIixcbiAgICB4ID0gXCJQcm9wb3J0aW9uIEJsYWNrXCIsXG4gICAgeSA9IFwiTnVtYmVyIG9mIHJlc3VtZXNcIlxuICApICtcbiAgdGhlbWVfbWluaW1hbChiYXNlX3NpemUgPSAxMykgK1xuICB0aGVtZShcbiAgICBwYW5lbC5ncmlkLm1ham9yLnggPSBlbGVtZW50X2JsYW5rKCksXG4gICAgcGFuZWwuZ3JpZC5taW5vciA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGZhY2UgPSBcImJvbGRcIiksXG4gICAgYXhpcy50ZXh0LnggPSBlbGVtZW50X2JsYW5rKClcbiAgKSJ9
 </script>
 </div>
 </div>
 </section>
-<section id="overwriting-variables" class="level2">
-<h2 class="anchored" data-anchor-id="overwriting-variables">Overwriting variables</h2>
-<p>If you define a variable multiple times, it’ll use the vavlue it was last defined on.</p>
+<section id="by-selecting-uninformative-bin-widths" class="level2">
+<h2 class="anchored" data-anchor-id="by-selecting-uninformative-bin-widths">By selecting uninformative bin widths</h2>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-9" class="exercise-cell">
 
 </div>
 <script type="webr-9-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IlxueiA8LSAxXG5wcmludCAoeiArIDIpXG56IDwtIDRcbnByaW50ICh6ICsgMikifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IGZyYWNfYmxhY2spKSArXG4gIGdlb21faGlzdG9ncmFtKGJpbndpZHRoID0gMC4yNSwgZmlsbCA9IFwiIzRDNzJCMFwiLCBjb2xvciA9IFwid2hpdGVcIiwgYm91bmRhcnkgPSAwKSArXG4gIGxhYnMoXG4gICAgdGl0bGUgPSBcIlNoYXJlIG9mIHJlc2lkZW50cyB3aG8gYXJlIEJsYWNrLCBhcHBsaWNhbnQncyB6aXAgY29kZVwiLFxuICAgIHggPSBcIlByb3BvcnRpb24gQmxhY2tcIixcbiAgICB5ID0gXCJOdW1iZXIgb2YgcmVzdW1lc1wiXG4gICkgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDEzKSArXG4gIHRoZW1lKFxuICAgIHBhbmVsLmdyaWQubWFqb3IueCA9IGVsZW1lbnRfYmxhbmsoKSxcbiAgICBwYW5lbC5ncmlkLm1pbm9yID0gZWxlbWVudF9ibGFuaygpLFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoZmFjZSA9IFwiYm9sZFwiKVxuICApIn0=
 </script>
 </div>
 </div>
@@ -1674,9 +650,9 @@ eyJjb250ZW50cyI6W119
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../r-code/first";
+window._ojs.paths.runtimeToDoc = "../../descrip-stat";
 window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
 window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>
@@ -2099,13 +1075,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../r-code/index.html" class="pagination-link" aria-label="Data Manipulation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Manipulation</span>
+      <a href="../descrip-stat/03-boxplots.html" class="pagination-link" aria-label="Central Tendency, Spread Measures, Boxplots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Central Tendency, Spread Measures, Boxplots</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../r-code/first/02-vectors.html" class="pagination-link" aria-label="Vectors and Vector Operations">
-        <span class="nav-page-text">Vectors and Vector Operations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../comparisons/index.html" class="pagination-link" aria-label="Comparisons between Two Variables">
+        <span class="nav-page-text">Comparisons between Two Variables</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -2117,7 +1093,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/first/01-classes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/descrip-stat/04-histograms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>

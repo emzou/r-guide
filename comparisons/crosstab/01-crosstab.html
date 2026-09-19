@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Changing the Dataframe – R(eference)</title>
+<title>Cross-Tabulations – R(eference)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../descrip-stat/index.html" rel="next">
-<link href="../../r-code/load_data/03-selection.html" rel="prev">
+<link href="../../comparisons/compmeans/01-compmeans.html" rel="next">
+<link href="../../comparisons/index.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -86,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">Data Manipulation</a></li><li class="breadcrumb-item"><a href="../../r-code/load_data/02-functions.html">Dataframes</a></li><li class="breadcrumb-item"><a href="../../r-code/load_data/04-mutate.html">Changing the Dataframe</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../comparisons/index.html">Comparisons between Two Variables</a></li><li class="breadcrumb-item"><a href="../../comparisons/crosstab/01-crosstab.html">Cross Tabluation</a></li><li class="breadcrumb-item"><a href="../../comparisons/crosstab/01-crosstab.html">Cross-Tabulations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -238,11 +272,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../r-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Manipulation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
@@ -268,13 +302,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
  <span class="menu-text">Dataframes</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r-code/load_data/02-functions.html" class="sidebar-item-text sidebar-link">
@@ -289,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changing the Dataframe</span></a>
   </div>
 </li>
@@ -336,23 +370,23 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../comparisons/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparisons between Two Variables</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
  <span class="menu-text">Cross Tabluation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link">
+  <a href="../../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Cross-Tabulations</span></a>
   </div>
 </li>
@@ -444,25 +478,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link active" data-scroll-target="#mutate">mutate()</a>
+  <li><a href="#visualizing-two-variables" id="toc-visualizing-two-variables" class="nav-link active" data-scroll-target="#visualizing-two-variables">Visualizing two variables</a></li>
+  <li><a href="#cross-tabulations" id="toc-cross-tabulations" class="nav-link" data-scroll-target="#cross-tabulations">Cross-tabulations</a>
   <ul class="collapse">
-  <li><a href="#directly-adding-column-to-dataframe" id="toc-directly-adding-column-to-dataframe" class="nav-link" data-scroll-target="#directly-adding-column-to-dataframe">Directly adding column to dataframe</a></li>
-  <li><a href="#making-a-new-dataframe-with-our-changes" id="toc-making-a-new-dataframe-with-our-changes" class="nav-link" data-scroll-target="#making-a-new-dataframe-with-our-changes">Making a new dataframe with our changes</a></li>
-  <li><a href="#if_else" id="toc-if_else" class="nav-link" data-scroll-target="#if_else">if_else()</a>
+  <li><a href="#comparison-setup" id="toc-comparison-setup" class="nav-link" data-scroll-target="#comparison-setup">Comparison setup</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#show-proportions" id="toc-show-proportions" class="nav-link" data-scroll-target="#show-proportions">Show proportions</a>
   <ul class="collapse">
-  <li><a href="#dealing-with-unknown-values" id="toc-dealing-with-unknown-values" class="nav-link" data-scroll-target="#dealing-with-unknown-values">Dealing with unknown values</a></li>
+  <li><a href="#show-proportions-as-percentages" id="toc-show-proportions-as-percentages" class="nav-link" data-scroll-target="#show-proportions-as-percentages">Show proportions as percentages</a></li>
   </ul></li>
-  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when">case_when()</a></li>
+  <li><a href="#cross-tabs-check" id="toc-cross-tabs-check" class="nav-link" data-scroll-target="#cross-tabs-check">Cross-Tabs Check</a>
+  <ul class="collapse">
+  <li><a href="#improving-readability" id="toc-improving-readability" class="nav-link" data-scroll-target="#improving-readability">Improving readability</a></li>
+  </ul></li>
+  <li><a href="#stacked-bar-plots" id="toc-stacked-bar-plots" class="nav-link" data-scroll-target="#stacked-bar-plots">Stacked Bar Plots</a>
+  <ul class="collapse">
+  <li><a href="#improving-readability-1" id="toc-improving-readability-1" class="nav-link" data-scroll-target="#improving-readability-1">Improving readability</a></li>
+  </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/load_data/04-mutate.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/comparisons/crosstab/01-crosstab.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-code/index.html">Data Manipulation</a></li><li class="breadcrumb-item"><a href="../../r-code/load_data/02-functions.html">Dataframes</a></li><li class="breadcrumb-item"><a href="../../r-code/load_data/04-mutate.html">Changing the Dataframe</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../comparisons/index.html">Comparisons between Two Variables</a></li><li class="breadcrumb-item"><a href="../../comparisons/crosstab/01-crosstab.html">Cross Tabluation</a></li><li class="breadcrumb-item"><a href="../../comparisons/crosstab/01-crosstab.html">Cross-Tabulations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Changing the Dataframe</h1>
+<h1 class="title">Cross-Tabulations</h1>
 </div>
 
 
@@ -491,105 +533,192 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZG93bmxvYWQuZmlsZShcbiAgXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGF0YXNjaWVuY2Vkb2pvL2RhdGFzZXRzL21hc3Rlci90aXRhbmljLmNzdlwiLFxuICBcInRpdGFuaWMuY3N2XCJcbilcblxubGlicmFyeSh0aWR5dmVyc2UpXG5kZiA8LSByZWFkX2NzdihcInRpdGFuaWMuY3N2XCIpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZG93bmxvYWQuZmlsZShcbiAgXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGF0YXNjaWVuY2Vkb2pvL2RhdGFzZXRzL21hc3Rlci90aXRhbmljLmNzdlwiLFxuICBcInRpdGFuaWMuY3N2XCJcbilcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShnZ3Bsb3QyKVxuZGYgPC0gcmVhZF9jc3YoXCJ0aXRhbmljLmNzdlwiKSJ9
 </script>
 </div>
 </div>
-<section id="mutate" class="level1">
-<h1>mutate()</h1>
-<p>We want to work with <code>Fare</code>, but we want to round everything up to integers. We can add a new column to the dataframe. Column names can’t be repeated, so we’ll name our new column <code>Rounded_Fare</code></p>
-<p>ceiling() is a function that rounds its inputs to the nearest whole number.</p>
+<section id="visualizing-two-variables" class="level1">
+<h1>Visualizing two variables</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>surv_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Died"</span> <span class="ot">=</span> <span class="st">"slategrey"</span>, <span class="st">"Survived"</span> <span class="ot">=</span> <span class="st">"mediumseagreen"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cls_cols  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"#A2005699"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"#5F559B99"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"#00828099"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>bg <span class="ot">&lt;-</span> <span class="st">"gray95"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">0</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>tbl_theme <span class="ot">&lt;-</span> <span class="fu">ttheme_minimal</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">base_size =</span> <span class="dv">12</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">core    =</span> <span class="fu">list</span>(<span class="at">bg_params =</span> <span class="fu">list</span>(<span class="at">fill =</span> bg, <span class="at">col =</span> <span class="cn">NA</span>)),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">colhead =</span> <span class="fu">list</span>(<span class="at">bg_params =</span> <span class="fu">list</span>(<span class="at">fill =</span> bg, <span class="at">col =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fg_params =</span> <span class="fu">list</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>tg <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wrap_elements</span>(<span class="at">full =</span> <span class="fu">tableGrob</span>(d, <span class="at">rows =</span> <span class="cn">NULL</span>, <span class="at">theme =</span> tbl_theme)) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>surv <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Survived =</span> <span class="fu">if_else</span>(Survived <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Survived"</span>, <span class="st">"Died"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Survived, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Proportion =</span> <span class="fu">round</span>(Count <span class="sc">/</span> <span class="fu">sum</span>(Count), <span class="dv">3</span>))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Pclass, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Proportion =</span> <span class="fu">round</span>(Count <span class="sc">/</span> <span class="fu">sum</span>(Count), <span class="dv">3</span>))</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(surv, <span class="fu">aes</span>(Survived, Count, <span class="at">fill =</span> Survived)) <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> surv_cols) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Survival"</span>, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Passengers"</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cls, <span class="fu">aes</span>(<span class="fu">factor</span>(Pclass), Count, <span class="at">fill =</span> <span class="fu">factor</span>(Pclass))) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cls_cols) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Passenger class"</span>, <span class="at">x =</span> <span class="st">"Class"</span>, <span class="at">y =</span> <span class="st">"Passengers"</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>(<span class="fu">tg</span>(surv) <span class="sc">|</span> p1) <span class="sc">/</span> (<span class="fu">tg</span>(cls) <span class="sc">|</span> p2) <span class="sc">+</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Titanic Passenger Demographics"</span>,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">theme =</span> <span class="fu">theme</span>(</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>                                <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">12</span>)),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-crosstab_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So far, we’ve analyzed the distribution of passengers’ survival status and their class, separately. However, seeing this data, we may raise questions about the intersection of these variables – were first-class passengers more likely to survive? How much of a difference did class make in survival rate? How much more likely would a third-class passenger have survived if they were second-class?</p>
+</section>
+<section id="cross-tabulations" class="level1">
+<h1>Cross-tabulations</h1>
+<p>Cross tabulations show the distribution of cases across the values of a dependent variable for cases that have different values on the independent variable. Cross-tabulations allow us to make comparisons between nominal and ordinal variables (as well as each other).</p>
+<section id="comparison-setup" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-setup">Comparison setup</h2>
+<p><strong><em>Hypothesis</em></strong> &gt; In a comparison of Titanic passengers, those who were in first-class were more likely to survive than those who were in third-class</p>
+<p><strong><em>Independent Variable</em></strong> &gt; Passenger class (ordinal)</p>
+<p><strong><em>Dependent Variable</em></strong> &gt; Passenger class (nominal)</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<p>You can generate a cross-tabluation with the table() function. The inputs are the column names of the two variables you want to compare.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgJT4lIG11dGF0ZShSb3VuZGVkX0ZhcmUgPSBjZWlsaW5nKEZhcmUpKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidGFibGUoZGYkUGNsYXNzLCBkZiRTdXJ2aXZlZCkgIn0=
 </script>
 </div>
 </div>
-<p>We can apply whatever transformation we want within the parantheses of mutate()</p>
+<p>This breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on.</p>
+</section>
+<section id="show-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="show-proportions">Show proportions</h2>
+<p>We can calculate and display the proportions of categories of the independent variable with the <strong>prop.table()</strong> function</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-3" class="exercise-cell">
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgJT4lIG11dGF0ZShGYXJlX1BsdXNfT25lID0gRmFyZSArIDEpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicHJvcC50YWJsZSh0YWJsZShkZiRQY2xhc3MsIGRmJFN1cnZpdmVkKSwgbWFyZ2luID0gMikifQ==
 </script>
 </div>
 </div>
-<section id="directly-adding-column-to-dataframe" class="level3">
-<h3 class="anchored" data-anchor-id="directly-adding-column-to-dataframe">Directly adding column to dataframe</h3>
-<p>To save the new column to the dataframe, you must reassign the variable.</p>
+<section id="show-proportions-as-percentages" class="level3">
+<h3 class="anchored" data-anchor-id="show-proportions-as-percentages">Show proportions as percentages</h3>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-4" class="exercise-cell">
 
 </div>
 <script type="webr-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgPC0gZGYgJT4lIG11dGF0ZShSb3VuZGVkX0ZhcmUgPSBjZWlsaW5nKEZhcmUpKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicm91bmQoMTAwICogcHJvcC50YWJsZSh0YWJsZShkZiRQY2xhc3MsIGRmJFN1cnZpdmVkKSwgbWFyZ2luID0gMiksIDEpIn0=
 </script>
 </div>
 </div>
-<p>Try seeing the changes we made to <code>df</code> with the head() function.</p>
 </section>
-<section id="making-a-new-dataframe-with-our-changes" class="level3">
-<h3 class="anchored" data-anchor-id="making-a-new-dataframe-with-our-changes">Making a new dataframe with our changes</h3>
-<p>Sometimes we want to keep the original dataframe, so we make a new dataframe with our edits. Remember that we have to name our new dataframe something new.</p>
+</section>
+<section id="cross-tabs-check" class="level2">
+<h2 class="anchored" data-anchor-id="cross-tabs-check">Cross-Tabs Check</h2>
+<ul>
+<li>Independent variable are the columns</li>
+<li>Dependent variable are the rows</li>
+<li>Columns sum up to 1 or 100%</li>
+</ul>
+<section id="improving-readability" class="level3">
+<h3 class="anchored" data-anchor-id="improving-readability">Improving readability</h3>
+<p>As always, the base output is not very easy to parse. We can relabel our table using our familiar functions.</p>
 <div class="cell" data-autorun="false">
 <div>
 <div id="webr-5" class="exercise-cell">
 
 </div>
 <script type="webr-5-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGZfd2l0aF9yb3VuZGVkIDwtIGRmICU+JSBtdXRhdGUoUm91bmRlZF9GYXJlID0gY2VpbGluZyhGYXJlKSkifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoieHRhYiA8LSBkZiAlPiVcbiAgbXV0YXRlKFxuICAgIFN1cnZpdmVkID0gaWZfZWxzZShTdXJ2aXZlZCA9PSAxLCBcIlN1cnZpdmVkXCIsIFwiRGllZFwiKSxcbiAgICBQY2xhc3MgICA9IGNhc2Vfd2hlbihcbiAgICAgIFBjbGFzcyA9PSAxIH4gXCJGaXJzdFwiLFxuICAgICAgUGNsYXNzID09IDIgfiBcIlNlY29uZFwiLFxuICAgICAgUGNsYXNzID09IDMgfiBcIlRoaXJkXCJcbiAgICApXG4gICkgJT4lXG4gIHdpdGgodGFibGUoU3Vydml2ZWQsIFBjbGFzcykpXG5cbnJvdW5kKDEwMCAqIHByb3AudGFibGUoeHRhYiwgbWFyZ2luID0gMiksIDEpIn0=
 </script>
 </div>
 </div>
 </section>
-<section id="if_else" class="level2">
-<h2 class="anchored" data-anchor-id="if_else">if_else()</h2>
-<p>We can also use conditional statements to generate new columns. Let’s say we want a column that indicates whether a passenger was an adult (<code>Age &gt;= 18</code>)</p>
-<p>We can use the if_else() function, which requires three inputs, in this order: (1) the condition (2) the value if the condition is met (3) the value if the condition is not met.</p>
-<div class="cell" data-autorun="false">
+</section>
+<section id="stacked-bar-plots" class="level2">
+<h2 class="anchored" data-anchor-id="stacked-bar-plots">Stacked Bar Plots</h2>
+<p>We can show this same result with a stacked bar plot. Note that in the below example, <code>Pclass</code> is assigned to x, and <code>Survived</code> is assigned to fill. This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship.</p>
+<div class="cell">
 <div>
 <div id="webr-6" class="exercise-cell">
 
 </div>
 <script type="webr-6-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGZfYWR1bHQgPC0gZGYgJT4lIG11dGF0ZShJc19BZHVsdCA9IGlmX2Vsc2UoXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQWdlID49IDE4LCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcIlllc1wiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcIk5vXCIpKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFBjbGFzcywgZmlsbCA9IFN1cnZpdmVkKSkgK1xuICBnZW9tX2Jhcihwb3NpdGlvbiA9IFwic3RhY2tcIikifQ==
 </script>
 </div>
 </div>
-<section id="dealing-with-unknown-values" class="level3">
-<h3 class="anchored" data-anchor-id="dealing-with-unknown-values">Dealing with unknown values</h3>
-<p>You may notice that some values in <code>Is_Adult</code> column are neither “Yes” or “No”, but something called NA instead. We get this value when the value in <code>Age</code> was missing, so R can’t determine whether or not the value is greater or equal to 18.</p>
-<p>We can deal with this by adding another input into the if_else() function: <code>missing = "Unknown"</code></p>
-<div class="cell" data-autorun="false">
+<p>We can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning <code>Survived</code> to x, and <code>Pclass</code> to fill.</p>
+<div class="cell">
 <div>
 <div id="webr-7" class="exercise-cell">
 
 </div>
 <script type="webr-7-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGZfYWR1bHQgPC0gZGYgJT4lIG11dGF0ZShJc19BZHVsdCA9IGlmX2Vsc2UoQWdlID49IDE4LCBcIlllc1wiLCBcIk5vXCIsIG1pc3NpbmcgPSBcIlVua25vd25cIikpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IFN1cnZpdmVkLCBmaWxsID0gUGNsYXNzKSkgK1xuICBnZW9tX2Jhcihwb3NpdGlvbiA9IFwic3RhY2tcIikifQ==
 </script>
 </div>
 </div>
-<p>Now, instead of NA as the value, the missing values will have an actual value.</p>
-</section>
-</section>
-<section id="case_when" class="level2">
-<h2 class="anchored" data-anchor-id="case_when">case_when()</h2>
-<p>if_else() is helpful when we only have two conditions, but we may have more than two.</p>
-<div class="cell" data-autorun="false">
+<section id="improving-readability-1" class="level3">
+<h3 class="anchored" data-anchor-id="improving-readability-1">Improving readability</h3>
+<div class="cell">
 <div>
 <div id="webr-8" class="exercise-cell">
 
 </div>
 <script type="webr-8-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGYgJT4lIG11dGF0ZShBZ2VfR3JvdXAgPSBjYXNlX3doZW4oXG4gIEFnZSA8IDEzIH4gXCJDaGlsZFwiLFxuICBBZ2UgPCAxOCB+IFwiVGVlblwiLFxuICBBZ2UgPj0gMTggfiBcIkFkdWx0XCIsXG4gIC5kZWZhdWx0ID0gXCJVbmtub3duXCJcbikpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2dwbG90KGRmLCBhZXMoeCA9IGZhY3RvcihQY2xhc3MpLCBmaWxsID0gZmFjdG9yKFN1cnZpdmVkKSkpICtcbiAgZ2VvbV9iYXIocG9zaXRpb24gPSBcInN0YWNrXCIpICtcbiAgc2NhbGVfZmlsbF9tYW51YWwoXG4gICAgdmFsdWVzID0gYyhcIjBcIiA9IFwibGlnaHRibHVlMVwiLCBcIjFcIiA9IFwibGlnaHRncmF5XCIpLFxuICAgIGxhYmVscyA9IGMoXCIwXCIgPSBcIkRpZWRcIiwgXCIxXCIgPSBcIlN1cnZpdmVkXCIpXG4gICkgK1xuICBsYWJzKFxuICAgIHRpdGxlID0gXCJTdXJ2aXZhbCBieSBwYXNzZW5nZXIgY2xhc3NcIixcbiAgICB4ID0gXCJQYXNzZW5nZXIgY2xhc3NcIixcbiAgICB5ID0gXCJOdW1iZXIgb2YgcGFzc2VuZ2Vyc1wiLFxuICAgIGZpbGwgPSBcIk91dGNvbWVcIlxuICApIn0=
 </script>
 </div>
 </div>
@@ -614,6 +743,7 @@ W10=
 </script>
 </section>
 </section>
+</section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
@@ -621,7 +751,7 @@ eyJjb250ZW50cyI6W119
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../r-code/load_data";
+window._ojs.paths.runtimeToDoc = "../../comparisons/crosstab";
 window._ojs.paths.runtimeToRoot = "../..";
 window._ojs.paths.docToRoot = "../..";
 window._ojs.selfContained = false;
@@ -1046,13 +1176,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../r-code/load_data/03-selection.html" class="pagination-link" aria-label="Filtering Dataframe">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Filtering Dataframe</span>
+      <a href="../../comparisons/index.html" class="pagination-link" aria-label="Comparisons between Two Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparisons between Two Variables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../descrip-stat/index.html" class="pagination-link" aria-label="Description of One Variable">
-        <span class="nav-page-text">Description of One Variable</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../comparisons/compmeans/01-compmeans.html" class="pagination-link" aria-label="Comparison of Means">
+        <span class="nav-page-text">Comparison of Means</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1064,7 +1194,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-code/load_data/04-mutate.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/comparisons/crosstab/01-crosstab.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>
