@@ -1,739 +1,5 @@
 [
   {
-    "objectID": "r-code/load_data/03-selection.html#selecting-a-column",
-    "href": "r-code/load_data/03-selection.html#selecting-a-column",
-    "title": "Filtering Dataframe",
-    "section": "Selecting a Column",
-    "text": "Selecting a Column\n\n\n\n\n\n\n\n\n\nColumn to Vector\nWhy would we want to select only a column?\n\n\n\n\n\n\n\n\nA vector is a different data type than a column. Now that we’ve put the Survived column into a vector, we can use our vector functions.",
-    "crumbs": [
-      "Data Manipulation",
-      "Dataframes",
-      "Filtering Dataframe"
-    ]
-  },
-  {
-    "objectID": "r-code/load_data/03-selection.html#selecting-rows-based-on-column-value",
-    "href": "r-code/load_data/03-selection.html#selecting-rows-based-on-column-value",
-    "title": "Filtering Dataframe",
-    "section": "Selecting rows based on column value",
-    "text": "Selecting rows based on column value",
-    "crumbs": [
-      "Data Manipulation",
-      "Dataframes",
-      "Filtering Dataframe"
-    ]
-  },
-  {
-    "objectID": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
-    "href": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
-    "title": "Filtering Dataframe",
-    "section": "Selecting rows based on conditioning column value",
-    "text": "Selecting rows based on conditioning column value\n\nOnly show rows where the value in Sex is not female\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10 AND the value in Sex is male",
-    "crumbs": [
-      "Data Manipulation",
-      "Dataframes",
-      "Filtering Dataframe"
-    ]
-  },
-  {
-    "objectID": "r-code/load_data/02-functions.html",
-    "href": "r-code/load_data/02-functions.html",
-    "title": "Functions for Dataframes",
-    "section": "",
-    "text": "head() Shows the first 6 rows of your dataframe\n\n\n\n\n\n\n\n\n\nTo choose the number of rows you want to see, add the number of rows after the dataframe variable input.\n\n\n\n\n\n\n\n\n\ndim() Returns the number of rows and columns your dataframe has.\n\n\n\n\n\n\n\n\n\n\nnames() Returns the names of the columns in your dataframe\n\n\n\n\n\n\n\n\n\n\nsummary() Returns an overview of your dataset.",
-    "crumbs": [
-      "R Practice",
-      "Dataframes",
-      "Functions for Dataframes"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/05-boxplots.html",
-    "href": "r-code/visuals/05-boxplots.html",
-    "title": "Boxplots and Summary Statistics",
-    "section": "",
-    "text": "We’ll use Bonica 2024’s Database on Ideology, Money in Elections (DIME), which you can download locally here, which contains 8948 observations of amount of money received by candidates in local, state, and federal donations from 1979 to 2024. Each candidate is also given a CFscores, which is a measure of each candidate’s ideological intensity.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Boxplots and Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/05-boxplots.html#pull-dataframe-column-into-a-vector",
-    "href": "r-code/visuals/05-boxplots.html#pull-dataframe-column-into-a-vector",
-    "title": "Boxplots and Summary Statistics",
-    "section": "Pull dataframe column into a vector",
-    "text": "Pull dataframe column into a vector\n\n\n\n\n\n\n\n\n\nMean\n\n\n\n\n\n\n\n\n\n\nMedian\n\n\n\n\n\n\n\n\n\n\nQuartiles",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Boxplots and Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/05-boxplots.html#improving-readability",
-    "href": "r-code/visuals/05-boxplots.html#improving-readability",
-    "title": "Boxplots and Summary Statistics",
-    "section": "Improving Readability",
-    "text": "Improving Readability",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Boxplots and Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/03-crosstab.html#cross-tabulations",
-    "href": "r-code/visuals/03-crosstab.html#cross-tabulations",
-    "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "Cross-tabulations",
-    "text": "Cross-tabulations\nCross-tabulations can help us answer these questions. Cross-tabulations are essentially frequency tables, but for two variables instead of one. You can generate a cross-tabluation with the table() function. The inputs are the column nmaes of the two variables you want to compare.\n\n\n\n\n\n\n\n\nThis breaks down our dataset into six groups: those in first class and survived, those in first class and did not survive, those in second class and survived, and so on.\n\nImproving readability\nAs always, the base output is not very easy to parse. We can relabel our table using our familiar functions.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Cross-Tabulations and Grouped Bar Plots"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
-    "href": "r-code/visuals/03-crosstab.html#stacked-bar-plots",
-    "title": "Cross-Tabulations and Grouped Bar Plots",
-    "section": "Stacked Bar Plots",
-    "text": "Stacked Bar Plots\nWe can show this same result with a stacked bar plot. Note that in the below example, Pclass is assigned to x, and Survived is assigned to fill. This means that the x-axis, or, what each bar represents, will be a passenger class. The colors will indicate the distribution of survivorship.\n\n\n\n\n\n\n\n\nWe can make a plot where the bars are survival status instead, and they are broken down by passenger class, by assigning Survived to x, and Pclass to fill.\n\n\n\n\n\n\n\n\n\nImproving readability",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Cross-Tabulations and Grouped Bar Plots"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/07-regression.html",
-    "href": "r-code/visuals/07-regression.html",
-    "title": "Linear Regression",
-    "section": "",
-    "text": "We found a strong positive correlation between prison population and violent crime, but this does not license any claims about the size of correlation between prison population and violent crimes. For this we need to run a linear regression.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Linear Regression"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/07-regression.html#geom_smooth",
-    "href": "r-code/visuals/07-regression.html#geom_smooth",
-    "title": "Linear Regression",
-    "section": "geom_smooth",
-    "text": "geom_smooth",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Linear Regression"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/07-regression.html#interpretation",
-    "href": "r-code/visuals/07-regression.html#interpretation",
-    "title": "Linear Regression",
-    "section": "Interpretation",
-    "text": "Interpretation\n\nGenerally\n\n\\(\\hat{\\alpha}\\) is the intercept on the y-axis, the value that Y takes when X is zero. \\(\\hat{\\alpha}\\) is a constant, it doesn’t change and remains the same regardless of the value of X.\n\\(\\hat{\\beta}\\) is the coefficient (or slope), the average change in Y for one unit increase in X. \\(\\hat{\\beta}\\) is always in terms of Y’s units.\n\nTo report your results, you can say something like: “On average, Y changes by \\(\\hat{\\beta}\\) [Y’s units] for a 1 [X’s unit] increase in X.”\n\n\nTranslated in this case\n“Each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people.”",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Linear Regression"
-    ]
-  },
-  {
-    "objectID": "r-code/index.html",
-    "href": "r-code/index.html",
-    "title": "Data Manipulation",
-    "section": "",
-    "text": "Now that you’ve loaded a dataframe in, here’s some stuff we can do with it",
-    "crumbs": [
-      "Data Manipulation"
-    ]
-  },
-  {
-    "objectID": "r-code/first/02-vectors.html",
-    "href": "r-code/first/02-vectors.html",
-    "title": "Vectors and Vector Operations",
-    "section": "",
-    "text": "We now know about the Numerics, Logicals, and Character classes; that we can use functions on these objects; and we can assign variable names to objects.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Vectors and Vector Operations"
-    ]
-  },
-  {
-    "objectID": "r-code/first/02-vectors.html#vectors",
-    "href": "r-code/first/02-vectors.html#vectors",
-    "title": "Vectors and Vector Operations",
-    "section": "Vectors",
-    "text": "Vectors\nA vector is a set of values of the same type. You can think of it like a column on a spreadsheet. We can make a vector with the c() function.\n\n\n\n\n\n\n\n\nAll the elements in a vector need to be the same datatype, there are some functions that work on entire vectors.\nWe can get the mean, or average, number of Red Bulls I drink every week for the last 6 weeks by using the mean() function.\n\n\n\n\n\n\n\n\nNote that every element in redbulls_drank is of the numeric type. We can also do things with vectors filled with characters. The toupper() function turns every character into uppercase.\n\n\n\n\n\n\n\n\nHowever, it wouldn’t make sense to try to get the mean of my favorite flavors. Nor would it make sense to try to uppercase numbers.\n\n\n\n\n\n\n\n\nIt also wouldn’t make sense to get the mean of the number of Red Bulls I drank and my favorite flavors.\n\n\n\n\n\n\n\n\nThis doesn’t mean that numeric vectors can only use numeric vector functions, that logical vectors can only use logical vector functions, and so on. The length() function tells you how many elements are in a vector, and works on all kinds of vectors, and the unique() function tells you how many unique values are in a vector.\n\n\n\n\n\n\n\n\nYou can also access a specific element in a vector based on its position. In redbull_flavor, “cherry” has a position of 1, “lime” has a position of 2, “apple” has a position of 3, and “strawberry” has a position of 4. We can refer to a specific element by: redbull_flavor[1], which is “cherry”\n\n\n\n\n\n\n\n\n\nVector to Vector Operations\nWe can work with multiple vectors. We’ll make a new numeric vector that lists the number of cups of water I drank each week for the past 6 weeks.\n\n\n\n\n\n\n\n\nWe can get a new vector by adding redbulls_drank to waters_drank using the same numeric operation rules for numerics.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Vectors and Vector Operations"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "The R Setup tab walks you through installing R and RStudio on your machine.\nIn the other sections, you can run and edit the code directly on this site, no setup required. Try editing the code below and run it.\n\n\n\n\n\n\n\n\nHowever, the browser version doesn’t save your work. To keep your code or start working with your own datasets, you’ll need to have R and RStudio installed locally (see R Setup).",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "r-setup/make-rmd/01-vartypes.html",
-    "href": "r-setup/make-rmd/01-vartypes.html",
-    "title": "Create, save R Markdown file",
-    "section": "",
-    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
-    "crumbs": [
-      "R Setup",
-      "Make R Markdown File",
-      "Create, save R Markdown file"
-    ]
-  },
-  {
-    "objectID": "r-setup/make-rmd/01-vartypes.html#create-your-first-r-markdown-file",
-    "href": "r-setup/make-rmd/01-vartypes.html#create-your-first-r-markdown-file",
-    "title": "Create, save R Markdown file",
-    "section": "",
-    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
-    "crumbs": [
-      "R Setup",
-      "Make R Markdown File",
-      "Create, save R Markdown file"
-    ]
-  },
-  {
-    "objectID": "r-setup/index.html",
-    "href": "r-setup/index.html",
-    "title": "Installing R, accessing data in R",
-    "section": "",
-    "text": "If your machine is not running MacOS, Windows 11 or higher, start from the Posit Cloud step\nTo Do List",
-    "crumbs": [
-      "R Setup"
-    ]
-  },
-  {
-    "objectID": "r-setup/index.html#create-local-folder",
-    "href": "r-setup/index.html#create-local-folder",
-    "title": "Installing R, accessing data in R",
-    "section": "Create local folder",
-    "text": "Create local folder\nCreate a new folder on your Desktop and name it comm_106\n\n\n\n\nMac: Click on your desktop, go to the top toolbar, and click on File\n\n\n\n\n\nWindows: Right click on desktop, click New, click Folder",
-    "crumbs": [
-      "R Setup"
-    ]
-  },
-  {
-    "objectID": "r-setup/index.html#r-and-rstudio",
-    "href": "r-setup/index.html#r-and-rstudio",
-    "title": "Installing R, accessing data in R",
-    "section": "R and RStudio",
-    "text": "R and RStudio\nR and RStudio are different things and need to be installed separately. Once you do this, you won’t have to do it again.\n\nR — the language itself.\nRStudio — the app you’ll actually look at and type in.\n\nThey’re separate programs and you need both. R alone works but is unpleasant; RStudio without R won’t do anything.\nUnfortunately, the links you’ll need to click on to download depend on whether you’re using Mac or Windows, and which version of macOS or Windows you’re running. You can make life easier by updating your macOS/Windows version to the most current version before installing anything.",
-    "crumbs": [
-      "R Setup"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-r/02-r-wind.html",
-    "href": "r-setup/install-r/02-r-wind.html",
-    "title": "Install R for Windows",
-    "section": "",
-    "text": "Go to the R for Windows Installation site and click Download R for Windows. You must be running Windows 10 or higher.",
-    "crumbs": [
-      "R Setup",
-      "Install R",
-      "Install R for Windows"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-rstudio/02-windows.html",
-    "href": "r-setup/install-rstudio/02-windows.html",
-    "title": "Install R Studio for Windows",
-    "section": "",
-    "text": "Go to the RStudio Installation site\nScroll to Direct Downloads (Open Source), and look at the first section RStudio IDE\n\n\n\n\nRStudio page\n\n\n\nClick on the .exe file next to Windows 11\nFollow the pop-up links\n\n\n\n\n\n\n\nIf you cannot update to Windows 11 or higher\n\n\n\n\n\nYou must use Posit Cloud, the online version of RStudio. Follow the instructions in the Preamble",
-    "crumbs": [
-      "R Setup",
-      "Install RStudio",
-      "Install R Studio for Windows"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-rstudio/01-rstudio.html",
-    "href": "r-setup/install-rstudio/01-rstudio.html",
-    "title": "Install R Studio for Mac",
-    "section": "",
-    "text": "Go to the RStudio Installation site\nScroll to Direct Downloads (Open Source), and look at the first section RStudio IDE\n\n\n\n\nRStudio page\n\n\n\nClick on the .dmg file next to macOS 14+",
-    "crumbs": [
-      "R Setup",
-      "Install RStudio",
-      "Install R Studio for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
-    "href": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
-    "title": "Install R Studio for Mac",
-    "section": "Then, for all cases:",
-    "text": "Then, for all cases:\n\n\nA window with the Applications folder and RStudio will appear\n\n\n\nApplications and RStudio\n\n\nDrag the RStudio icon onto the Applications folder. Click on the Applications folder to open it, and you should see RStudio (as well as R)\n\n\n\nApplications folder\n\n\nYou can put the RStudio icon in your toolbar to find it easily in the future.\n\n\n\nDrag the RStudio icon onto the toolbar",
-    "crumbs": [
-      "R Setup",
-      "Install RStudio",
-      "Install R Studio for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/check-wd/01-checkwd.html",
-    "href": "r-setup/check-wd/01-checkwd.html",
-    "title": "Getting and setting working directory",
-    "section": "",
-    "text": "Your working directory is the folder R is currently looking in. When you tell R to “open titanic.csv,” it only looks inside that one folder. If the file is in a different folder (like Downloads), R won’t find it, even though the file is on your computer.\nWe also want to be aware of what working directory we are currently in.",
-    "crumbs": [
-      "R Setup",
-      "Working Directory",
-      "Getting and setting working directory"
-    ]
-  },
-  {
-    "objectID": "r-setup/check-wd/01-checkwd.html#troubleshooting",
-    "href": "r-setup/check-wd/01-checkwd.html#troubleshooting",
-    "title": "Getting and setting working directory",
-    "section": "Troubleshooting",
-    "text": "Troubleshooting\nIf you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.\nMake sure your titanic.csv is in your comm_106 folder. When you run code in a .rmd file, R looks in the folder the file is saved in, so keeping your data and your .rmd together means R can always find it.\nThen run the read_csv chunk again.",
-    "crumbs": [
-      "R Setup",
-      "Working Directory",
-      "Getting and setting working directory"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-r/01-install.html",
-    "href": "r-setup/install-r/01-install.html",
-    "title": "Install R for Mac",
-    "section": "",
-    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
-    "crumbs": [
-      "R Setup",
-      "Install R",
-      "Install R for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-r/01-install.html#check-macos-version",
-    "href": "r-setup/install-r/01-install.html#check-macos-version",
-    "title": "Install R for Mac",
-    "section": "",
-    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
-    "crumbs": [
-      "R Setup",
-      "Install R",
-      "Install R for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-r/01-install.html#download-r-based-on-your-macos-version",
-    "href": "r-setup/install-r/01-install.html#download-r-based-on-your-macos-version",
-    "title": "Install R for Mac",
-    "section": "Download R based on your macOS version",
-    "text": "Download R based on your macOS version\n\nGo to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically",
-    "crumbs": [
-      "R Setup",
-      "Install R",
-      "Install R for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/install-r/01-install.html#install-r",
-    "href": "r-setup/install-r/01-install.html#install-r",
-    "title": "Install R for Mac",
-    "section": "Install R",
-    "text": "Install R\n\n\nOpen Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
-    "crumbs": [
-      "R Setup",
-      "Install R",
-      "Install R for Mac"
-    ]
-  },
-  {
-    "objectID": "r-setup/load-data/01-getdata.html",
-    "href": "r-setup/load-data/01-getdata.html",
-    "title": "Load CSV into R",
-    "section": "",
-    "text": "A CSV (“comma-separated values”) is a plain-text spreadsheet: each line is a row, and commas separate the columns. It’s one of the most common formats for sharing data. If you open a csv, it will likely automatically open in Apple Numbers or Microsoft Excel.",
-    "crumbs": [
-      "R Setup",
-      "Loading in data",
-      "Load CSV into R"
-    ]
-  },
-  {
-    "objectID": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
-    "href": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
-    "title": "Load CSV into R",
-    "section": "For Posit Cloud users",
-    "text": "For Posit Cloud users\n\nDownload titanic.csv\nGo the bottom right panel, and click on Upload\n\n 3. Select the titanic.csv file. You should see it show up in the bottom right panel:\n\n\n\ntitanic.csv should show up here",
-    "crumbs": [
-      "R Setup",
-      "Loading in data",
-      "Load CSV into R"
-    ]
-  },
-  {
-    "objectID": "r-setup/load-data/01-getdata.html#tidyverse",
-    "href": "r-setup/load-data/01-getdata.html#tidyverse",
-    "title": "Load CSV into R",
-    "section": "tidyverse",
-    "text": "tidyverse\nWe will be using the tidyverse package. You can read more about tidyverse here\n\nInstalling Packages\nRun install.packages(“tidyverse”) in a R chunk.\n\n\npractice_01.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\npractice_01.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
-    "crumbs": [
-      "R Setup",
-      "Loading in data",
-      "Load CSV into R"
-    ]
-  },
-  {
-    "objectID": "r-setup/make-rmd/02-datatypes.html",
-    "href": "r-setup/make-rmd/02-datatypes.html",
-    "title": "Writing and Coding in R Markdown",
-    "section": "",
-    "text": "We can directly switch between two languages – human and R – on Rmd files\n\n\n\nTwo languages\n\n\n\nType anything into your .Rmd file.\n\nThis will show up when your run the whole Rmd file, but it’s not actually code.We can write notes on what our code is about, or describe the results of some code.\n\nNow, type: ```{r}\n\nA grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.\n\nPress enter a few times, and the rectangle will expand.\nWe close this chunk by putting ```\nOutside of this chunk, we’re back to human language again.\n\n\n\npractice_01.Rmd\n\nIn this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: \n```{r}\n\n\n```\nWe can make chunks of code in this way.",
-    "crumbs": [
-      "R Setup",
-      "Make R Markdown File",
-      "Writing and Coding in R Markdown"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html",
-    "href": "r-code/first/01-classes.html",
-    "title": "Numeric, Logical, Character",
-    "section": "",
-    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#numeric",
-    "href": "r-code/first/01-classes.html#numeric",
-    "title": "Numeric, Logical, Character",
-    "section": "",
-    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#logical",
-    "href": "r-code/first/01-classes.html#logical",
-    "title": "Numeric, Logical, Character",
-    "section": "Logical",
-    "text": "Logical\nA logical is a TRUE or FALSE value\n\n\n\n\n\n\n\n\n\nLogical Operations\n\n\n\n\n\n\n\n\nComparison and logical operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n&lt;\nless than\n5 &lt; 3\nFALSE\n\n\n&gt;\ngreater than\n5 &gt; 3\nTRUE\n\n\n&lt;=\nless than or equal to\n5 &lt;= 5\nTRUE\n\n\n&gt;=\ngreater than or equal to\n5 &gt;= 6\nFALSE\n\n\n==\nequal to\n5 == 5\nTRUE\n\n\n!=\nnot equal to\n5 != 5\nFALSE\n\n\n!x\nnot x\n!TRUE\nFALSE\n\n\nx | y\nx or y\nTRUE | FALSE\nTRUE\n\n\nx & y\nx and y\nTRUE & FALSE\nFALSE",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#character",
-    "href": "r-code/first/01-classes.html#character",
-    "title": "Numeric, Logical, Character",
-    "section": "Character",
-    "text": "Character\nA character is text wrapped in quotes, like “hello” or “5”. R treats it as words, not numbers, so you can combine, search, or change it, but you can’t do math with it.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#the-class-function",
-    "href": "r-code/first/01-classes.html#the-class-function",
-    "title": "Numeric, Logical, Character",
-    "section": "The class() function",
-    "text": "The class() function\nThe class function allows us to check what class the input (what we want in the parantheses) is.\n\n\n\n\n\n\n\n\nIt can help with diagnosing errors.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
-    "href": "r-code/first/01-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
-    "title": "Numeric, Logical, Character",
-    "section": "You have to declare the value of a variable before doing anything with it.",
-    "text": "You have to declare the value of a variable before doing anything with it.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/first/01-classes.html#overwriting-variables",
-    "href": "r-code/first/01-classes.html#overwriting-variables",
-    "title": "Numeric, Logical, Character",
-    "section": "Overwriting variables",
-    "text": "Overwriting variables\nIf you define a variable multiple times, it’ll use the vavlue it was last defined on.",
-    "crumbs": [
-      "R Practice",
-      "Classes and Functions",
-      "Numeric, Logical, Character"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/01-freqtable.html#improving-readability",
-    "href": "r-code/visuals/01-freqtable.html#improving-readability",
-    "title": "Frequency Tables",
-    "section": "Improving Readability",
-    "text": "Improving Readability\nThe output of count() alone is ugly and hard to read.\n\n\n\n\n\n\n\n\nJust ‘0s’ and ‘1s’ is also not informative. We can rename the values as well.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Frequency Tables"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/01-freqtable.html#add-proportions",
-    "href": "r-code/visuals/01-freqtable.html#add-proportions",
-    "title": "Frequency Tables",
-    "section": "Add proportions",
-    "text": "Add proportions\nWe can also make show relative frequency instead of absolute frequency by showing proportions instead of raw counts.\n\n\n\n\n\n\n\n\n\nThere are many other ways to make your visuals easier to read and/or aesthetically pleasing.\n\n\n\n\n\n\n\n\nNow we can tell at a glance, how deadly the Titanic disaster was.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Frequency Tables"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/08-p.html",
-    "href": "r-code/visuals/08-p.html",
-    "title": "Significance Tests",
-    "section": "",
-    "text": "The pieces we have so far are:\n\n\\(r\\) We found a strong positive correlation between prison population and violent crime of 0.776.\n\\(\\hat{\\beta}\\) We find that, for each additional prisoner per 100,000 people in the previous year is associated with an increase of 2.012 in the predicted violent crime rate per 100,000 people.\n\nWhat we don’t have is a measure of how confident we are in our estimate of \\(\\hat{\\beta}\\). \\(r\\) is a measure of the strength of whether a line exists at all*, but it doesn’t tell us anything about the slope of the line. \\(\\hat{\\beta}\\) is the slope, but doesn’t tell us about the confidence with which we can say that the slope is that number exactly.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Significance Tests"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/02-barplot.html",
-    "href": "r-code/visuals/02-barplot.html",
-    "title": "Bar Plot",
-    "section": "",
-    "text": "We want to run the same analysis on the class for Titanic passengers, which is indicated in Pclass.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Bar Plot"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/02-barplot.html#improving-readability",
-    "href": "r-code/visuals/02-barplot.html#improving-readability",
-    "title": "Bar Plot",
-    "section": "Improving Readability",
-    "text": "Improving Readability\n\nLabels\nWe can add labels to our axes and a title for our entire plot by additonally calling labs().\n\n\n\n\n\n\n\n\n\n\nThemes\nggplot comes with themes (you can peruse them here). We can make our plot follow theme_minimal() by adding it.\n\n\n\n\n\n\n\n\n\n\nFill\nWe can also customize the color of the bar with geom_bar.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Bar Plot"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html",
-    "href": "r-code/visuals/04-histograms.html",
-    "title": "Histograms",
-    "section": "",
-    "text": "To work through questions of distribution, we’ll use the dataset from Bertrand & Mullainathan’s 2004 study, “Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination”. In this study, the authors sent out 4870 fake resumes, which they had randomly assigned to have either an African-American or White sounding name. They found that White names receive 50 percent more callbacks for interviews. The dataset, which you can download locally here, lists every resume and the job it was sent to.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html#interpretation",
-    "href": "r-code/visuals/04-histograms.html#interpretation",
-    "title": "Histograms",
-    "section": "Interpretation",
-    "text": "Interpretation\nLooking at the visual, we can see that the resumes are not uniformly distributed across years of experience, and that resumes generally have less years of experience.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html#occupation",
-    "href": "r-code/visuals/04-histograms.html#occupation",
-    "title": "Histograms",
-    "section": "Occupation",
-    "text": "Occupation\nTo think through this, we’ll make a bar plot for the occup_broad column, which categorizes the jobs a resume applied to into Executive, Administrative, Sales representatives, Sales workers, Secretaries, and Clerical. This makes it a nominal variable.\n\n\n\n\n\n\n\n\nCompare this plot to the years of experience plot. In a histogram, the overall shape of the data tells us what the distribution of the data is, we can learn something about the data when our eyes move across the x-axis. In a bar plot of a nominal variable, the order of the x-axis doesn’t matter. You can rearrange the categories however you want and you’ll still have the same information. In the histogram, we can see that as years of experience increases, the less resumes there are.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html#education",
-    "href": "r-code/visuals/04-histograms.html#education",
-    "title": "Histograms",
-    "section": "Education",
-    "text": "Education\neducation lists the highest level of education reported on each resume, which ranges from: 1 = high school dropout; 2 = high school graduate; 3 = some college; 4 = College graduate or more, (and 0 for not reported). This makes it an ordinal variable, because the order of the categories matter.\n\n\n\n\n\n\n\n\nAt first glance, this seems to function very similarly as the years of experience histogram – we can see that (whatever distribution pattern)\nHowever, the intervals on the x-axis are not equal. From the perspective of someone reading the resume, we can imagine that there is some difference in the evaluation of high school dropout applicants and high school graduate applicants. But is this difference the same as how someone with some college is compared to someone with a high school graduate?\nMore importantly, you can tell very different stories with the same data based on how you create categories, or even just choosing bin width.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
-    "href": "r-code/visuals/04-histograms.html#by-converting-an-interval-variables-to-an-ordinal-one",
-    "title": "Histograms",
-    "section": "By converting an interval variables to an ordinal one",
-    "text": "By converting an interval variables to an ordinal one\nImagine I wanted to say that the applicants are mostly from zipcodes with large proportions of Black people. We can see from the histogram that this isn’t true.\nHowever, if I turn the interval variable frac_black into an ordinal one by creating skewed bins:\n\n\n\n\n\n\n\n\nThen, the distribution of frac_black looks like something that fits my narrative more",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/04-histograms.html#by-selecting-uninformative-bin-widths",
-    "href": "r-code/visuals/04-histograms.html#by-selecting-uninformative-bin-widths",
-    "title": "Histograms",
-    "section": "By selecting uninformative bin widths",
-    "text": "By selecting uninformative bin widths",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html",
-    "href": "r-code/visuals/06-scatter.html",
-    "title": "Scatterplots and Correlations",
-    "section": "",
-    "text": "We’ll use the dataset from Levitt 1996’s study, “The Effect of Prison Population Size on Crime Rates”, published in the Quarterly Journal of Economics, which you can download locally here. Each row is a state-year: a single U.S. state observed in a single year, for 14 years, from 1980 to 1993. For each state-year, the dataset records the state’s prison population and its crime rates, as well as other demographic statistics.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#improved-readability",
-    "href": "r-code/visuals/06-scatter.html#improved-readability",
-    "title": "Scatterplots and Correlations",
-    "section": "Improved readability",
-    "text": "Improved readability",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#interpretation",
-    "href": "r-code/visuals/06-scatter.html#interpretation",
-    "title": "Scatterplots and Correlations",
-    "section": "Interpretation",
-    "text": "Interpretation\nWhen we set the independent variable to pris and dependent variable to criv, we are asking, how does change in the prison population correlate with change in violent crime rate? Note that the interpretation changes if we switch the independent variable to criv and dependent variable to pris, but the underlying relationship doesn’t.\nScatterplots alone are not objective measures.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#interpretation-of-r",
-    "href": "r-code/visuals/06-scatter.html#interpretation-of-r",
-    "title": "Scatterplots and Correlations",
-    "section": "Interpretation of \\(r\\)",
-    "text": "Interpretation of \\(r\\)\n\n\nShow code\nlibrary(gt)\nlibrary(tibble)\n\ntribble(\n  ~range,          ~strength,        ~interpretation,\n  \"0.00 – 0.19\",   \"Very weak\",      \"Essentially no linear association\",\n  \"0.20 – 0.39\",   \"Weak\",           \"Slight tendency, easily swamped by noise\",\n  \"0.40 – 0.59\",   \"Moderate\",       \"Visible trend in a scatterplot\",\n  \"0.60 – 0.79\",   \"Strong\",         \"Clear linear pattern, modest scatter\",\n  \"0.80 – 1.00\",   \"Very strong\",    \"Points cluster tightly around a line\"\n) |&gt;\n  gt() |&gt;\n  tab_header(\n    title = \"Interpreting the Pearson Correlation Coefficient\",\n    subtitle = md(\"Guidelines for the absolute value of *r*\")\n  ) |&gt;\n  cols_label(\n    range          = md(\"|*r*|\"),\n    strength       = \"Descriptor\",\n    interpretation = \"What it looks like\"\n  ) |&gt;\n  tab_source_note(\n    md(\"Cutoffs are conventions, not thresholds. What counts as \\\"strong\\\" depends entirely on the field.\")\n  ) |&gt;\n  cols_align(align = \"left\", columns = c(strength, interpretation)) |&gt;\n  cols_align(align = \"center\", columns = range) |&gt;\n  tab_options(\n    table.font.size = px(14),\n    heading.title.font.weight = \"bold\",\n    column_labels.font.weight = \"bold\",\n    data_row.padding = px(6)\n  )\n\n\n\n\n\n\n\n\nInterpreting the Pearson Correlation Coefficient\n\n\nGuidelines for the absolute value of r\n\n\n|r|\nDescriptor\nWhat it looks like\n\n\n\n\n0.00 – 0.19\nVery weak\nEssentially no linear association\n\n\n0.20 – 0.39\nWeak\nSlight tendency, easily swamped by noise\n\n\n0.40 – 0.59\nModerate\nVisible trend in a scatterplot\n\n\n0.60 – 0.79\nStrong\nClear linear pattern, modest scatter\n\n\n0.80 – 1.00\nVery strong\nPoints cluster tightly around a line\n\n\n\nCutoffs are conventions, not thresholds. What counts as “strong” depends entirely on the field.",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#substantive-interpretation-of-r",
-    "href": "r-code/visuals/06-scatter.html#substantive-interpretation-of-r",
-    "title": "Scatterplots and Correlations",
-    "section": "Substantive Interpretation of \\(r\\)",
-    "text": "Substantive Interpretation of \\(r\\)\nAcross state-years from 1980 to 1993, the correlation between prison population and violent crime was positive and moderately strong (r = 0.776).",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#adding-color",
-    "href": "r-code/visuals/06-scatter.html#adding-color",
-    "title": "Scatterplots and Correlations",
-    "section": "Adding color",
-    "text": "Adding color\nBefore splitting the plot up, we can get a quick read on whether time is doing any work here by mapping year to color — if the early years cluster in one corner of the cloud and the later years in another, that’s our sign that the calendar is part of what’s producing the slope. We do this by specifying color in our ggplot() call:",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/visuals/06-scatter.html#sectioning-the-scatterplot",
-    "href": "r-code/visuals/06-scatter.html#sectioning-the-scatterplot",
-    "title": "Scatterplots and Correlations",
-    "section": "Sectioning the scatterplot",
-    "text": "Sectioning the scatterplot\nWe can achieve the same goal, but in a different visual manner by using the facet_wrap() function",
-    "crumbs": [
-      "R Practice",
-      "Visualizations",
-      "Scatterplots and Correlations"
-    ]
-  },
-  {
-    "objectID": "r-code/load_data/04-mutate.html#if_else",
-    "href": "r-code/load_data/04-mutate.html#if_else",
-    "title": "Changing the Dataframe",
-    "section": "if_else()",
-    "text": "if_else()\nWe can also use conditional statements to generate new columns. Let’s say we want a column that indicates whether a passenger was an adult (Age &gt;= 18)\nWe can use the if_else() function, which requires three inputs, in this order: (1) the condition (2) the value if the condition is met (3) the value if the condition is not met.\n\n\n\n\n\n\n\n\n\nDealing with unknown values\nYou may notice that some values in Is_Adult column are neither “Yes” or “No”, but something called NA instead. We get this value when the value in Age was missing, so R can’t determine whether or not the value is greater or equal to 18.\nWe can deal with this by adding another input into the if_else() function: missing = \"Unknown\"\n\n\n\n\n\n\n\n\nNow, instead of NA as the value, the missing values will have an actual value.",
-    "crumbs": [
-      "R Practice",
-      "Dataframes",
-      "Changing the Dataframe"
-    ]
-  },
-  {
-    "objectID": "r-code/load_data/04-mutate.html#case_when",
-    "href": "r-code/load_data/04-mutate.html#case_when",
-    "title": "Changing the Dataframe",
-    "section": "case_when()",
-    "text": "case_when()\nif_else() is helpful when we only have two conditions, but we may have more than two.",
-    "crumbs": [
-      "R Practice",
-      "Dataframes",
-      "Changing the Dataframe"
-    ]
-  },
-  {
     "objectID": "descrip-stat/04-histograms.html",
     "href": "descrip-stat/04-histograms.html",
     "title": "Histograms",
@@ -844,15 +110,83 @@
     ]
   },
   {
-    "objectID": "comparisons/hypotest/01-hypotest.html",
-    "href": "comparisons/hypotest/01-hypotest.html",
-    "title": "Hypothesis Testing",
+    "objectID": "r-code/load_data/04-mutate.html#if_else",
+    "href": "r-code/load_data/04-mutate.html#if_else",
+    "title": "Changing the Dataframe",
+    "section": "if_else()",
+    "text": "if_else()\nWe can also use conditional statements to generate new columns. Let’s say we want a column that indicates whether a passenger was an adult (Age &gt;= 18)\nWe can use the if_else() function, which requires three inputs, in this order: (1) the condition (2) the value if the condition is met (3) the value if the condition is not met.\n\n\n\n\n\n\n\n\n\nDealing with unknown values\nYou may notice that some values in Is_Adult column are neither “Yes” or “No”, but something called NA instead. We get this value when the value in Age was missing, so R can’t determine whether or not the value is greater or equal to 18.\nWe can deal with this by adding another input into the if_else() function: missing = \"Unknown\"\n\n\n\n\n\n\n\n\nNow, instead of NA as the value, the missing values will have an actual value.",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Changing the Dataframe"
+    ]
+  },
+  {
+    "objectID": "r-code/load_data/04-mutate.html#case_when",
+    "href": "r-code/load_data/04-mutate.html#case_when",
+    "title": "Changing the Dataframe",
+    "section": "case_when()",
+    "text": "case_when()\nif_else() is helpful when we only have two conditions, but we may have more than two.",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Changing the Dataframe"
+    ]
+  },
+  {
+    "objectID": "r-code/index.html",
+    "href": "r-code/index.html",
+    "title": "Data Manipulation",
     "section": "",
-    "text": "Comparisons Allow us to Confirm a Hypothesis\n\nHypothesis Testing Procedure\n\nForm a null hypothesis\nChoose a test statistic\nAsk whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis\n\nIf likely, we fail to reject the null hypothesis\nIf unlikely, we reject the null hypothesis\n\n\n\nIn a comparison of Titanic passengers, first-class passengers had a different survival rate than third-class passengers.\n\nIdentify the null\n\n\\(H_0\\) : The effect of being a first class passenger, rather than a third class passenger, on surviving the Titanic is zero.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided two-sample t-test\n\n\n\n\n\n\n\nt-test\n\n\n\nA t-test, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it’s unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you’re comparing means, think t-test.\n\n\n\nWe use a t-test when the independent variable splits the data into two groups and the dependent variable is interval.\nHere, the groups are first-class and third-class passengers, and Survived is a 0-1 indicator variable, so its mean is the survival rate for each class. We’re asking whether the survival rate in first class differs from the survival rate in third class by more than we’d expect by chance.\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nCode\n\nPull the groups we’re comparing into vectors first\n\n\n\n\n\n\n\n\n\n\n- Use t.test()\n\n\n\n\n\n\n\n\n\nSet p-value threshold\nLook at the p-value\n\nIn the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...)\n\nDetermine whether the results allow you to reject the null hypothesis\n\nIf the p-value is less than the threshold, you reject the null\nIf the p-value is greater than the threshold, you fail to reject the null\n\nReporting results\n\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).\n\n\n\nGeneric template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\n\nIn a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\n\n\n\n\n\n\n\n\n\nIdentify the null\n\n\\(H_0\\) : A resume’s name sounding White instead of African-American does not increase the resume’s chance of getting a callback.\n\nIdentify the appropriate test statistic\n\nt-statistic of an one-sided two-sample t-test\n\n\n\n\n\n\n\nOne-sided vs Two-sided t-test\n\n\n\nWe’re making a more specific claim than our Titanic example – we’re not just saying that some effect exists, we’re making a claim about both the existence and the direction of the effect, that White-sounding names get more callbacks, not more ar less. In this case, we use a one-sided t-test\n\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\n\nWe’ll use 0.05\n\nReporting results\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).",
+    "text": "Now that you’ve loaded a dataframe in, here’s some stuff we can do with it",
+    "crumbs": [
+      "Data Manipulation"
+    ]
+  },
+  {
+    "objectID": "r-code/first/02-vectors.html",
+    "href": "r-code/first/02-vectors.html",
+    "title": "Vectors and Vector Operations",
+    "section": "",
+    "text": "We now know about the Numerics, Logicals, and Character classes; that we can use functions on these objects; and we can assign variable names to objects.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Vectors and Vector Operations"
+    ]
+  },
+  {
+    "objectID": "r-code/first/02-vectors.html#vectors",
+    "href": "r-code/first/02-vectors.html#vectors",
+    "title": "Vectors and Vector Operations",
+    "section": "Vectors",
+    "text": "Vectors\nA vector is a set of values of the same type. You can think of it like a column on a spreadsheet. We can make a vector with the c() function.\n\n\n\n\n\n\n\n\nAll the elements in a vector need to be the same datatype, there are some functions that work on entire vectors.\nWe can get the mean, or average, number of Red Bulls I drink every week for the last 6 weeks by using the mean() function.\n\n\n\n\n\n\n\n\nNote that every element in redbulls_drank is of the numeric type. We can also do things with vectors filled with characters. The toupper() function turns every character into uppercase.\n\n\n\n\n\n\n\n\nHowever, it wouldn’t make sense to try to get the mean of my favorite flavors. Nor would it make sense to try to uppercase numbers.\n\n\n\n\n\n\n\n\nIt also wouldn’t make sense to get the mean of the number of Red Bulls I drank and my favorite flavors.\n\n\n\n\n\n\n\n\nThis doesn’t mean that numeric vectors can only use numeric vector functions, that logical vectors can only use logical vector functions, and so on. The length() function tells you how many elements are in a vector, and works on all kinds of vectors, and the unique() function tells you how many unique values are in a vector.\n\n\n\n\n\n\n\n\nYou can also access a specific element in a vector based on its position. In redbull_flavor, “cherry” has a position of 1, “lime” has a position of 2, “apple” has a position of 3, and “strawberry” has a position of 4. We can refer to a specific element by: redbull_flavor[1], which is “cherry”\n\n\n\n\n\n\n\n\n\nVector to Vector Operations\nWe can work with multiple vectors. We’ll make a new numeric vector that lists the number of cups of water I drank each week for the past 6 weeks.\n\n\n\n\n\n\n\n\nWe can get a new vector by adding redbulls_drank to waters_drank using the same numeric operation rules for numerics.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Vectors and Vector Operations"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "The R Setup tab walks you through installing R and RStudio on your machine.\nIn the other sections, you can run and edit the code directly on this site, no setup required. Try editing the code below and run it.\n\n\n\n\n\n\n\n\nHowever, the browser version doesn’t save your work. To keep your code or start working with your own datasets, you’ll need to have R and RStudio installed locally (see R Setup).",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "comparisons/regression/02-log.html",
+    "href": "comparisons/regression/02-log.html",
+    "title": "Logistic Regression",
+    "section": "",
+    "text": "Linear regressions allow us to model the real world, and importantly also allow us to predict what would happen in scenarios that haven’t occurred. While this is comforting, they don’t actually allow us to see into the future. Confidence intervals and p-values remind us that a linear regression is ultimately an estimate, not a certainty.\nRemember what a p-value of 0.05 (the standard threshold) means: if there were truly no relationship, we’d still get a result at least as extreme as ours in about 5 out of 100 samples.\nThat’s pretty unlikely, which is why we treat it as evidence. But unlikely isn’t impossible. Stanford’s undergraduate admission rate was 3.6%, even lower than 5%, and yet thousands of students get in every year. Rare things happen all the time, especially when there are lots of chances for them to happen.\nThe same goes for research: if 20 researchers each test a relationship that doesn’t actually exist, we’d expect about one of them to get p &lt; 0.05 by chance alone.\nAnother pitfall of reading linear regression results too literally is that the model will happily make predictions about situations that are unlikely or even impossible in the real world. For example, we might find that people are more likely to own a home as they get older. But the same model will also give us a prediction for someone who is 200 years old, or -5 years old.\nIssues like this are why the work on quantitative social science methods is so deep and active… and thrilling!\n\nLogistic Regression\nOne extension of linear regression is logistic regression, which addresses the problem of predicting probabilities. Your chance of owning a home can only be between 0 and 1 (or 0% and 100%), and a logistic regression makes sure its predictions stay in that range.\nWe’ll use Bonica 2024’s Database on Ideology, Money in Elections (DIME), which you can download locally here, which contains 8948 observations of donations from PACs (Political Action Committees) received by candidates in US elections from 1979 to 2024. Each candidate is also measured on how extreme their ideology (Left to Right) is.\n\n\n\n\n\n\n\n\nExisting work suggests that PACs tend to support more moderate candidates. We can set up a logistic regression to answer how likely a candidate is to be extreme, given how much PAC money they received.\n\n\nHypothesis\n\nIn a comparison of candidates, those who received more money from PACs were less likely to be ideologically extreme than those who received less money from PACs.\n\nIdentify the Null\n\n\\(H_0\\) : Receiving more PAC money does not decrease a candidate’s likelihood of being ideologically extreme. In other words, the coefficient on PAC receipts is greater than or equal to zero (\\(\\beta \\geq 0\\)).\n\nIdentify the appropriate test statistic\n\nOur dependent variable (extreme) is 0-1 and our independent variable (log_pac_receipts) is interval, so we use logistic regression. Logistic regression reports a z-statistic instead of a t-statistic, but we read it the same way: it tells us how many standard errors the coefficient is from zero.\n\nCalculate the z-statistic\n\nglm() works like lm(), but it can handle outcomes that aren’t interval variables. family = binomial tells R that our outcome is 0-1.\n\n\n\n\n\n\n\n\n\nEvaluate p-value\n\nLook at the log_pac_receipts row of the coefficients table. The z value column is the z-statistic, and Pr(&gt;|z|) is the p-value.\nPr(&gt;|z|) is a two-sided p-value. Since our hypothesis is one-sided, if the coefficient is negative (the direction we predicted), we can divide this p-value by 2.\nA negative coefficient means candidates who received more PAC money were less likely to be extreme.\n\nReport results\n\nBecause logistic regression coefficients are in log-odds, we convert them into predicted probabilities to describe the size of the relationship. Here, we compare a candidate at the 25th percentile of PAC receipts to one at the 75th percentile:\n\n\n\n\n\n\n\n\n\n\n::: {.callout-tip title=“Result”} Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from [X]% to [Y]%. This relationship is statistically significant at the [95/99]% confidence level (\\(\\hat{\\beta}\\) = [coef], SE = [SE], p [= / &lt;] [p-value]). :::",
     "crumbs": [
       "Comparisons between Two Variables",
-      "Hypothesis Testing",
-      "Hypothesis Testing"
+      "Regressions",
+      "Logistic Regression"
     ]
   },
   {
@@ -887,6 +221,228 @@
       "Comparisons between Two Variables",
       "Comparison of Means",
       "Comparison of Means"
+    ]
+  },
+  {
+    "objectID": "r-setup/make-rmd/02-datatypes.html",
+    "href": "r-setup/make-rmd/02-datatypes.html",
+    "title": "Writing and Coding in R Markdown",
+    "section": "",
+    "text": "We can directly switch between two languages – human and R – on Rmd files\n\n\n\nTwo languages\n\n\n\nType anything into your .Rmd file.\n\nThis will show up when your run the whole Rmd file, but it’s not actually code.We can write notes on what our code is about, or describe the results of some code.\n\nNow, type: ```{r}\n\nA grayed-out rectangle will appear. We’re telling the computer that we want to talk to it in R now.\n\nPress enter a few times, and the rectangle will expand.\nWe close this chunk by putting ```\nOutside of this chunk, we’re back to human language again.\n\n\n\npractice_01.Rmd\n\nIn this section, we will demonstrate how one can write in both the human and R language by simply. I can enter R mode by: \n```{r}\n\n\n```\nWe can make chunks of code in this way.",
+    "crumbs": [
+      "R Setup",
+      "Make R Markdown File",
+      "Writing and Coding in R Markdown"
+    ]
+  },
+  {
+    "objectID": "r-setup/load-data/01-getdata.html",
+    "href": "r-setup/load-data/01-getdata.html",
+    "title": "Load CSV into R",
+    "section": "",
+    "text": "A CSV (“comma-separated values”) is a plain-text spreadsheet: each line is a row, and commas separate the columns. It’s one of the most common formats for sharing data. If you open a csv, it will likely automatically open in Apple Numbers or Microsoft Excel.",
+    "crumbs": [
+      "R Setup",
+      "Loading in data",
+      "Load CSV into R"
+    ]
+  },
+  {
+    "objectID": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
+    "href": "r-setup/load-data/01-getdata.html#for-posit-cloud-users",
+    "title": "Load CSV into R",
+    "section": "For Posit Cloud users",
+    "text": "For Posit Cloud users\n\nDownload titanic.csv\nGo the bottom right panel, and click on Upload\n\n 3. Select the titanic.csv file. You should see it show up in the bottom right panel:\n\n\n\ntitanic.csv should show up here",
+    "crumbs": [
+      "R Setup",
+      "Loading in data",
+      "Load CSV into R"
+    ]
+  },
+  {
+    "objectID": "r-setup/load-data/01-getdata.html#tidyverse",
+    "href": "r-setup/load-data/01-getdata.html#tidyverse",
+    "title": "Load CSV into R",
+    "section": "tidyverse",
+    "text": "tidyverse\nWe will be using the tidyverse package. You can read more about tidyverse here\n\nInstalling Packages\nRun install.packages(“tidyverse”) in a R chunk.\n\n\npractice_01.qmd\n\n```{r}\ninstall.packages(\"tidyverse\")\n```\n\nYou only have to do this once. (If you turn off your phone, you don’t have to redownload Instagram everytime)\n\n\nLoading Packages\nIn order to actually use the package, you need to load it with every session with the library() function\n\n\npractice_01.qmd\n\n```{r}\nlibrary(tidyverse)\n# Note that there are no quotation marks around tidyverse\n```",
+    "crumbs": [
+      "R Setup",
+      "Loading in data",
+      "Load CSV into R"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/01-install.html",
+    "href": "r-setup/install-r/01-install.html",
+    "title": "Install R for Mac",
+    "section": "",
+    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/01-install.html#check-macos-version",
+    "href": "r-setup/install-r/01-install.html#check-macos-version",
+    "title": "Install R for Mac",
+    "section": "",
+    "text": "Click the Apple menu in the top-left corner of your screen.\n\n\n\nThe Apple menu, expanded\n\n\nChoose About This Mac.\n\n\n\nThe About This Mac option highlighted\n\n\nYour version number appears under the macOS name.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/01-install.html#download-r-based-on-your-macos-version",
+    "href": "r-setup/install-r/01-install.html#download-r-based-on-your-macos-version",
+    "title": "Install R for Mac",
+    "section": "Download R based on your macOS version",
+    "text": "Download R based on your macOS version\n\nGo to the R for macOS Installation site\n\n\n\n\nR for macOS site\n\n\n\nDetermine the appropriate version of R\n\n\nWhich installer to download\n\n\n\n\n\n\n\nChip\nmacOS\nDownload\n\n\n\n\nM1, M2, M3, M4\n14 or later\nthe arm64 file\n\n\nM1, M2, M3, M4\n13 or earlier\nupdate macOS first, then the arm64 file\n\n\nIntel\n11 or later\nthe x86_64 file\n\n\n\n\n\n\n\n\n\nCan’t update macOS?\n\n\n\n\n\nIf you cannot update macOS, you can download the x86_64 file instead.\n\n\n\n\nClick on the appropriate version, and the download will start automatically",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/01-install.html#install-r",
+    "href": "r-setup/install-r/01-install.html#install-r",
+    "title": "Install R for Mac",
+    "section": "Install R",
+    "text": "Install R\n\n\nOpen Finder\n\n\n\nThe Apple menu, expanded\n\n\nOpen Downloads folder\n\n\n\nThe About This Mac option highlighted\n\n\nClick on the package, and follow the guide\n\n\n\nVersion number shown as macOS Sequoia 15.7.7\n\n\nWhen it’s complete, you’ll get a popup asking if you want to move it to trash. You can safely do this, it does not affect anything.\n\n\n\nVersion number shown as macOS Sequoia 15.7.7",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/check-wd/01-checkwd.html",
+    "href": "r-setup/check-wd/01-checkwd.html",
+    "title": "Getting and setting working directory",
+    "section": "",
+    "text": "Your working directory is the folder R is currently looking in. When you tell R to “open titanic.csv,” it only looks inside that one folder. If the file is in a different folder (like Downloads), R won’t find it, even though the file is on your computer.\nWe also want to be aware of what working directory we are currently in.",
+    "crumbs": [
+      "R Setup",
+      "Working Directory",
+      "Getting and setting working directory"
+    ]
+  },
+  {
+    "objectID": "r-setup/check-wd/01-checkwd.html#troubleshooting",
+    "href": "r-setup/check-wd/01-checkwd.html#troubleshooting",
+    "title": "Getting and setting working directory",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\nIf you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.\nMake sure your titanic.csv is in your comm_106 folder. When you run code in a .rmd file, R looks in the folder the file is saved in, so keeping your data and your .rmd together means R can always find it.\nThen run the read_csv chunk again.",
+    "crumbs": [
+      "R Setup",
+      "Working Directory",
+      "Getting and setting working directory"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-rstudio/01-rstudio.html",
+    "href": "r-setup/install-rstudio/01-rstudio.html",
+    "title": "Install R Studio for Mac",
+    "section": "",
+    "text": "Go to the RStudio Installation site\nScroll to Direct Downloads (Open Source), and look at the first section RStudio IDE\n\n\n\n\nRStudio page\n\n\n\nClick on the .dmg file next to macOS 14+",
+    "crumbs": [
+      "R Setup",
+      "Install RStudio",
+      "Install R Studio for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
+    "href": "r-setup/install-rstudio/01-rstudio.html#then-for-all-cases",
+    "title": "Install R Studio for Mac",
+    "section": "Then, for all cases:",
+    "text": "Then, for all cases:\n\n\nA window with the Applications folder and RStudio will appear\n\n\n\nApplications and RStudio\n\n\nDrag the RStudio icon onto the Applications folder. Click on the Applications folder to open it, and you should see RStudio (as well as R)\n\n\n\nApplications folder\n\n\nYou can put the RStudio icon in your toolbar to find it easily in the future.\n\n\n\nDrag the RStudio icon onto the toolbar",
+    "crumbs": [
+      "R Setup",
+      "Install RStudio",
+      "Install R Studio for Mac"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-rstudio/02-windows.html",
+    "href": "r-setup/install-rstudio/02-windows.html",
+    "title": "Install R Studio for Windows",
+    "section": "",
+    "text": "Go to the RStudio Installation site\nScroll to Direct Downloads (Open Source), and look at the first section RStudio IDE\n\n\n\n\nRStudio page\n\n\n\nClick on the .exe file next to Windows 11\nFollow the pop-up links\n\n\n\n\n\n\n\nIf you cannot update to Windows 11 or higher\n\n\n\n\n\nYou must use Posit Cloud, the online version of RStudio. Follow the instructions in the Preamble",
+    "crumbs": [
+      "R Setup",
+      "Install RStudio",
+      "Install R Studio for Windows"
+    ]
+  },
+  {
+    "objectID": "r-setup/install-r/02-r-wind.html",
+    "href": "r-setup/install-r/02-r-wind.html",
+    "title": "Install R for Windows",
+    "section": "",
+    "text": "Go to the R for Windows Installation site and click Download R for Windows. You must be running Windows 10 or higher.",
+    "crumbs": [
+      "R Setup",
+      "Install R",
+      "Install R for Windows"
+    ]
+  },
+  {
+    "objectID": "r-setup/index.html",
+    "href": "r-setup/index.html",
+    "title": "Installing R, accessing data in R",
+    "section": "",
+    "text": "If your machine is not running MacOS, Windows 11 or higher, start from the Posit Cloud step\nTo Do List",
+    "crumbs": [
+      "R Setup"
+    ]
+  },
+  {
+    "objectID": "r-setup/index.html#create-local-folder",
+    "href": "r-setup/index.html#create-local-folder",
+    "title": "Installing R, accessing data in R",
+    "section": "Create local folder",
+    "text": "Create local folder\nCreate a new folder on your Desktop and name it comm_106\n\n\n\n\nMac: Click on your desktop, go to the top toolbar, and click on File\n\n\n\n\n\nWindows: Right click on desktop, click New, click Folder",
+    "crumbs": [
+      "R Setup"
+    ]
+  },
+  {
+    "objectID": "r-setup/index.html#r-and-rstudio",
+    "href": "r-setup/index.html#r-and-rstudio",
+    "title": "Installing R, accessing data in R",
+    "section": "R and RStudio",
+    "text": "R and RStudio\nR and RStudio are different things and need to be installed separately. Once you do this, you won’t have to do it again.\n\nR — the language itself.\nRStudio — the app you’ll actually look at and type in.\n\nThey’re separate programs and you need both. R alone works but is unpleasant; RStudio without R won’t do anything.\nUnfortunately, the links you’ll need to click on to download depend on whether you’re using Mac or Windows, and which version of macOS or Windows you’re running. You can make life easier by updating your macOS/Windows version to the most current version before installing anything.",
+    "crumbs": [
+      "R Setup"
+    ]
+  },
+  {
+    "objectID": "r-setup/make-rmd/01-vartypes.html",
+    "href": "r-setup/make-rmd/01-vartypes.html",
+    "title": "Create, save R Markdown file",
+    "section": "",
+    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
+    "crumbs": [
+      "R Setup",
+      "Make R Markdown File",
+      "Create, save R Markdown file"
+    ]
+  },
+  {
+    "objectID": "r-setup/make-rmd/01-vartypes.html#create-your-first-r-markdown-file",
+    "href": "r-setup/make-rmd/01-vartypes.html#create-your-first-r-markdown-file",
+    "title": "Create, save R Markdown file",
+    "section": "",
+    "text": "Open RStudio\n\n\n\nThis should appear\n\n\nFind the icon to make a new file on the top left, under the toolbar. It looks like a white rectangle with a green plus sign on it. Click on R Markdown\n\n\n\nCreate a new R Markdown document\n\n\nA pop-up on installing packages will appear, let it run and wait for it to finish.\n\n\n\nInstallation pop up\n\n\nWindow for making new R Markdown document will appear, click on Create empty document\n\n\n\n\nInstallation pop up\n\n\n\nSave this file (Command, S on Mac, Ctrl, S on Windows). \nName it practice_01 – keep the .Rmd extension at the end. Save the file in your comm_106 folder, which lives on your Desktop.\n\n\n\n\nSave and name file\n\n\n\nIn the future, you can find and work on practice_01.Rmd in your comm_106 folder.",
+    "crumbs": [
+      "R Setup",
+      "Make R Markdown File",
+      "Create, save R Markdown file"
     ]
   },
   {
@@ -1106,6 +662,150 @@
     ]
   },
   {
+    "objectID": "comparisons/hypotest/01-hypotest.html",
+    "href": "comparisons/hypotest/01-hypotest.html",
+    "title": "Hypothesis Testing",
+    "section": "",
+    "text": "Comparisons Allow us to Confirm a Hypothesis\n\nHypothesis Testing Procedure\n\nForm a null hypothesis\nChoose a test statistic\nAsk whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis\n\nIf likely, we fail to reject the null hypothesis\nIf unlikely, we reject the null hypothesis\n\n\n\nIn a comparison of Titanic passengers, first-class passengers had a different survival rate than third-class passengers.\n\nIdentify the null\n\n\\(H_0\\) : The effect of being a first class passenger, rather than a third class passenger, on surviving the Titanic is zero.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided two-sample t-test\n\n\n\n\n\n\n\nt-test\n\n\n\nA t-test, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it’s unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you’re comparing means, think t-test.\n\n\n\nWe use a t-test when the independent variable splits the data into two groups and the dependent variable is interval.\nHere, the groups are first-class and third-class passengers, and Survived is a 0-1 indicator variable, so its mean is the survival rate for each class. We’re asking whether the survival rate in first class differs from the survival rate in third class by more than we’d expect by chance.\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nCode\n\nPull the groups we’re comparing into vectors first\n\n\n\n\n\n\n\n\n\n\n- Use t.test()\n\n\n\n\n\n\n\n\n\nSet p-value threshold\nLook at the p-value\n\nIn the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...)\n\nDetermine whether the results allow you to reject the null hypothesis\n\nIf the p-value is less than the threshold, you reject the null\nIf the p-value is greater than the threshold, you fail to reject the null\n\nReporting results\n\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).\n\n\n\nGeneric template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\n\nIn a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\n\n\n\n\n\n\n\n\n\nIdentify the null\n\n\\(H_0\\) : A resume’s name sounding White instead of African-American does not increase the resume’s chance of getting a callback.\n\nIdentify the appropriate test statistic\n\nt-statistic of an one-sided two-sample t-test\n\n\n\n\n\n\n\nOne-sided vs Two-sided t-test\n\n\n\nWe’re making a more specific claim than our Titanic example – we’re not just saying that some effect exists, we’re making a claim about both the existence and the direction of the effect, that White-sounding names get more callbacks, not more ar less. In this case, we use a one-sided t-test\n\n\nCalculate the t-statistic\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\n\nWe’ll use 0.05\n\nReporting results\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (t = 10.2, p &lt; 0.001).",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Hypothesis Testing",
+      "Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html",
+    "href": "r-code/first/01-classes.html",
+    "title": "Numeric, Logical, Character",
+    "section": "",
+    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#numeric",
+    "href": "r-code/first/01-classes.html#numeric",
+    "title": "Numeric, Logical, Character",
+    "section": "",
+    "text": "A numeric is a number R can do math with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArithmetic operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n+\naddition\n5 + 2\n7.0\n\n\n-\nsubtraction\n5 - 2\n3.0\n\n\n*\nmultiplication\n5 * 2\n10.0\n\n\n/\ndivision\n5 / 2\n2.5\n\n\n^\nexponentiation\n5 ^ 2\n25.0",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#logical",
+    "href": "r-code/first/01-classes.html#logical",
+    "title": "Numeric, Logical, Character",
+    "section": "Logical",
+    "text": "Logical\nA logical is a TRUE or FALSE value\n\n\n\n\n\n\n\n\n\nLogical Operations\n\n\n\n\n\n\n\n\nComparison and logical operators in R\n\n\nOperator\nOperation\nExample\nResult\n\n\n\n\n&lt;\nless than\n5 &lt; 3\nFALSE\n\n\n&gt;\ngreater than\n5 &gt; 3\nTRUE\n\n\n&lt;=\nless than or equal to\n5 &lt;= 5\nTRUE\n\n\n&gt;=\ngreater than or equal to\n5 &gt;= 6\nFALSE\n\n\n==\nequal to\n5 == 5\nTRUE\n\n\n!=\nnot equal to\n5 != 5\nFALSE\n\n\n!x\nnot x\n!TRUE\nFALSE\n\n\nx | y\nx or y\nTRUE | FALSE\nTRUE\n\n\nx & y\nx and y\nTRUE & FALSE\nFALSE",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#character",
+    "href": "r-code/first/01-classes.html#character",
+    "title": "Numeric, Logical, Character",
+    "section": "Character",
+    "text": "Character\nA character is text wrapped in quotes, like “hello” or “5”. R treats it as words, not numbers, so you can combine, search, or change it, but you can’t do math with it.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#the-class-function",
+    "href": "r-code/first/01-classes.html#the-class-function",
+    "title": "Numeric, Logical, Character",
+    "section": "The class() function",
+    "text": "The class() function\nThe class function allows us to check what class the input (what we want in the parantheses) is.\n\n\n\n\n\n\n\n\nIt can help with diagnosing errors.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
+    "href": "r-code/first/01-classes.html#you-have-to-declare-the-value-of-a-variable-before-doing-anything-with-it.",
+    "title": "Numeric, Logical, Character",
+    "section": "You have to declare the value of a variable before doing anything with it.",
+    "text": "You have to declare the value of a variable before doing anything with it.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/first/01-classes.html#overwriting-variables",
+    "href": "r-code/first/01-classes.html#overwriting-variables",
+    "title": "Numeric, Logical, Character",
+    "section": "Overwriting variables",
+    "text": "Overwriting variables\nIf you define a variable multiple times, it’ll use the vavlue it was last defined on.",
+    "crumbs": [
+      "Data Manipulation",
+      "Classes and Functions",
+      "Numeric, Logical, Character"
+    ]
+  },
+  {
+    "objectID": "r-code/load_data/02-functions.html",
+    "href": "r-code/load_data/02-functions.html",
+    "title": "Functions for Dataframes",
+    "section": "",
+    "text": "head() Shows the first 6 rows of your dataframe\n\n\n\n\n\n\n\n\n\nTo choose the number of rows you want to see, add the number of rows after the dataframe variable input.\n\n\n\n\n\n\n\n\n\ndim() Returns the number of rows and columns your dataframe has.\n\n\n\n\n\n\n\n\n\n\nnames() Returns the names of the columns in your dataframe\n\n\n\n\n\n\n\n\n\n\nsummary() Returns an overview of your dataset.",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Functions for Dataframes"
+    ]
+  },
+  {
+    "objectID": "r-code/load_data/03-selection.html#selecting-a-column",
+    "href": "r-code/load_data/03-selection.html#selecting-a-column",
+    "title": "Filtering Dataframe",
+    "section": "Selecting a Column",
+    "text": "Selecting a Column\n\n\n\n\n\n\n\n\n\nColumn to Vector\nWhy would we want to select only a column?\n\n\n\n\n\n\n\n\nA vector is a different data type than a column. Now that we’ve put the Survived column into a vector, we can use our vector functions.",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Filtering Dataframe"
+    ]
+  },
+  {
+    "objectID": "r-code/load_data/03-selection.html#selecting-rows-based-on-column-value",
+    "href": "r-code/load_data/03-selection.html#selecting-rows-based-on-column-value",
+    "title": "Filtering Dataframe",
+    "section": "Selecting rows based on column value",
+    "text": "Selecting rows based on column value",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Filtering Dataframe"
+    ]
+  },
+  {
+    "objectID": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
+    "href": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
+    "title": "Filtering Dataframe",
+    "section": "Selecting rows based on conditioning column value",
+    "text": "Selecting rows based on conditioning column value\n\nOnly show rows where the value in Sex is not female\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10\n\n\n\n\n\n\n\n\n\n\nOnly show rows where the value in Age is greater than 10 AND the value in Sex is male",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Filtering Dataframe"
+    ]
+  },
+  {
     "objectID": "descrip-stat/index.html",
     "href": "descrip-stat/index.html",
     "title": "Description of One Variable",
@@ -1212,18 +912,6 @@
     "crumbs": [
       "Description of One Variable",
       "Central Tendency, Spread Measures, Boxplots"
-    ]
-  },
-  {
-    "objectID": "comparisons/regression/02-log.html",
-    "href": "comparisons/regression/02-log.html",
-    "title": "Logistic Regression",
-    "section": "",
-    "text": "Linear regressions allow us to model the real world, and importantly also allow us to predict what would happen in scenarios that haven’t occurred. While this is comforting, they don’t actually allow us to see into the future. Confidence intervals and p-values remind us that a linear regression is ultimately an estimate, not a certainty.\nRemember what a p-value of 0.05 (the standard threshold) means: if there were truly no relationship, we’d still get a result at least as extreme as ours in about 5 out of 100 samples.\nThat’s pretty unlikely, which is why we treat it as evidence. But unlikely isn’t impossible. Stanford’s undergraduate admission rate was 3.6%, even lower than 5%, and yet thousands of students get in every year. Rare things happen all the time, especially when there are lots of chances for them to happen.\nThe same goes for research: if 20 researchers each test a relationship that doesn’t actually exist, we’d expect about one of them to get p &lt; 0.05 by chance alone.\nAnother pitfall of reading linear regression results too literally is that the model will happily make predictions about situations that are unlikely or even impossible in the real world. For example, we might find that people are more likely to own a home as they get older. But the same model will also give us a prediction for someone who is 200 years old, or -5 years old.\nIssues like this are why the work on quantitative social science methods is so deep and active… and thrilling!\n\nLogistic Regression\nOne extension of linear regression is logistic regression, which addresses the problem of predicting probabilities. Your chance of owning a home can only be between 0 and 1 (or 0% and 100%), and a logistic regression makes sure its predictions stay in that range.\nWe’ll use Bonica 2024’s Database on Ideology, Money in Elections (DIME), which you can download locally here, which contains 8948 observations of donations from PACs (Political Action Committees) received by candidates in US elections from 1979 to 2024. Each candidate is also measured on how extreme their ideology (Left to Right) is.\n\n\n\n\n\n\n\n\nExisting work suggests that PACs tend to support more moderate candidates. We can set up a logistic regression to answer how likely a candidate is to be extreme, given how much PAC money they received.\n\n\nHypothesis\n\nIn a comparison of candidates, those who received more money from PACs were less likely to be ideologically extreme than those who received less money from PACs.\n\nIdentify the Null\n\n\\(H_0\\) : Receiving more PAC money does not decrease a candidate’s likelihood of being ideologically extreme. In other words, the coefficient on PAC receipts is greater than or equal to zero (\\(\\beta \\geq 0\\)).\n\nIdentify the appropriate test statistic\n\nOur dependent variable (extreme) is 0-1 and our independent variable (log_pac_receipts) is interval, so we use logistic regression. Logistic regression reports a z-statistic instead of a t-statistic, but we read it the same way: it tells us how many standard errors the coefficient is from zero.\n\nCalculate the z-statistic\n\nglm() works like lm(), but it can handle outcomes that aren’t interval variables. family = binomial tells R that our outcome is 0-1.\n\n\n\n\n\n\n\n\n\nEvaluate p-value\n\nLook at the log_pac_receipts row of the coefficients table. The z value column is the z-statistic, and Pr(&gt;|z|) is the p-value.\nPr(&gt;|z|) is a two-sided p-value. Since our hypothesis is one-sided, if the coefficient is negative (the direction we predicted), we can divide this p-value by 2.\nA negative coefficient means candidates who received more PAC money were less likely to be extreme.\n\nReport results\n\nBecause logistic regression coefficients are in log-odds, we convert them into predicted probabilities to describe the size of the relationship. Here, we compare a candidate at the 25th percentile of PAC receipts to one at the 75th percentile:\n\n\n\n\n\n\n\n\n\n\n::: {.callout-tip title=“Result”} Candidates who received more PAC money were less likely to be ideologically extreme. Moving from the 25th to the 75th percentile of PAC receipts is associated with a change in the predicted probability of being extreme from [X]% to [Y]%. This relationship is statistically significant at the [95/99]% confidence level (\\(\\hat{\\beta}\\) = [coef], SE = [SE], p [= / &lt;] [p-value]). :::",
-    "crumbs": [
-      "Comparisons between Two Variables",
-      "Regressions",
-      "Logistic Regression"
     ]
   }
 ]
