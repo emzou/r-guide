@@ -1,0 +1,725 @@
+---
+title: "Practice Set 2"
+format: 
+  live-html: 
+    code-fold: true
+    code-summary: "Show code"
+engine: knitr
+---
+
+# Data
+In this practice set, we'll learn how to load data in R and describe a single variable using a real dataset from [Pan and Siegel (2019)](https://www.cambridge.org/core/journals/american-political-science-review/article/abs/how-saudi-crackdowns-fail-to-silence-online-dissent/1BA13DF8FD5D04EC181BCD4D1055254B), "How Saudi Crackdowns Fail to Silence Online Dissent," published in the *American Political Science Review*. The authors study how governments use offline tactics, like imprisonment, to punish online activism. To do this, they examine what happens after well-known Saudis are jailed for online dissent, analyzing over 300 million tweets posted between 2010 and 2017.
+
+We want to know if activists tweeted less after they were released from prison. 
+
+1. Restate this as a testable hypothesis.
+
+::: {.callout-tip collapse="true" title="Answer"}
+  In a comparison of days before Saudi activists' arrest and days after their release, the activists will post fewer total tweets per day after release than before.
+:::
+
+2. What is being compared?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Daily tweet volume for the group of activists in the year before arrest vs. the year after release.
+:::
+
+3. What is the IV and DV? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  IV: Whether a day is before arrest or after release (post_release), DV: Total number of tweets the group posted that day (tweets)
+:::
+
+4. What is the unit of analysis?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The day (relative to arrest/release). Each row is one day's total tweets for the whole group, not one activist.
+:::
+
+## Dataset Download 
+Download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv)
+
+Each row in this dataset records the number of tweets a well-known Saudi posted on a single day, covering the year before their arrest and the year after their release. The `post_release` column tells you which period a row falls in: it equals 0 for days before the arrest and 1 for days after the release. The `days_post_release` column tells you which specific day it is. Negative values count days before the arrest, so -365 is exactly one year before and -100 is 100 days before. Positive values count days after the release, so 100 is 100 days after they got out.
+
+You must run the below code first to work through these problems on this site. 
+```{webr}
+#| autorun: false
+download.file(
+  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv",
+  "arrested_tweet_volume.csv"
+)
+```
+
+# Working with Data in R
+## Definitions
+1. What is a package in R?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  A bundle of functions, data, and documentation that someone else wrote to extend what R can do (e.g., tidyverse for data wrangling and plotting)
+:::
+
+2. What does it mean to load a dataframe into R?  
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Reading a data file (like a .csv) from your computer into your R session and saving it as an object you can work with, e.g., df <- read_csv("file.csv"). 
+:::
+
+3. Is there a difference between loading and installing a package? If so, what is the difference, and how does this affect how you code in R?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Yes, they're different.
+  - Installing (install.packages("tidyverse")) downloads the package to your computer. You only do this once, and you shouldn't leave it in your script.
+  - Loading (library(tidyverse)) makes the package available in your current session. You do this every time you start R, so put it at the top of your script.
+:::
+
+## Working Directory 
+Run `getwd()` in your R session.
+```{webr}
+#| autorun: false
+getwd()
+```
+
+1. What is this output? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The file path of your current working directory, which is the folder R looks in by default for files to read and save to.
+:::
+
+2. What does the function `setwd()` do? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  It changes the working directory to whatever folder path you give it.
+:::
+
+3. You're helping your friend with R, and after they run `getwd()` they get the below output. What does this tell us?  
+```
+  /Users/student/Desktop
+```
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Their working directory is currently their Desktop, so R will look for files there.
+:::
+
+4. What happens when they run 
+```
+  setwd("/Users/student/Desktop/comm_106")
+```
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The working directory changes to the comm_106 folder on their Desktop, as long as that folder exists. If it doesn't exist, they'll get an error.
+:::
+
+5. After your friend has set their working directory, they download `arrested_tweet_volume.csv` from this site. Can they start working with this dataset in R now? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  No. 
+  - The file probably went to their Downloads folder, not comm_106. They need to move it into comm_106 or use its full file path.
+  - Downloading isn't the same as loading. They still need to read it in, e.g., df <- read_csv("arrested_tweet_volume.csv").
+:::
+
+
+### Reading in Data
+Change the code below in order to generate the following error messages. Briefly describe why your change causes this error to show up.
+
+```{webr}
+#| autorun: false
+library(tidyverse)
+df <- read_csv("arrested_tweet_volume.csv")
+```
+
+1. 
+```
+    Error in read_csv("arrested_tweet_volume.csv") : could not find function "read_csv"
+```
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+#| autorun: false
+df <- read_csv("arrested_tweet_volume.csv")
+```
+    Without `library(tidyverse)`, the package that contains `read_csv()` never gets loaded, so R doesn't know the function exists.
+:::
+
+2. 
+```
+    Error:
+    ! "arrest_tweet_volume.csv" does not exist in current working directory
+```
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+    #| autorun: false
+    library(tidyverse)
+    df <- read_csv("arrest_tweet_volume.csv")
+```
+
+The name of the csv file is wrong, the error says it can't find a `arrest_tweet_volume.csv`, which doesn't exist. 
+:::
+
+3. 
+```
+    Error: object 'arrested_tweet_volume.csv' not found
+```
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+    #| autorun: false
+    library(tidyverse)
+    df <- read_csv(arrested_tweet_volume.csv)
+```
+
+  Without quotation marks, R treats `arrested_tweet_volume.csv` as the name of an object in your environment instead of a file name. No object has that name, so R says it's not found.
+:::
+
+### Load Data in Your Own R Session
+
+If you haven't already, download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv), and load it in. 
+
+1. What are the dimensions of this dataframe? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  730 by 3
+```{webr}
+    #| autorun: false
+    df <- read_csv("arrested_tweet_volume.csv", show_col_types = FALSE)
+    dim(df)
+```
+:::
+
+2. How many rows are in this dataframe? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  730 rows. We also can see this from `dim()`, which outputs rows X columns, so we have 3 columns. 
+```{webr}
+    #| autorun: false
+    nrow(df)
+```
+:::
+
+
+3. What are the names of the dataframe's columns?
+
+::: {.callout-tip collapse="true" title="Answer"}
+"tweets", "post_release", days_post_release"
+730 rows. We also can see this from `dim()`, which outputs rows X columns, so we have 3 columns. 
+```{webr}
+    #| autorun: false
+    names(df)
+```
+:::
+
+# Describing a Variable
+## Data Types
+Match each expression to what `class()` returns. Every option is used at least once, and some are used more than once.
+
+:::: {.columns}
+
+::: {.column width="55%"}
+**Expression**
+
+1. `42`
+2. `"42"`
+3. `TRUE`
+4. `c(1.5, 2, 3)`
+5. `c("a", "b", "c")`
+6. `10 > 5`
+7. `c(1, "two", 3)`
+8. `data.frame(x = c(1, 2), y = c("a", "b"))`
+9. `as.numeric("7")`
+10. `c(1, 2, 3) == 2`
+11. `paste("hello", "world")`
+12. `as.data.frame(df)`
+:::
+
+::: {.column width="45%"}
+**`class()` output**
+
+a. `"numeric"`
+b. `"character"`
+c. `"logical"`
+d. `"data.frame"`
+:::
+
+::::
+
+::: {.callout-tip collapse="true" title="Answers"}
+| # | Expression | `class()` | Why |
+|---|------------|-----------|-----|
+| 1 | `42` | a. `"numeric"` | Numbers are numeric by default (technically doubles) |
+| 2 | `"42"` | b. `"character"` | Quotes make it a string, even if it looks like a number |
+| 3 | `TRUE` | c. `"logical"` | `TRUE`/`FALSE` are logicals |
+| 4 | `c(1.5, 2, 3)` | a. `"numeric"` | A vector's class is the class of its elements |
+| 5 | `c("a", "b", "c")` | b. `"character"` | |
+| 6 | `10 > 5` | c. `"logical"` | Comparisons return `TRUE`/`FALSE` |
+| 7 | `c(1, "two", 3)` | b. `"character"` | Vectors hold one type, so R coerces everything to character |
+| 8 | `data.frame(...)` | d. `"data.frame"` | |
+| 9 | `as.numeric("7")` | a. `"numeric"` | `as.numeric()` converts the string to a number |
+| 10 | `c(1, 2, 3) == 2` | c. `"logical"` | Element-wise comparison gives `FALSE TRUE FALSE` |
+| 11 | `paste("hello", "world")` | b. `"character"` | `paste()` always returns strings |
+| 12 | `as.data.frame(df)` | d. `"data.frame"` | Strips the tibble classes `read_csv()` adds |
+:::
+
+## Variable Type
+1. Is `tweets` a nominal, ordinal, or interval variable? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Interval. Tweets is a count of tweets, so the numbers have equal spacing and a meaningful order (10 tweets is exactly 5 more than 5 tweets).
+:::
+
+2. Find the mean, minimum, maximum, and median of `tweets` using the summary() function
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Mean: 209.8 Median: 192.0 Min: 21.0  Max: 726.0 
+```{webr}
+    #| autorun: false
+    summary(df$tweets)
+```
+:::
+
+3. Interpret the statistics in terms of the study context. 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Mean: On average, the group of activists posted 210 (rounded up from 209.8) tweets per day.
+  Median: On half of the days the group posted fewer than 192 tweets, and on half they posted more.
+  Min/Max: The group's quietest day had 21 tweets and its busiest day had 726 tweets.
+:::
+
+4. Are these statistics meaningful analysis for `tweets`? What are the appropriate analyses for `tweets`? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Yes. Because tweets is interval, means, medians, and ranges all make sense. Other appropriate analyses include the standard deviation and the IQR to describe spread. Since tweet counts are usually skewed, the median and IQR are often a better summary than the mean and SD.
+:::
+
+5. What are the appropriate visualizations for `tweets`?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  A histogram shows the shape of the distribution. A boxplot shows the median, spread, and outliers. Bar charts aren't a good fit, since those are for nominal and ordinal variables.
+:::
+
+Repeat 1-5 with `post_release` and `days_post_release` 
+
+::: {.callout-tip collapse="true" title="post_release Answer"}
+  1. Nominal. It's a binary (dummy) variable: 1 means after release and 0 means before arrest. The numbers are labels for two categories, not amounts.
+  2. Mean: 0.5 Median: 0.5 Min: 0  Max: 1
+
+```{webr}
+  #| autorun: false
+  summary(df$post_release)
+```
+  
+  3. Mean: Usually, we don't calculate means for nominal variables. However, since the variable is either 0 or 1, the mean tells us the proportion of observations that are after release -- half, which we already know, since we designed the data to be that way. 
+  Median: Half of the variables in this dataset are less than or equal to 0.5 and the other half is greater or equal to than 0.5. 
+  Min/Max: These will be 0 and 1, which just confirms both categories are in the data.
+  4. No. We created post_release ourselves by splitting the study window in two: days after release are 1 and days before arrest are 0. Since the window covers the same number of days on each side, we already know half the days will be 1s, so the mean is 0.5. We also know the min is 0 and the max is 1. These statistics just reflect how we built the variable, not anything about how the activists behaved. They're still useful as a check that the variable was coded correctly, e.g., with table(df$post_release). The real use of post_release is as the IV: grouping the days by it to compare tweets before and after.
+  5. A possible visualization for nominal variables is a bar chart showing the number or share of observations in each category. However, it isn't appropriate because we already know what it will look like. 
+:::
+
+::: {.callout-tip collapse="true" title="days_post_release Answer"}
+  1. Interval. It counts days relative to the activists' arrest/release, running from -365 (one year before) to 365 (one year after). The spacing is equal and the order is meaningful. Negative values are fine for an interval variable, since -30 to -20 is the same 10-day gap as 20 to 30.
+
+  2. Mean: 0 Median: 0  Min: -365 Max: 365
+```{webr}
+  #| autorun: false
+  summary(df$days_post_release)
+```
+
+  3. Mean: The average day is 0. Median: The middle day is also 0. Min/Max: The data runs from -365 to 365, so it covers one year before and one year after. The mean and median are both 0 because there's the same number of days on each side of 0. They tell us the study window is balanced, not anything about the activists.
+  4. No. Since each day appears exactly once, these statistics describe how the study was designed (how much time it covers) rather than anything we measured.
+  5. It's possible to show the visualizations appropriate for interval variables, but none of them are appropriate. We know that every day appears once, so a histogram would be flat.
+:::
+
+
+6. Below, we create a new variable that sorts each day into an activity level.
+
+```{webr}
+#| autorun: false
+activity <- case_when(
+  df$tweets == 0  ~ "silent",
+  df$tweets < 50  ~ "low",
+  df$tweets < 100 ~ "medium",
+  TRUE            ~ "high"
+)
+mean(activity)
+```
+
+  a. What level of measurement is `activity`? What does `class(activity)` return?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Ordinal. The categories have a clear order (silent < low < medium < high), but the gaps between them aren't equal: "silent" is exactly 0 tweets, while "low" covers 1–49. class(activity) returns "character", because case_when() outputs text labels.
+:::
+
+  b. Why does `mean()` return `NA`? Read the warning.
+
+
+::: {.callout-tip collapse="true" title="Answer"}
+  mean() only works on numeric or logical values, and activity is a character vector. R can't average words, so it returns NA with the warning argument is not numeric or logical: returning NA.
+:::
+
+  c. Even if R could compute a mean here, would it be meaningful? What summary would you use instead?
+
+
+::: {.callout-tip collapse="true" title="Answer"}
+  No. Even if we coded the categories as 1–4, a mean would assume the gaps between levels are equal, and they aren't. Better summaries are counts and proportions for each level, e.g., table(activity), and the mode or median category.
+:::
+
+## Center and Spread
+1. Your research assistant tells you that they made an error with data entry -- they forgot to add a 0 to the end of the 5 largest number of tweets in the dataset; e.g. 726 should actually be 7260. This could change everything! 
+
+We update our dataframe from `df` to `df_updated` (You don't have to worry about knowing how to do this yet)
+
+```{webr}
+#| autorun: false
+top5 <- order(df$tweets, decreasing = TRUE)[1:5]
+df_updated <- df %>% mutate(tweets = replace(tweets, top5, tweets[top5] * 10))
+```
+
+How does this change affect the:
+
+  a. Median 
+
+::: {.callout-tip collapse="true" title="Answer"}
+      Median: Doesn't change. Only the top 5 values change, and they were already above the median, so the middle value stays the same.
+:::
+
+  b. Interquartile Range
+
+::: {.callout-tip collapse="true" title="Answer"}
+      IQR: Doesn't change. The top 5 days are all above the 75th percentile, so Q1 and Q3 stay the same.
+:::
+
+  c. Mode 
+
+::: {.callout-tip collapse="true" title="Answer"}
+      Mode: Doesn't change. The most common value is very unlikely to be one of the 5 biggest days.
+:::
+
+  d. Mean
+
+::: {.callout-tip collapse="true" title="Answer"}
+      Mean: Goes up. The mean uses every value, so a few very large days pull it up.
+:::
+
+  e. Range
+
+::: {.callout-tip collapse="true" title="Answer"}
+      Range: Goes up a lot. The max is now 10 times bigger, so the range (max − min) is much wider.
+:::
+
+*Hint: Try rerunning the above exercises with `df_updated` instead of `df`
+
+2. You're now unsure on whether or not your research assistant knows what they're talking about. When you hired your assistant, they had taken 6 statistics classes in high school with the following grades: 93, 97, 98, 92, 90, 90. Since then, they've taken their first undergraduate-level statistics class, and you check their transcript to see what grade they got -- a 53! 
+
+Which summary do you expect to change the most, and why? 
+
+  (A) Median 
+  (B) Interquartile Range
+  (C) Mode 
+  (D) Mean
+  (E) Range
+
+::: {.callout-tip collapse="true" title="Answer"}
+   (E) Range The range depends only on the most extreme values, so a single outlier can change it a lot. The mean moves too, but less, because the 53 is averaged in with six other grades.
+:::
+
+3. You've decided to fire your assistant, and you need to give them a reason. You want to use their statistics grades (93, 97, 98, 92, 90, 90, 53) to back up your decision.
+
+  a. Would the mean or the median make a stronger case for firing them? Why?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The mean. The mean is 87.6, while the median is 92. The mean is pulled down by the 53 because it uses every value, so it makes the assistant look worse. The median ignores how extreme the 53 is, so it still looks like an A-range student.
+:::
+
+  b. Which summary gives a fairer picture of their typical performance? Is it fair to fire them based on these grades?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The median. Six of their seven (haha) grades are 90 or above, and the median reflects that typical performance. The mean is dragged down by a single outlier. So using the mean to justify firing would be picking the statistic that best supports the conclusion you already wanted. A fairer argument would point to the 53 directly: it's their most recent grade, and the only one from a college-level class, so it may be the most relevant. Neither the mean nor the median captures that, because summaries ignore the order of grades over time.
+:::
+
+# Comparing Distributions
+## Filtering Rows
+1. Use the `filter()` function to filter the dataframe `df`, and output the dimensions for each filtered dataframe.
+
+   a. The value in `post_release` is 0
+
+::: {.callout-tip collapse="true" title="Answer"}
+
+```{webr}
+ #| autorun: false
+      df %>%
+        filter(post_release == 0) %>%
+        dim()
+```
+
+:::
+
+   b. The value in `post_release` is not 0
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+ #| autorun: false
+      df %>%
+        filter(post_release != 0) %>%
+        dim()
+```
+:::
+
+   c. The value in `days_post_release` is between -100 and 100
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+      filter(days_post_release >= -100 & days_post_release <= 100) %>%
+      dim()
+```
+:::
+
+   d. The value in `tweets` is less than 100
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+      filter(tweets < 100) %>%
+      dim()
+```
+:::
+
+
+   e. The value in `tweets` is less than 100 and the value in `post_release` is 1
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+      filter(tweets < 100 & post_release == 1) %>%
+      dim()
+```
+:::
+
+
+   f. The value in `tweets` is less than 100 and the value in `post_release` is 0
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+      filter(tweets < 100 & post_release == 0) %>%
+      dim()
+```
+:::
+
+   g. The value in `post_release` is 2.
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+      filter(post_release == 2) %>%
+      dim()
+```
+:::
+
+ 
+2. We know that the only values in `post_release` are either 0 or 1. You didn't get an error when you did part g, so what happened? 
+    a. What are the dimensions of the result? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The result has 0 rows and the same number of columns as `df`. If `df` has just tweets, post_release, and days_post_release, dim() returns 0X3. filter() drops rows but never columns, so the columns are still there, just with nothing in them.
+:::
+
+  b. Why didn't R complain? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  filter() checks post_release == 2 for every row and keeps the rows where it's TRUE. Here the answer is FALSE for every row, so no rows are kept. As far as R is concerned, "no rows match" is a perfectly valid result, and R doesn't know which values you expected to find. This is why it's a good habit to check your results with dim() or nrow(): some mistakes don't produce an error and just give you the wrong answer quietly.
+:::
+
+## Understanding Error Messages
+
+Run each chunk below. Explain what went wrong, then fix the code.
+
+1.
+```{webr}
+#| autorun: false
+df %>% filter(post_release = 0)
+```
+::: {.callout-tip collapse="true" title="Answer"}
+  `=` assigns a value, and `==` checks whether two things are equal. `filter()` needs a condition that's `TRUE` or `FALSE` for each row, so it needs `==`. 
+:::
+
+2.
+```{webr}
+#| autorun: false
+df %>% select(Tweets)
+```
+::: {.callout-tip collapse="true" title="Answer"}
+  R is case-sensitive, so `Tweets` and `tweets` are different names. There's no column called `Tweets`, so R gives the error `Column Tweets doesn't exist`.
+:::
+
+3.
+```{webr}
+#| autorun: false
+df %>% filter(post_release == 0)
+  pull(tweets)
+```
+::: {.callout-tip collapse="true" title="Answer"}
+  The pipe `%>%` is missing at the end of the first line. Without it, R runs `df %>% filter(post_release == 0)` as one complete command and prints the result. Then it tries to run `pull(tweets)` on its own, which gives an error, since `pull()` doesn't know which dataframe to use.
+:::
+
+4.
+```{webr}
+#| autorun: false
+mean(df$tweet)
+```
+
+::: {.callout-tip collapse="true" title="Answer"}
+ The column is called `tweets`, not `tweet`. Since there's no column called `tweet`, `df$tweet` returns `NULL` with the warning `Unknown or uninitialised column`. `mean()` can't average nothing, so it returns `NA`. Like part g above, it doesn't stop with an error, so it's easy to miss.
+::: 
+
+## Before vs. After Release: Means
+We want to know if activists tweeted less after they were released from prison. 
+
+1. Find the mean of `tweets` of the rows where `post_release` is 0.  
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+  filter(post_release == 0) %>%
+  pull(tweets) %>%
+  mean()
+```
+:::
+
+2. Find the mean of `tweets` of the rows where `post_release` is 1.
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+  filter(post_release == 1) %>%
+  pull(tweets) %>%
+  mean()
+```
+:::
+
+### Doing it all in one shot 
+3. Write *one* pipeline that
+    a. reads in the CSV
+    b. keeps only rows where `post_release` is 0
+    c. selects the `tweets` column
+    d. pulls it out as a vector
+    e. Runs summary() on the vector
+
+    Your pipeline counts as *one* pipeline if:
+
+    a. it starts by reading in the CSV, and every step after that is connected with `%>%`
+    b. there's no `<-` anywhere. You never save the data, or anything else, to an object along the way
+    c. `df` never appears. The data gets passed from step to step by the pipe, not by name
+    d. running it prints the summary directly
+
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    read_csv("arrested_tweet_volume.csv") %>%
+  filter(post_release == 0) %>%
+  select(tweets) %>%
+  pull(tweets) %>%
+  summary()
+```
+:::
+
+4. Now swap summary() for mean() and delete the pull() step. What happens, and why? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+
+R returns `NA` with the warning `argument is not numeric or logical: returning NA`. Without `pull()`, the last step passes a dataframe to `mean()`, not a numeric vector. `select()` keeps the data as a dataframe, even with just one column, while `pull()` takes the column out as a vector. `mean()` only works on numeric or logical vectors, so it can't average a dataframe. To fix it, put `pull(tweets)` back in before `mean()`.
+
+```{webr}
+   #| autorun: false
+    read_csv("arrested_tweet_volume.csv") %>%
+  filter(post_release == 0) %>%
+  select(tweets) %>%
+  mean()
+```
+
+:::
+
+### Interpretation
+5. Describe the comparison between 1 and 2 in plain terms, as if you were describing it to your friend.
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Before they were arrested, the activists posted about 304 tweets a day as a group. After they got out of prison, that dropped to about 115 tweets a day. So they were tweeting roughly a third as much as before, about a 62% drop. It looks like, on average, going to prison is associated with activists being quieter online afterwards. 
+:::
+
+## Before vs. After Release: Spread
+### Standard Deviation Concepts
+1. Before their arrest, Activist A posts about 15 tweets nearly every day. After their release, they post nothing on most days, then 100+ on days when something big happens. In both periods, they average about 15 tweets a day.
+
+  a. In which period do Activist A's daily tweet counts have the larger standard deviation?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Before they were arrested, the activists posted about 304 tweets a day as a group. After they got out of prison, that dropped to about 115 tweets a day. So they were tweeting roughly a third as much as before, about a 62% drop. It looks like, on average, going to prison is associated with activists being quieter online afterwards. 
+:::
+
+  b. If you only looked at the mean, what would you conclude about how Activist A's tweeting changed? What does the standard deviation add?
+
+::: {.callout-tip collapse="true" title="Answer"}
+  Looking only at the mean, you'd conclude nothing changed, since Activist A averages 15 tweets a day in both periods. The standard deviation shows that their behavior did change: they went from tweeting steadily every day to staying quiet most of the time and speaking up only when something big happens. Two periods can have the same mean but very different patterns, so it's important to look at spread as well as the center.
+:::
+
+2. How does standard deviation relate to the mean? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+  The standard deviation measures how far the values usually are from the mean. The mean tells us where the center of the data is, and the SD tells us how spread out the values are around that center. A small SD means most values are close to the mean, and a large SD means many values are far from it. Both are in the same units as the variable, so here the SD is measured in tweets per day.
+:::
+
+### Standard Deviation Calculation
+3. Find the standard deviation of `tweets` of the rows where `post_release` is 0.  
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+  filter(post_release == 0) %>%
+  pull(tweets) %>%
+  sd()
+```
+:::
+
+
+4. Find the standard deviation of `tweets` of the rows where `post_release` is 1.
+
+::: {.callout-tip collapse="true" title="Answer"}
+```{webr}
+   #| autorun: false
+    df %>%
+  filter(post_release == 1) %>%
+  pull(tweets) %>%
+  sd()
+```
+:::
+
+5. Is the number of tweets more evenly spread before or after release? How can you tell?  
+
+::: {.callout-tip collapse="true" title="Answer"}
+The period with the smaller SD has more evenly spread tweets, since its days are closer to the average. Here, after release has the smaller SD (58.329 vs. 96.732), so the group's daily tweet counts were more consistent in that period. Keep in mind that the means are very different (304 before vs. 115 after). Smaller numbers tend to have smaller SDs, so part of the difference in SD may just come from tweeting less overall, not from tweeting more evenly. In the coming weeks, we'll learn how to tell whether a difference like this is real or could just be due to chance.
+:::
+
+
+6. What are the appropriate visualizations? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+To compare the distribution of `tweets` before and after, use side-by-side boxplots (one for each value of `post_release`) or histograms split by `post_release`. These show both the center and the spread for each period. 
+:::
+
+
+7. In this analysis, we didn't use `days_post_release`. Why might we want to include it, and what analyses does it license us to do? 
+
+::: {.callout-tip collapse="true" title="Answer"}
+`post_release` only tells us whether a day is before or after, so comparing the two means treats every day in a period the same -- tweets from a year before arrest and one day before arrest both get a value of `0`. `days_post_release` tells us *when* each day happened, which lets us look at change over time. For example, we can:
+   - Plot `tweets` over `days_post_release` to see whether the drop happens right after release or gradually.
+   - Check whether tweeting was already declining before the arrest. If it was, the drop after release might not be caused by prison.
+   - See whether tweeting recovers as more time passes after release - an activists could stop tweeting the first 100 days after their arrest, but then go back to normal levels. 
+   - Compare shorter windows, like the 100 days before and after, to focus on the period closest to the arrest.
+:::

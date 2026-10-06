@@ -73,6 +73,11 @@ website:
           - section: "Regressions"
             contents:
               - auto: "comparisons/regression/*.qmd"
+
+      - section: "Practice"
+        href: practice/index.qmd
+        contents:
+          - auto: "practice/*.qmd"
          
 
     
