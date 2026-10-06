@@ -99,6 +99,7 @@ format:
     toc-depth: 3
     code-copy: true
     code-overflow: wrap
+    include-after-body: goatcounter.html
 
 webr:
   packages: ['ggplot2', 'tidyverse']

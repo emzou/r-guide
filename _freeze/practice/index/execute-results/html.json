@@ -1,9 +1,11 @@
 {
-  "hash": "1eefcb2138318da56f145f2af4a78e2d",
+  "hash": "6f51e0d1b9aa05df4b3711f23bcc72c3",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Practice and Solutions\"\nformat: live-html\nengine: knitr\n---\n\n\n\n\nYou can check your work for practice set 2 here! ",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Practice and Solutions\"\nformat: live-html\nengine: knitr\n---\n\n\n\n\nYou can check your work for practice set 2 here!\n\n![](type12.png)\n",
+    "supporting": [
+      "index_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
