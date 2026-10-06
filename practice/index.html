@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Getting and setting working directory – R(eference)</title>
+<title>Practice and Solutions – R(eference)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +20,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../r-code/index.html" rel="next">
-<link href="../../r-setup/load-data/01-getdata.html" rel="prev">
-<link href="../../favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-48c3e71fd6a1fe0e593c9aa32cb855dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../practice/01-pset.html" rel="next">
+<link href="../comparisons/regression/02-log.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-48c3e71fd6a1fe0e593c9aa32cb855dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,11 +71,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Working Directory</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Getting and setting working directory</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../practice/index.html">Practice</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">R(eference)</a> 
+      <a href="../">R(eference)</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/emzou/r-guide" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-home"></i></a>
 </div>
@@ -146,19 +116,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../r-setup/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../r-setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
@@ -170,13 +140,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/01-install.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-r/01-install.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R for Mac</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-r/02-r-wind.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-r/02-r-wind.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R for Windows</span></a>
   </div>
 </li>
@@ -193,13 +163,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-rstudio/01-rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R Studio for Mac</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/install-rstudio/02-windows.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/install-rstudio/02-windows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install R Studio for Windows</span></a>
   </div>
 </li>
@@ -216,13 +186,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/make-rmd/01-vartypes.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/make-rmd/01-vartypes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Create, save R Markdown file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/make-rmd/02-datatypes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Writing and Coding in R Markdown</span></a>
   </div>
 </li>
@@ -239,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/load-data/01-getdata.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-setup/load-data/01-getdata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Load CSV into R</span></a>
   </div>
 </li>
@@ -247,16 +217,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Working Directory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-setup/check-wd/01-checkwd.html" class="sidebar-item-text sidebar-link active">
+  <a href="../r-setup/check-wd/01-checkwd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting and setting working directory</span></a>
   </div>
 </li>
@@ -266,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../r-code/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../r-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Manipulation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -284,13 +254,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/first/01-classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/first/01-classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Numeric, Logical, Character</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/first/02-vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/first/02-vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors and Vector Operations</span></a>
   </div>
 </li>
@@ -307,19 +277,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/02-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/02-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions for Dataframes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/03-selection.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/03-selection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Filtering Dataframe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link">
+  <a href="../r-code/load_data/04-mutate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changing the Dataframe</span></a>
   </div>
 </li>
@@ -329,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../descrip-stat/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../descrip-stat/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Description of One Variable</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -338,25 +308,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/01-freqtable.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/01-freqtable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequency Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/02-barplot.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/02-barplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/03-boxplots.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/03-boxplots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Central Tendency, Spread Measures, Boxplots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../descrip-stat/04-histograms.html" class="sidebar-item-text sidebar-link">
+  <a href="../descrip-stat/04-histograms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
@@ -364,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../comparisons/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../comparisons/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparisons between Two Variables</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -382,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/crosstab/01-crosstab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cross-Tabulations</span></a>
   </div>
 </li>
@@ -399,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/compmeans/01-compmeans.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/compmeans/01-compmeans.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparison of Means</span></a>
   </div>
 </li>
@@ -416,7 +386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/hypotest/01-hypotest.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/hypotest/01-hypotest.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Testing</span></a>
   </div>
 </li>
@@ -433,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/correlation/01-scatter.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/correlation/01-scatter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Correlation and Scatterplot</span></a>
   </div>
 </li>
@@ -450,13 +420,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/regression/01-regression.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/regression/01-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../comparisons/regression/02-log.html" class="sidebar-item-text sidebar-link">
+  <a href="../comparisons/regression/02-log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logistic Regression</span></a>
   </div>
 </li>
@@ -466,16 +436,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../practice/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../practice/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Practice</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../practice/01-pset.html" class="sidebar-item-text sidebar-link">
+  <a href="../practice/01-pset.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice Set 2</span></a>
   </div>
 </li>
@@ -486,27 +456,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-does-working-directory-mean" id="toc-what-does-working-directory-mean" class="nav-link active" data-scroll-target="#what-does-working-directory-mean">What does “Working Directory” mean?</a></li>
-  <li><a href="#getting-working-directory" id="toc-getting-working-directory" class="nav-link" data-scroll-target="#getting-working-directory">Getting working directory</a></li>
-  <li><a href="#set-working-directory" id="toc-set-working-directory" class="nav-link" data-scroll-target="#set-working-directory">Set working directory</a></li>
-  <li><a href="#load-in-the-dataset" id="toc-load-in-the-dataset" class="nav-link" data-scroll-target="#load-in-the-dataset">Load in the dataset</a>
-  <ul class="collapse">
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/check-wd/01-checkwd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r-setup/index.html">R Setup</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Working Directory</a></li><li class="breadcrumb-item"><a href="../../r-setup/check-wd/01-checkwd.html">Getting and setting working directory</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting and setting working directory</h1>
+<h1 class="title">Practice and Solutions</h1>
 </div>
 
 
@@ -529,85 +487,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-does-working-directory-mean" class="level1">
-<h1>What does “Working Directory” mean?</h1>
-<p>Your working directory is the folder R is currently looking in. When you tell R to “open titanic.csv,” it only looks inside that one folder. If the file is in a different folder (like Downloads), R won’t find it, even though the file is on your computer.</p>
-<p>We also want to be aware of what working directory we are currently in.</p>
-</section>
-<section id="getting-working-directory" class="level1 page-columns page-full">
-<h1>Getting working directory</h1>
-<p>We will use the <strong>getwd()</strong> function. getwd() stands for “get working directory.” It tells you which folder R is currently “standing in.”</p>
-<ol type="1">
-<li>Create a R code chunk in your markdown file</li>
-<li>Type getwd(), and run the chunk.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="checkwd2.png" class="img-fluid figure-img"></p>
-<figcaption>What your markdown file should look like</figcaption>
-</figure>
-</div>
-<p>The output is your current the folder path. - For Mac users, the output should look something similar to: <code>/Users/name/Desktop/comm_106</code> - For Windows users, <code>C:/Users/name/Desktop/comm_106</code> - For Posit Cloud users, it should be: “/cloud/project”</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><strong>Windows users: check for OneDrive</strong></p>
-<p>If your Desktop is synced to OneDrive, your folder path will look like <code>C:/Users/yourname/OneDrive/Desktop/comm_106</code> instead of <code>C:/Users/yourname/Desktop/comm_106</code>. Run <code>getwd()</code> to see which one you have.</p>
-</div></div></section>
-<section id="set-working-directory" class="level1">
-<h1>Set working directory</h1>
-<p>If your working directory isn’t your <code>comm_106</code> folder, you can change it with the <strong>setwd()</strong> function. setwd() stands for “set working directory.” It tells R which folder to look in.</p>
-<ol type="1">
-<li>Copy the folder path of your <code>comm_106</code> folder</li>
-<li>In the <strong>Console</strong> (bottom left), type <code>setwd("your folder path")</code> and hit Enter</li>
-</ol>
-<p>For example:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>practice_01.qmd</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="practice_01.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("/Users/name/Desktop/comm_106")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Run <code>getwd()</code> again to double check that it worked.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure to use forward slashes (<code>/</code>) in your path, not backslashes (<code>\</code>). Windows copies paths with backslashes, so you’ll need to switch them.</p>
-</div>
-</div>
-</section>
-<section id="load-in-the-dataset" class="level1">
-<h1>Load in the dataset</h1>
-<p>We’ll use the <strong>read_csv</strong> function from the tidyverse package to load our dataset (titanic.csv) in.</p>
-<p>Copy and paste the following in your markdown file, and run the code</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>practice_01.qmd</strong></pre>
-</div>
-<div class="sourceCode" id="cb2" data-filename="practice_01.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">df &lt;- read_csv("titanic.csv",  show_col_types = FALSE)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We’ll go over in detail what all of this actually means later, but the gist is that we just turned our csv into something we can actually work with in R.</p>
-<section id="troubleshooting" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
-<p>If you got an error saying that “titanic.csv does not exist in current working directory,” it means that R looked in your working directory and didn’t find the file there. Usually this is because the file is saved somewhere else (like your Downloads folder), or because R is looking in a different folder than you think.</p>
-<p>Make sure your <code>titanic.csv</code> is in your <code>comm_106</code> folder. When you run code in a <code>.rmd</code> file, R looks in the folder the file is saved in, so keeping your data and your <code>.rmd</code> together means R can always find it.</p>
-<p>Then run the <code>read_csv</code> chunk again.</p>
+<p>You can check your work for practice set 2 here!</p>
 
 
-</section>
-</section>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../practice";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1027,13 +936,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../r-setup/load-data/01-getdata.html" class="pagination-link" aria-label="Load CSV into R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Load CSV into R</span>
+      <a href="../comparisons/regression/02-log.html" class="pagination-link" aria-label="Logistic Regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Logistic Regression</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../r-code/index.html" class="pagination-link" aria-label="Data Manipulation">
-        <span class="nav-page-text">Data Manipulation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../practice/01-pset.html" class="pagination-link" aria-label="Practice Set 2">
+        <span class="nav-page-text">Practice Set 2</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1045,7 +954,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/r-setup/check-wd/01-checkwd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/emzou/r-guide/edit/main/practice/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emzou/r-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org">Quarto</a></p>
 </div>
