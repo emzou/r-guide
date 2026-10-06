@@ -1,0 +1,15 @@
+{
+  "hash": "1eefcb2138318da56f145f2af4a78e2d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Practice and Solutions\"\nformat: live-html\nengine: knitr\n---\n\n\n\n\nYou can check your work for practice set 2 here! ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

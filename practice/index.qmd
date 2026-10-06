@@ -4,4 +4,6 @@ format: live-html
 engine: knitr
 ---
 
-You can check your work for practice set 2 here! 
+You can check your work for practice set 2 here!
+
+![](type12.png)
