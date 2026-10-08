@@ -37,7 +37,7 @@ We want to know if activists tweeted less after they were released from prison.
 :::
 
 ## Dataset Download 
-Download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv)
+Download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main//datasets/arrested_tweet_volume.csv)
 
 Each row in this dataset records the number of tweets a well-known Saudi posted on a single day, covering the year before their arrest and the year after their release. The `post_release` column tells you which period a row falls in: it equals 0 for days before the arrest and 1 for days after the release. The `days_post_release` column tells you which specific day it is. Negative values count days before the arrest, so -365 is exactly one year before and -100 is 100 days before. Positive values count days after the release, so 100 is 100 days after they got out.
 
@@ -45,7 +45,7 @@ You must run the below code first to work through these problems on this site.
 ```{webr}
 #| autorun: false
 download.file(
-  "https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv",
+  "https://raw.githubusercontent.com/emzou/r-guide/main//datasets/arrested_tweet_volume.csv",
   "arrested_tweet_volume.csv"
 )
 ```
@@ -172,7 +172,7 @@ The name of the csv file is wrong, the error says it can't find a `arrest_tweet_
 
 ### Load Data in Your Own R Session
 
-If you haven't already, download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main/r-code/visuals/arrested_tweet_volume.csv), and load it in. 
+If you haven't already, download the dataset [here](https://raw.githubusercontent.com/emzou/r-guide/main//datasets/arrested_tweet_volume.csv), and load it in. 
 
 1. What are the dimensions of this dataframe? 
 
