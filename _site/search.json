@@ -915,6 +915,18 @@
     ]
   },
   {
+    "objectID": "r-code/load_data/03-selection.html#combining-filter-and-select",
+    "href": "r-code/load_data/03-selection.html#combining-filter-and-select",
+    "title": "Filtering Dataframe",
+    "section": "Combining filter() and select()",
+    "text": "Combining filter() and select()",
+    "crumbs": [
+      "Data Manipulation",
+      "Dataframes",
+      "Filtering Dataframe"
+    ]
+  },
+  {
     "objectID": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
     "href": "r-code/load_data/03-selection.html#selecting-rows-based-on-conditioning-column-value",
     "title": "Filtering Dataframe",

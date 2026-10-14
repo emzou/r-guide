@@ -56,13 +56,13 @@ df %>%
 
 ```{webr}
 df %>% 
-  filter(sex == "female") %>% 
+  filter(Sex == "female") %>% 
   select(Age)
 ```
 
 ```{webr}
 df %>% 
-  filter(sex == "male") %>% 
+  filter(Sex == "male") %>% 
   select(Age)
 ```
 
@@ -90,25 +90,28 @@ df %>% filter(age > 10 & sex == 'male')
 
 # Full Examples 
 
-Compare the outputs when you delete the row that says mean()
+What happens when you delete the row that says pull()? What about mean()? 
 ```{webr}
 df %>% 
-  filter(sex == "female") %>% 
+  filter(Sex == "female") %>% 
   select(Survived) %>% 
+  pull() %>% 
   mean()
 ```
 
 ```{webr}
 df %>% 
-  filter(sex == "female") %>% 
+  filter(Sex == "female") %>% 
   select(Survived) %>% 
+  pull() %>% 
   summary()
 ```
 
 ```{webr}
 df %>% 
-  filter(sex == "male") %>% 
+  filter(Sex == "male") %>% 
   select(Survived) %>% 
+  pull() %>% 
   summary()
 ```
 
