@@ -45,7 +45,7 @@ You must run the below code first to work through these problems on this site.
 ```{webr}
 #| autorun: false
 download.file(
-  "https://raw.githubusercontent.com/emzou/r-guide/main//datasets/arrested_tweet_volume.csv",
+  "https://raw.githubusercontent.com/emzou/r-guide/main/datasets/arrested_tweet_volume.csv",
   "arrested_tweet_volume.csv"
 )
 ```

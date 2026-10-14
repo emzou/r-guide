@@ -18,16 +18,24 @@ library(tidyverse)
 df <- read_csv("titanic.csv")
 ```
 
+# The Pipe
+`%>%` is called the pipe: it just means "and then" -- like go home" %>% "watch anime" %>% "go to sleep", or in R, 
+data %>% filter() %>% summarize() = take the data, and then filter it, and then summarize it.
+
+Make sure you run every code block here to understand what each function is doing!
+
 ## Selecting a Column 
 ```{webr}
-df %>% select(Survived)
+df %>% 
+  select(Survived)
 ```
-
 
 ### Column to Vector 
 Why would we want to select only a column? 
 ```{webr}
-df %>% pull(Survived)
+df %>% 
+  pull(Survived)
+
 survive_vector <- df %>% pull(Survived)
 ```
 
@@ -39,8 +47,29 @@ mean(survive_vector)
 
 ## Selecting rows based on column value
 ```{webr}
-df %>% filter(sex == "female")
-fem_df <- %>% filter(sex == "female")
+df %>% 
+  filter(Sex == "female")
+# Optionally turn this into its own dataframe: fem_df <- %>% filter(Sex == "female")
+```
+
+## Combining filter() and select()
+
+```{webr}
+df %>% 
+  filter(sex == "female") %>% 
+  select(Age)
+```
+
+```{webr}
+df %>% 
+  filter(sex == "male") %>% 
+  select(Age)
+```
+
+```{webr}
+df %>% 
+  filter(Pclass == 1) %>% 
+  select(Sex)
 ```
 
 ## Selecting rows based on conditioning column value 
@@ -58,3 +87,28 @@ df %>% filter(age > 10)
 ```{webr}
 df %>% filter(age > 10 & sex == 'male')
 ```
+
+# Full Examples 
+
+Compare the outputs when you delete the row that says mean()
+```{webr}
+df %>% 
+  filter(sex == "female") %>% 
+  select(Survived) %>% 
+  mean()
+```
+
+```{webr}
+df %>% 
+  filter(sex == "female") %>% 
+  select(Survived) %>% 
+  summary()
+```
+
+```{webr}
+df %>% 
+  filter(sex == "male") %>% 
+  select(Survived) %>% 
+  summary()
+```
+
