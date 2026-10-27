@@ -7,5 +7,5 @@ format: html
 |--------------|------------------------------------------|------------------------------------------|------------------------------------------------------------------------------|
 | **Nominal**  | [Cross-tabulation](crosstab/01-crosstab.qmd)        | [Cross-tabulation](crosstab/01-crosstab.qmd)        | [Logistic regression](regression/02-log.qmd)                               |
 | **Ordinal**  | [Cross-tabulation](crosstab/01-crosstab.qmd)        | [Cross-tabulation](crosstab/01-crosstab.qmd)        | [Correlation](correlation/01-scatter.qmd)                                               |
-| **Interval** | [Comparison of means](compmeans/01-compmeans.qmd) | [Comparison of means](compmeans/01-compmeans.qmd) | [Correlation](correlation/01-scatter.qmd), [Linear regression](regression/01-regression.qmd) |
+| **Interval** | [Comparison of means](hypotest/01-hypotest.qmd) | [Comparison of means](hypotest/01-hypotest) | [Correlation](correlation/01-scatter.qmd), [Linear regression](regression/01-regression.qmd) |
 
