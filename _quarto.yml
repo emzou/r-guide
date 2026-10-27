@@ -61,10 +61,7 @@ website:
           - section: "Cross Tabluation"
             contents:
               - auto: "comparisons/crosstab/*.qmd"
-          - section: "Comparison of Means"
-            contents:
-              - auto: "comparisons/compmeans/*.qmd"
-          - section: "Hypothesis Testing"
+          - section: "Comparisons of Means (Hypothesis Testing)"
             contents:
               - auto: "comparisons/hypotest/*.qmd"
           - section: "Correlation"

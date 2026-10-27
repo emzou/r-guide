@@ -7,30 +7,20 @@ format:
 engine: knitr
 ---
 
-# Hypothesis Testing Procedure 
-- Form a null hypothesis 
-- Choose a test statistic 
-- Ask whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis
-  - If likely, we fail to reject the null hypothesis
-  - If unlikely, we reject the null hypothesis 
+# Comparison of Means: Hypothesis Testing Procedure
 
---- 
+1. **Form a null hypothesis**
+2. **Choose the test statistic**: difference-of-means t-test
+3. **Set a significance threshold** (most often 0.05)
+4. **Run `t.test()`**
+5. **Assess significance**: determine whether there is enough evidence to reject the null hypothesis
+6. **Report the results**
 
-In a comparison of Titanic passengers, female passengers had a different survival rate than male passengers.
+---
 
-- Identify the null
-  - $H_0$ : In the population of Titanic passengers, the effect of being a female passenger, rather than a male passenger, on surviving the Titanic is zero. 
+# Example 1: Survival by Sex on the Titanic
 
-- Identify the appropriate test statistic 
-  - t-statistic of a two-sided two-sample t-test
-  
-  ::: {.callout-note title="t-test"}
-A **t-test**, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it's unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you're comparing means, think t-test. 
-  :::
-
-  - We use a t-test when the independent variable splits the data into **two groups** and the dependent variable is **interval**. 
-  - Here, the groups are Female and Male passengers, in `Sex` and `Survived` is an interval variable. 
-  - We're asking whether the survival rate for Female passengers differs from the survival rate in Male passengers by more than we'd expect by chance.
+Did female passengers have a different survival rate than male passengers?
 
 ```{webr}
 #| context: setup
@@ -42,38 +32,62 @@ download.file(
   "titanic.csv"
 )
 library(tidyverse)
-library(ggplot2)
 titanic_df <- read_csv("titanic.csv", show_col_types = FALSE)
 ```
 
+## Step 1: Form a null hypothesis
 
-## Use t.test()
+$H_0$: In the population of Titanic passengers, the effect of being a female passenger, rather than a male passenger, on surviving the Titanic is zero.
+
+## Step 2: Choose the test statistic
+
+We'll use the t-statistic from a **two-sided, two-sample t-test**.
+
+::: {.callout-note title="What is a t-test?"}
+A **t-test**, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it's unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you're comparing means, think t-test.
+:::
+
+We use a t-test when:
+
+- the independent variable splits the data into **two groups**, and
+- the dependent variable is **interval**.
+
+Here, the two groups are female and male passengers (`Sex`), and the dependent variable is `Survived`. Since `Survived` is coded 0/1, its mean is the share of passengers who survived, so comparing means is the same as comparing survival rates. We're asking whether the survival rate for female passengers differs from the survival rate for male passengers by more than we'd expect by chance.
+
+## Step 3: Set a significance threshold
+
+We'll use **0.05**.
+
+## Step 4: Run `t.test()`
 
 ```{webr}
 #| autorun: false
 t.test(titanic_df$Survived ~ titanic_df$Sex)
 ```
 
-- Set **p-value** threshold 
+## Step 5: Assess significance
 
-- Look at the p-value 
-  - In the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (`t = ..., df = ..., p-value = ...`)
- 
-- Determine whether the results allow you to reject the null hypothesis 
-  - If the p-value is less than the threshold, you reject the null 
-  - If the p-value is greater than the threshold, you fail to reject the null 
+The p-value is on the third line of the output, right after the t-statistic and degrees of freedom (`t = ..., df = ..., p-value = ...`).
 
-- Reporting results
+- If the p-value is **less than** the threshold, you **reject** the null.
+- If the p-value is **greater than** the threshold, you **fail to reject** the null.
 
-::: {.callout-tip title="Result"}
-First-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (p < 0.001).
-:::
+**Result:** The p-value (< 2.2e-16) is well below 0.05, so we **reject the null hypothesis**.
 
-  - Generic template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / <] [p-value]).
+## Step 6: Report the results
+
+**Template:**
+
+> [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / <] [p-value]).
+
+**Example:**
+
+> Female passengers had a survival rate 55 percentage points higher than male passengers (74% vs. 19%), a difference that is statistically significant at the 99% confidence level (t = 18.67, p < 0.001).
 
 --- 
+# Example 2: Callbacks by Race (Bertrand & Mullainathan)
 
-In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names. 
+Did resumes with White-sounding names get more callbacks than resumes with Black-sounding names?
 
 ```{webr}
 #| autorun: false
@@ -84,23 +98,21 @@ download.file(
 labor_df <- read_csv("labor.csv", show_col_types = FALSE)
 ```
 
-- Identify the null
-  - $H_0$ : There is no difference in likelihood of callbacks between resumes with Black-sounding names and White-sounding names.  
+**1. Null hypothesis:** $H_0$: There is no difference in callback rates between resumes with Black-sounding names and resumes with White-sounding names.
 
-- Identify the appropriate test statistic 
-  - t-statistic of a two-sided t-test
+**2. Test statistic:** t-statistic of a two-sided, two-sample t-test
 
-- Run `t.test()`
+**3. Threshold:** 0.05
+
+**4. Run `t.test()`:**
+
 ```{webr}
 #| autorun: false
 t.test(labor_df$call ~ labor_df$race)
 ```
 
-- Set **p-value** threshold 
-  - We'll use 0.05 
+**5. Result:** The p-value is less than 0.05, so we reject the null hypothesis.
 
-- Hypothesis Result 
-  - The p-value is less than 0.05, so we reject the null hypothesis.
+**6. Report:**
 
-- Final Claim
-White-sounding resumes had a callback rate 3.203 percentage points higher than Black-sounding resumes (9.651% vs. 6.448%), a difference that is statistically significant with p < 0.001.
+> Resumes with White-sounding names had a callback rate 3.2 percentage points higher than resumes with Black-sounding names (9.7% vs. 6.4%), a difference that is statistically significant at the 99% confidence level (p < 0.001).
