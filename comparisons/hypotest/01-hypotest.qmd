@@ -53,8 +53,8 @@ titanic_df <- read_csv("titanic.csv")
     - Pull the groups we're comparing into vectors first
 ```{webr}
 #| autorun: false
-first <- titanic_df$Survived[df$Pclass == 1]
-third <- titanic_df$Survived[df$Pclass == 3]
+first <- titanic_df$Survived[titanic_df$Pclass == 1]
+third <- titanic_df$Survived[titanic_df$Pclass == 3]
 ```
 
     - Use t.test()
