@@ -325,24 +325,14 @@
     "href": "comparisons/compmeans/01-compmeans.html#comparison-setup",
     "title": "Comparison of Means",
     "section": "Comparison setup",
-    "text": "Comparison setup\nHypothesis &gt; In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\nIndependent Variable &gt; Race (nominal)\nDependent Variable &gt; Call (interval)",
-    "crumbs": [
-      "Comparisons between Two Variables",
-      "Comparison of Means",
-      "Comparison of Means"
-    ]
+    "text": "Comparison setup\nHypothesis &gt; In a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\nIndependent Variable &gt; Race (nominal)\nDependent Variable &gt; Call (interval)"
   },
   {
     "objectID": "comparisons/compmeans/01-compmeans.html#code",
     "href": "comparisons/compmeans/01-compmeans.html#code",
     "title": "Comparison of Means",
     "section": "Code",
-    "text": "Code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA note on indicator variables\nYou might notice that call only takes two values: 1 if the resume got a callback and 0 if it didn’t. So why are we treating it as an interval variable?\nVariables coded 0-1 (also called indicator, dummy, or binary variables) have an unusual status. On the surface they look nominal, since they just sort observations into two categories. But because there are only two values, there is only one distance between them, and that distance is always the same: exactly 1. There’s no way for the spacing to be unequal, so the equal-intervals requirement is automatically satisfied.\nThis has a handy consequence: the mean of a 0-1 variable is the proportion of observations coded 1. When we take the mean of call, we’re getting the callback rate. A mean of 0.064 means 6.4% of resumes received a callback.\nThat’s why it’s reasonable to use a comparison of means here. We’re really comparing the proportion of callbacks between the two groups.",
-    "crumbs": [
-      "Comparisons between Two Variables",
-      "Comparison of Means",
-      "Comparison of Means"
-    ]
+    "text": "Code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA note on indicator variables\nYou might notice that call only takes two values: 1 if the resume got a callback and 0 if it didn’t. So why are we treating it as an interval variable?\nVariables coded 0-1 (also called indicator, dummy, or binary variables) have an unusual status. On the surface they look nominal, since they just sort observations into two categories. But because there are only two values, there is only one distance between them, and that distance is always the same: exactly 1. There’s no way for the spacing to be unequal, so the equal-intervals requirement is automatically satisfied.\nThis has a handy consequence: the mean of a 0-1 variable is the proportion of observations coded 1. When we take the mean of call, we’re getting the callback rate. A mean of 0.064 means 6.4% of resumes received a callback.\nThat’s why it’s reasonable to use a comparison of means here. We’re really comparing the proportion of callbacks between the two groups."
   },
   {
     "objectID": "r-setup/make-rmd/02-datatypes.html",
@@ -787,22 +777,82 @@
     "href": "comparisons/hypotest/01-hypotest.html",
     "title": "Comparison of Means (Hypothesis Testing)",
     "section": "",
-    "text": "Form a null hypothesis\nChoose a test statistic\nAsk whether observed value of a test statistic is likely to occur under sampling distribution of the null hypothesis\n\nIf likely, we fail to reject the null hypothesis\nIf unlikely, we reject the null hypothesis\n\n\n\nIn a comparison of Titanic passengers, female passengers had a different survival rate than male passengers.\n\nIdentify the null\n\n\\(H_0\\) : In the population of Titanic passengers, the effect of being a female passenger, rather than a male passenger, on surviving the Titanic is zero.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided two-sample t-test\n\n\n\n\n\n\n\nt-test\n\n\n\nA t-test, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it’s unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you’re comparing means, think t-test.\n\n\n\nWe use a t-test when the independent variable splits the data into two groups and the dependent variable is interval.\nHere, the groups are Female and Male passengers, in Sex and Survived is an interval variable.\nWe’re asking whether the survival rate for Female passengers differs from the survival rate in Male passengers by more than we’d expect by chance.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\nLook at the p-value\n\nIn the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...)\n\nDetermine whether the results allow you to reject the null hypothesis\n\nIf the p-value is less than the threshold, you reject the null\nIf the p-value is greater than the threshold, you fail to reject the null\n\nReporting results\n\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (p &lt; 0.001).\n\n\n\nGeneric template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\n\nIn a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\n\n\n\n\n\n\n\n\n\nIdentify the null\n\n\\(H_0\\) : There is no difference in likelihood of callbacks between resumes with Black-sounding names and White-sounding names.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided t-test\n\nRun t.test()\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\n\nWe’ll use 0.05\n\nHypothesis Result\n\nThe p-value is less than 0.05, so we reject the null hypothesis.\n\nFinal Claim White-sounding resumes had a callback rate 3.203 percentage points higher than Black-sounding resumes (9.651% vs. 6.448%), a difference that is statistically significant with p &lt; 0.001.",
+    "text": "Form a null hypothesis\nChoose the test statistic: difference-of-means t-test\nSet a significance threshold (most often 0.05)\nRun t.test()\nAssess significance: determine whether there is enough evidence to reject the null hypothesis\nReport the results",
     "crumbs": [
       "Comparisons between Two Variables",
-      "Hypothesis Testing",
+      "Comparisons of Means (Hypothesis Testing)",
       "Comparison of Means (Hypothesis Testing)"
     ]
   },
   {
-    "objectID": "comparisons/hypotest/01-hypotest.html#use-t.test",
-    "href": "comparisons/hypotest/01-hypotest.html#use-t.test",
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-1-form-a-null-hypothesis",
+    "href": "comparisons/hypotest/01-hypotest.html#step-1-form-a-null-hypothesis",
     "title": "Comparison of Means (Hypothesis Testing)",
-    "section": "",
-    "text": "Set p-value threshold\nLook at the p-value\n\nIn the output from t.test(), the p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...)\n\nDetermine whether the results allow you to reject the null hypothesis\n\nIf the p-value is less than the threshold, you reject the null\nIf the p-value is greater than the threshold, you fail to reject the null\n\nReporting results\n\n\n\n\n\n\n\nResult\n\n\n\nFirst-class passengers had a survival rate 39 percentage points higher than third-class passengers (63% vs. 24%), a difference that is statistically significant at the 99% confidence level (p &lt; 0.001).\n\n\n\nGeneric template: [Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\n\nIn a comparison of resumes sent out by Bertrand & Mullainatha, those that had White-sounding names were more likely to receive a call back than those with African-American sounding names.\n\n\n\n\n\n\n\n\n\nIdentify the null\n\n\\(H_0\\) : There is no difference in likelihood of callbacks between resumes with Black-sounding names and White-sounding names.\n\nIdentify the appropriate test statistic\n\nt-statistic of a two-sided t-test\n\nRun t.test()\n\n\n\n\n\n\n\n\n\n\nSet p-value threshold\n\nWe’ll use 0.05\n\nHypothesis Result\n\nThe p-value is less than 0.05, so we reject the null hypothesis.\n\nFinal Claim White-sounding resumes had a callback rate 3.203 percentage points higher than Black-sounding resumes (9.651% vs. 6.448%), a difference that is statistically significant with p &lt; 0.001.",
+    "section": "Step 1: Form a null hypothesis",
+    "text": "Step 1: Form a null hypothesis\n\\(H_0\\): In the population of Titanic passengers, the effect of being a female passenger, rather than a male passenger, on surviving the Titanic is zero.",
     "crumbs": [
       "Comparisons between Two Variables",
-      "Hypothesis Testing",
+      "Comparisons of Means (Hypothesis Testing)",
+      "Comparison of Means (Hypothesis Testing)"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-2-choose-the-test-statistic",
+    "href": "comparisons/hypotest/01-hypotest.html#step-2-choose-the-test-statistic",
+    "title": "Comparison of Means (Hypothesis Testing)",
+    "section": "Step 2: Choose the test statistic",
+    "text": "Step 2: Choose the test statistic\nWe’ll use the t-statistic from a two-sided, two-sample t-test.\n\n\n\n\n\n\nWhat is a t-test?\n\n\n\nA t-test, also known as a two-sample or difference-of-means t-test, tells us whether the difference between two group means is large enough that it’s unlikely to be due to random chance alone. It divides the difference in means by its standard error, so the resulting t-statistic measures how many standard errors apart the two groups are. The bigger the t-statistic, the stronger the evidence against the null. If you’re comparing means, think t-test.\n\n\nWe use a t-test when:\n\nthe independent variable splits the data into two groups, and\nthe dependent variable is interval.\n\nHere, the two groups are female and male passengers (Sex), and the dependent variable is Survived. Since Survived is coded 0/1, its mean is the share of passengers who survived, so comparing means is the same as comparing survival rates. We’re asking whether the survival rate for female passengers differs from the survival rate for male passengers by more than we’d expect by chance.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparisons of Means (Hypothesis Testing)",
+      "Comparison of Means (Hypothesis Testing)"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-3-set-a-significance-threshold",
+    "href": "comparisons/hypotest/01-hypotest.html#step-3-set-a-significance-threshold",
+    "title": "Comparison of Means (Hypothesis Testing)",
+    "section": "Step 3: Set a significance threshold",
+    "text": "Step 3: Set a significance threshold\nWe’ll use 0.05.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparisons of Means (Hypothesis Testing)",
+      "Comparison of Means (Hypothesis Testing)"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-4-run-t.test",
+    "href": "comparisons/hypotest/01-hypotest.html#step-4-run-t.test",
+    "title": "Comparison of Means (Hypothesis Testing)",
+    "section": "Step 4: Run t.test()",
+    "text": "Step 4: Run t.test()",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparisons of Means (Hypothesis Testing)",
+      "Comparison of Means (Hypothesis Testing)"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-5-assess-significance",
+    "href": "comparisons/hypotest/01-hypotest.html#step-5-assess-significance",
+    "title": "Comparison of Means (Hypothesis Testing)",
+    "section": "Step 5: Assess significance",
+    "text": "Step 5: Assess significance\nThe p-value is on the third line of the output, right after the t-statistic and degrees of freedom (t = ..., df = ..., p-value = ...).\n\nIf the p-value is less than the threshold, you reject the null.\nIf the p-value is greater than the threshold, you fail to reject the null.\n\nResult: The p-value (&lt; 2.2e-16) is well below 0.05, so we reject the null hypothesis.",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparisons of Means (Hypothesis Testing)",
+      "Comparison of Means (Hypothesis Testing)"
+    ]
+  },
+  {
+    "objectID": "comparisons/hypotest/01-hypotest.html#step-6-report-the-results",
+    "href": "comparisons/hypotest/01-hypotest.html#step-6-report-the-results",
+    "title": "Comparison of Means (Hypothesis Testing)",
+    "section": "Step 6: Report the results",
+    "text": "Step 6: Report the results\nTemplate:\n\n[Group A] had a [difference] [higher/lower] [outcome] than [Group B] ([mean A] vs. [mean B]), a difference that is statistically significant at the [95/99]% confidence level (t = [t], p [= / &lt;] [p-value]).\n\nExample:\n\nFemale passengers had a survival rate 55 percentage points higher than male passengers (74% vs. 19%), a difference that is statistically significant at the 99% confidence level (t = 18.67, p &lt; 0.001).",
+    "crumbs": [
+      "Comparisons between Two Variables",
+      "Comparisons of Means (Hypothesis Testing)",
       "Comparison of Means (Hypothesis Testing)"
     ]
   },
